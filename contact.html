@@ -1,24 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EK Homes</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="/logo.png" alt="EK Homes" class="logo-img">
-      </div>
-      <div>
-       
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EK Homes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"  />
+  </head>
+  <body>
+    <header>
+      <div class="only-mobile">
         <div class="mobile_lo_not">
           <img src="/logo.png" />
         </div>
-        <ul class="nav-links mobile-nav-links"> <!-- Updated class -->
+        <div>
+          <!-- <button class="menu-click"  onclick="toggleMenu()">click</button> -->
+          <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+        </div>
+        
+      </div>
+  
+  
+  
+      <!-- laptop -->
+  
+      <nav class="navbar">
+        <div class="logo">
+          <img src="/logo.png" alt="EK Homes" class="logo-img">
+        </div>
+        <div>
+         
+          <div class="mobile_lo_not">
+            <img src="/logo.png" />
+          </div>
+          <ul class="nav-links mobile-nav-links"> <!-- Updated class -->
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/project.html">Projects</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="#">Invite Land Owners</a></li>
+          </ul>
+        </div>
+        
+        <img src="/logo.png" alt="EK Homes" class="mobile_disk">
+        <a href="#" class="get-quote-btn">Get Quote ⟶</a>
+      </nav>
+  
+  
+    <nav  class="mobile">
+      <div >
+        <img src="/logo.png" alt="EK Homes" class="logo-img">
+      </div>
+      <div>
+      
+        <ul id="menuList"> <!-- Updated class -->
           <li><a href="/index.html">Home</a></li>
           <li><a href="/about.html">About Us</a></li>
           <li><a href="/project.html">Projects</a></li>
@@ -26,12 +61,29 @@
           <li><a href="#">Invite Land Owners</a></li>
         </ul>
       </div>
-      
       <img src="/logo.png" alt="EK Homes" class="mobile_disk">
       <a href="#" class="get-quote-btn">Get Quote ⟶</a>
     </nav>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </header>
+    
+      <script>
+          let menuList = document.getElementById("menuList")
+          menuList.style.maxHeight = "0px";
+  
+          function toggleMenu(){
+              if(menuList.style.maxHeight == "0px")
+              {
+                  menuList.style.maxHeight = "300px";
+              }
+              else{
+                  menuList.style.maxHeight = "0px";
+              }
+          }
+          
+      </script>
+  
+
+
   <section class="contact">
     <div class="overlay">
       <div class="contact-content">
