@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EK Homes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <style>
+      /* Basic styles */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+      }
+
+      header {
+          background-color: #c09a6b; /* Background color */
+          padding: 15px 30px;
+      }
+
+      .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-left: 32px;
+          width: 1440px;
+          height: 70px;
+      }
+
+      .logo-img {
+          width: 150px; /* Logo width */
+      }
+
+      .nav-links {
+          list-style: none;
+          display: flex;
+          gap: 30px;
+      }
+
+      .nav-links li a {
+          text-decoration: none;
+          color: #2c2c2c; /* Text color */
+          font-weight: 400;
+          font-size: 16px;
+          transition: color 0.3s;
+      }
+
+      .nav-links li a:hover {
+          color: #2e3b59; /* Hover effect */
+      }
+
+      /* Mobile Drawer Styles */
+      .mobile {
+          display: none; /* Hidden by default */
+      }
+
+      .only-mobile {
+          display: none;
+      }
+
+      .get-quote-btn {
+          background-color: #2e3b59; /* Button color */
+          color: white;
+          padding: 10px 25px;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: 500;
+          display: inline-block;
+          transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .get-quote-btn:hover {
+          background-color: #3f4f72;
+          transform: scale(1.05); /* Zoom effect on hover */
+      }
+
+      /* Dropdown Styles */
+      .dropdown {
+          position: relative;
+          display: inline-block;
+      }
+
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: white;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+          padding: 10px;
+          border-radius: 5px;
+      }
+
+      .dropdown:hover .dropdown-content,
+      .dropdown.active .dropdown-content {
+          display: block;
+      }
+
+      .dropdown-content a {
+          color: black;
+          text-decoration: none;
+          display: block;
+          padding: 5px;
+      }
+
+      .dropdown-content a:hover {
+          background-color: #f1f1f1;
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 768px) {
+          .navbar {
+              display: none; /* Hide desktop navbar */
+          }
+
+          .only-mobile {
+              display: flex; /* Show mobile header */
+              justify-content: space-between;
+              align-items: center;
+              height: 60px;
+              padding: 12px;
+          }
+
+          .mobile {
+              display: block; /* Show mobile menu */
+          }
+
+          .mobile-nav-links {
+              display: none; /* Hidden by default */
+              flex-direction: column;
+              background-color: #c09a6b;
+              position: absolute;
+              width: 100%;
+              top: 70px;
+              left: 0;
+              right: 0;
+              padding: 10px 0;
+          }
+
+          .mobile-nav-links.show {
+              display: flex; /* Show when active */
+          }
+
+          .menu-click {
+              display: block; /* Show menu toggle button */
+          }
+
+          .mobile-nav-links li {
+              padding: 20px 10px; /* Padding for mobile links */
+          }
+
+          .mobile-nav-links a {
+              color: white; /* Ensure the links are readable */
+              font-size: 18px; /* Font size for mobile */
+              text-decoration: none;
+          }
+
+          .mobile-nav-links a:hover {
+              color: #8e7057; /* Change hover color */
+          }
+      }
+  </style>
+
+</head>
+<body>
+    <header>
+        <div class="only-mobile">
+            <div class="mobile_lo_not">
+                <img src="/logo.png" />
+            </div>
+            <div style="margin-top: 7px;">
+                <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/logo.png" alt="EK Homes" class="logo-img">
+            </div>
+            <div>
+                <ul class="nav-links mobile-nav-links">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" onclick="toggleDropdown(event)">Projects <img src="/dropdown.svg" /></a>
+                        <div class="dropdown-content">
+                            <a href="/project.html">OnGoing</a>
+                            <a href="/complete_project.html">Completed</a>
+                        </div>
+                    </li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="#">Invite Land Owners</a></li>
+                </ul>
+            </div>
+            <a href="#" class="get-quote-btn" onclick="openModal()">Get Quote ⟶</a>
+        </nav>
+
+        <nav class="mobile">
+            <div>
+                <img src="/logo.png" alt="EK Homes" class="logo-img">
+            </div>
+            <div>
+                <ul id="menuList">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" onclick="toggleDropdown(event)">Projects <img src="/dropdown.svg" /></a>
+                        <div class="dropdown-content">
+                            <a href="/project.html">Ongoing Projects</a>
+                            <a href="/complete_project.html">Completed</a>
+                        </div>
+                    </li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="#">Invite Land Owners</a></li>
+                    <a href="#" class="get-quote-btn-mobile" onclick="openModal()">Get Quote ⟶</a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+  <!-- Include jsPDF library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- Include EmailJS library -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <!-- Initialize EmailJS -->
+  <script type="text/javascript">
+      window.addEventListener('load', function() {
+          console.log('Attempting to load EmailJS...');
+
+          if (typeof emailjs !== 'undefined') {
+              emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
+              console.log("EmailJS initialized successfully.");
+          } else {
+              console.error('EmailJS failed to load.');
+              alert('EmailJS failed to load. Please try again later.');
+          }
+      });
+  </script>
+
+  <!-- Form Submission Handling and PDF generation -->
+  <script type="text/javascript">
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+
+          if (typeof emailjs !== 'undefined') {
+              emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', this)
+                  .then(function(response) {
+                      console.log('Message sent successfully!', response.status, response.text);
+                      alert('Message sent successfully!');
+
+                      // Generate PDF after successful submission
+                      generatePDF();
+
+                  }, function(error) {
+                      console.error('Failed to send message:', error);
+                      alert('Failed to send message. Please try again later.');
+                  });
+          } else {
+              console.error('EmailJS is not loaded.');
+              alert('EmailJS failed to load. Please try again later.');
+          }
+      });
+
+      function generatePDF() {
+          const { jsPDF } = window.jspdf;
+          const doc = new jsPDF();
+
+          // Fetch form data
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const phone = document.getElementById('phone').value;
+          const message = document.getElementById('message').value;
+
+          // Add content to PDF
+          doc.text("Contact Form Details", 10, 10);
+          doc.text(`Name: ${name}`, 10, 20);
+          doc.text(`Email: ${email}`, 10, 30);
+          doc.text(`Phone: ${phone}`, 10, 40);
+          doc.text(`Message: ${message}`, 10, 50);
+
+          // Save the PDF
+          doc.save("contact_details.pdf");
+      }
+  </script>
+
+
+<section class="ARC_PRO">
+    <div class="overlay">
+      <div class="ARC_PRO-content">
+        <h1>The ARC</h1>
+        <p>Innovating for a brighter future.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+<!-- add code -->
+ <div>
+    <section class="project-section">
+        <div class="project-content">
+          <div class="left-content">
+            <p class="status"> ONGOING</p>
+            <h1 class="project-title">The ARC</h1>
+            <p class="handover-info"><i class="fa-regular fa-file-lines"></i> 2025 handover</p>
+          </div>
+      
+          <div class="right-content">
+            <div class="project-actions-box">
+              <div class="arc-logo">
+                <img src="/thearc.svg" alt="The ARC Logo" /> <!-- Assuming you have a logo here -->
+              </div>
+              <hr class="divider" />
+              <div class="download">
+                <a href="/arc.pdf" download class="no-style-link">
+                  <i class="fa-solid fa-file-arrow-down"></i>
+                  <span>Download Brochure</span>
+                </a>
+              </div>
+              <hr class="divider" />
+              <div class="location">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Location: Anna Nagar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </section>
+      <div class="project-image">
+        <img src="/arc_vedio_img.png" alt="The ARC" />
+      </div>
+ </div>
+
+
+
+ <!-- add code nextn section -->
+
+ <!-- Next Section: The Arc Project Overview -->
+<section class="project-overview-section">
+    <div class="overview-content">
+      <h2>The Arc Project Overview</h2>
+      <p>
+        Driven by core values of innovative thinking, providing top-notch quality services, and making a difference, EK has continually evolved as a brand. EK Infrastructure aims to contribute to building a better society through the creation of positive infrastructure and relationships. Built upon a legacy of success, EK introduces its first luxury venture, The ARC, where lush scenery and luxury blend harmoniously to give our clients an exemplary experience. Arc isn't just another upscale apartment, it's a testament to your journey, where local roots meet global grandeur.
+      </p>
+    </div>
+  
+    <div class="overview-images">
+      <div class="image-left">
+        <img src="/arc_sec_im1.png" alt="The ARC Project Outdoor" />
+      </div>
+      <div class="image-right">
+        <img src="/arc_sec_im2.png" alt="The ARC Project Indoor" />
+      </div>
+    </div>
+  
+    <div class="overview-content">
+      <h2>Heart of Chennai, soul of luxury; Redefining premium living in Anna Nagar</h2>
+      <p>
+        Located in the heart of Chennai, The ARC brings an iconic charm and a vibrant pulsating experience, redefining the landscape of luxury living in Anna Nagar. Paying homage to the famed arch, The ARC presents an enticing blend of local history and cosmopolitan elegance. The property stands as a unique gem with easy access to multiple shopping centres and entertainment hubs, making it family-friendly and safe.
+      </p>
+    </div>
+  </section>
+  
+
+
+
+  <!-- last sec -->
+  
+  
+  <div class="about-section">
+
+
+    <div class="arc-inv-content-sec-column">
+        <p>ABOUT US</p>
+        <br/>
+         <h1>Where every detail elevates your living experience.</h1>
+   
+   <div class="arc-about-gap">
+        <img src="arc_0.1.png"/>
+        <img src="/arc-1.png"/>
+        <img src="arc_2.png"/>
+        <img src="arc_3.png"/>
+        <img src="arc_4.png"/>
+        <img src="arc_5.png"/>
+        <img src="arc_6.png"/>
+        <img src="arc_7.png"/>
+        <img src="arc_8.png"/>
+        <img src="arc_9.png"/>
+   </div>
+       </div>
+    <!-- Images on the left -->
+    <div class="image-column">
+      <img src="/arc-home_final.png" alt="Construction Site" class="arc-inv-sec-top-image">
+
+    </div>
+
+    <!-- Text content on the right -->
+   
+  </div>
+  <div style="padding-left: 187px;padding-right: 187px;">
+    <h1>The ARC's luxurious 3 and 4 BHK apartments</h1><br/>
+    <p>Delve into our luxurious 11-unit residence where sophistication and eco-consciousness seamlessly blends to make a unique living experience for you.<br/><br/> Our 3 and 4 BHK apartments are meticulously crafted for you to design it the way you envision your home to be.</p>
+  
+  </div>
+  <br/><br/><br/>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column logo-column">
+        <img src="logo.png" alt="EK Homes Logo" class="footer-logo">
+        <p>Transforming Spaces - Elevating Lives.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Projects</h4>
+        <ul>
+          <li><a href="/ARC.html">The Arc</a></li>
+          <li><a href="/alpha.html">Alpha</a></li>
+          <li><a href="/aster.html">Aster</a></li>
+          <li><a href="/project.html">All Projects</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact Info</h4>
+        <p>Office Address: 21 Raja Badar St, Pondy Bazaar, T. Nagar, Chennai, Tamil Nadu 600017</p>
+        <p>Phone: +91 9360006000</p>
+        <p>Email: sales@ekhomes.in</p>
+      </div>
+      <div class="footer-column">
+        <h4>Social Media</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2024 The EK Homes</p>
+    </div>
+  </footer>
+</body>
+</html>

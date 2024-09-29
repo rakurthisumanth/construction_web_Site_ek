@@ -1,97 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EK Homes</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"  />
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EK Homes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <style>
+      /* Basic styles */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+      }
+
+      header {
+          background-color: #c09a6b; /* Background color */
+          padding: 15px 30px;
+      }
+
+      .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-left: 32px;
+          width: 1440px;
+          height: 70px;
+      }
+
+      .logo-img {
+          width: 150px; /* Logo width */
+      }
+
+      .nav-links {
+          list-style: none;
+          display: flex;
+          gap: 30px;
+      }
+
+      .nav-links li a {
+          text-decoration: none;
+          color: #2c2c2c; /* Text color */
+          font-weight: 400;
+          font-size: 16px;
+          transition: color 0.3s;
+      }
+
+      .nav-links li a:hover {
+          color: #2e3b59; /* Hover effect */
+      }
+
+      /* Mobile Drawer Styles */
+      .mobile {
+          display: none; /* Hidden by default */
+      }
+
+      .only-mobile {
+          display: none;
+      }
+
+      .get-quote-btn {
+          background-color: #2e3b59; /* Button color */
+          color: white;
+          padding: 10px 25px;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: 500;
+          display: inline-block;
+          transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .get-quote-btn:hover {
+          background-color: #3f4f72;
+          transform: scale(1.05); /* Zoom effect on hover */
+      }
+
+      /* Dropdown Styles */
+      .dropdown {
+          position: relative;
+          display: inline-block;
+      }
+
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: white;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+          padding: 10px;
+          border-radius: 5px;
+      }
+
+      .dropdown:hover .dropdown-content,
+      .dropdown.active .dropdown-content {
+          display: block;
+      }
+
+      .dropdown-content a {
+          color: black;
+          text-decoration: none;
+          display: block;
+          padding: 5px;
+      }
+
+      .dropdown-content a:hover {
+          background-color: #f1f1f1;
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 768px) {
+          .navbar {
+              display: none; /* Hide desktop navbar */
+          }
+
+          .only-mobile {
+              display: flex; /* Show mobile header */
+              justify-content: space-between;
+              align-items: center;
+              height: 60px;
+              padding: 12px;
+          }
+
+          .mobile {
+              display: block; /* Show mobile menu */
+          }
+
+          .mobile-nav-links {
+              display: none; /* Hidden by default */
+              flex-direction: column;
+              background-color: #c09a6b;
+              position: absolute;
+              width: 100%;
+              top: 70px;
+              left: 0;
+              right: 0;
+              padding: 10px 0;
+          }
+
+          .mobile-nav-links.show {
+              display: flex; /* Show when active */
+          }
+
+          .menu-click {
+              display: block; /* Show menu toggle button */
+          }
+
+          .mobile-nav-links li {
+              padding: 20px 10px; /* Padding for mobile links */
+          }
+
+          .mobile-nav-links a {
+              color: white; /* Ensure the links are readable */
+              font-size: 18px; /* Font size for mobile */
+              text-decoration: none;
+          }
+
+          .mobile-nav-links a:hover {
+              color: #8e7057; /* Change hover color */
+          }
+      }
+  </style>
+
 </head>
 <body>
-  <header>
-    <div class="only-mobile">
-      <div class="mobile_lo_not">
-        <img src="/logo.png" />
-      </div>
-      <div style="margin-top: 7px;">
-        <!-- <button class="menu-click"  onclick="toggleMenu()">click</button> -->
-        <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
-      </div>
-      
-    </div>
-
-
-
-    <!-- laptop -->
-
-    <nav class="navbar">
-      <div class="logo">
-        <img src="/logo.png" alt="EK Homes" class="logo-img">
-      </div>
-      <div>
-       
-        <div class="mobile_lo_not">
-          <img src="/logo.png" />
+    <header>
+        <div class="only-mobile">
+            <div class="mobile_lo_not">
+                <img src="/logo.png" />
+            </div>
+            <div style="margin-top: 7px;">
+                <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+            </div>
         </div>
-        <ul class="nav-links mobile-nav-links"> <!-- Updated class -->
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="/project.html">Projects</a></li>
-          <li><a href="/contact.html">Contact Us</a></li>
-          <li><a href="#">Invite Land Owners</a></li>
-        </ul>
-      </div>
-      
-      <img src="/logo.png" alt="EK Homes" class="mobile_disk">
-      <a href="#" class="get-quote-btn">Get Quote ⟶</a>
-    </nav>
 
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/logo.png" alt="EK Homes" class="logo-img">
+            </div>
+            <div>
+                <ul class="nav-links mobile-nav-links">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" onclick="toggleDropdown(event)">Projects <img src="/dropdown.svg" /></a>
+                        <div class="dropdown-content">
+                            <a href="/project.html">OnGoing</a>
+                            <a href="/complete_project.html">Completed</a>
+                        </div>
+                    </li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="#">Invite Land Owners</a></li>
+                </ul>
+            </div>
+            <a href="#" class="get-quote-btn" onclick="openModal()">Get Quote ⟶</a>
+        </nav>
 
-  <nav  class="mobile">
-    <div >
-      <img src="/logo.png" alt="EK Homes" class="logo-img">
-    </div>
-    <div>
-    
-      <ul id="menuList"> <!-- Updated class -->
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/about.html">About Us</a></li>
-        <li><a href="/project.html">Projects</a></li>
-        <li><a href="/contact.html">Contact Us</a></li>
-        <li><a href="#">Invite Land Owners</a></li>
-      </ul>
-    </div>
-    <img src="/logo.png" alt="EK Homes" class="mobile_disk">
-    <a href="#" class="get-quote-btn">Get Quote ⟶</a>
-  </nav>
-</header>
-  
-    <script>
-        let menuList = document.getElementById("menuList")
-        menuList.style.maxHeight = "0px";
-
-        function toggleMenu(){
-            if(menuList.style.maxHeight == "0px")
-            {
-                menuList.style.maxHeight = "300px";
-            }
-            else{
-                menuList.style.maxHeight = "0px";
-            }
-        }
-        
-    </script>
+        <nav class="mobile">
+            <div>
+                <img src="/logo.png" alt="EK Homes" class="logo-img">
+            </div>
+            <div>
+                <ul id="menuList">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" onclick="toggleDropdown(event)">Projects <img src="/dropdown.svg" /></a>
+                        <div class="dropdown-content">
+                            <a href="/project.html">Ongoing Projects</a>
+                            <a href="/complete_project.html">Completed</a>
+                        </div>
+                    </li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="#">Invite Land Owners</a></li>
+                    <a href="#" class="get-quote-btn-mobile" onclick="openModal()">Get Quote ⟶</a>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
   <!-- Projects Section -->
   <section class="projects">
-    <h3>Discover The EK Home's <br/>Specialized Projects</h3>
+    <p> <img src="/home.svg"/> Our Projects</p>
+    <h3>Discover The EK Home's Specialized <br/>Projects  Which are Ongoing</h3>
     <p>Where Dreams Take Shape with our Specialized Projects - Discover the essence<br/> of unparalleled innovation and meticulous craftsmanship with EK Homes.</p>
     
     <!-- The Arc Section -->
     <div class="arc-project">
       <div class="arc-text">
-        <img src="/thearc.png" alt="The Arc Logo" class="arc-logo"><br/>
-        <a href="#" class="btn arc-btn">Explore More ⟶</a>
+        <p> <img src="/home.svg"/> ONGOING</p>
+        <img src="/thearc.png" alt="The Arc Logo" class="arc-pro-arc-logo"><br/>
+        <a href="/ARC.html" class="btn arc-btn">Explore More ⟶</a>
       </div>
       <div class="arc-image">
         <img src="/biulding.png" alt="The Arc Building" class="arc-building-image">
@@ -108,8 +257,9 @@
     <div class="alpha-project">
       <!-- The Alpha Text on the left -->
       <div class="alpha-text">
+        <p> <img src="/home.svg"/> ONGOING</p>
           <img src="/alphalogo.png" alt="The Alpha"><br/><br/>
-          <a href="#" class="btn">Explore More ⟶</a>
+          <a href="/alpha.html" class="btn">Explore More ⟶</a>
       </div>
 
       <!-- The Alpha Building Image on the right -->
@@ -126,14 +276,15 @@
   
   <div class="arc-project">
     <div class="arc-text">
-      <img src="/asterlogo.png" alt="The Arc Logo" class="arc-logo"><br/>
-      <a href="#" class="btn arc-btn">Explore More ⟶</a>
+      <p> <img src="/home.svg"/> ONGOING</p>
+      <img src="/Heading.png" alt="The Arc Logo" class="alpha_desarc-logo"><br/><br/>
+      <a href="/alpha_signature.html" class="btn arc-btn">Explore More ⟶</a>
     </div>
     <div class="arc-image">
-      <img src="/aster.png" class="arc-building-image">
+      <img src="/ALFS_SIGNATOR.png" class="arc-building-image">
       <div class="arc-description">
-        <h2>Aster</h2>
-        <p>Discover Aster, where urban living meets Vadakupattu’s serene lakeside beauty in Chennai</p>
+        <h2>Alpha Signature</h2>
+        <p>Elevating life with premium living spaces in Medavakkam, offering an unparalleled lifestyle with superior craftsmanship and strategic connectivity.</p>
       </div>
     </div>
   </div>
@@ -152,9 +303,9 @@
       <div class="footer-column">
         <h4>Projects</h4>
         <ul>
-          <li><a href="/project.html">The Arc</a></li>
-          <li><a href="/project.html">Alpha</a></li>
-          <li><a href="/project.html">Aster</a></li>
+          <li><a href="/ARC.html">The Arc</a></li>
+          <li><a href="/alpha.html">Alpha</a></li>
+          <li><a href="/aster.html">Aster</a></li>
           <li><a href="/project.html">All Projects</a></li>
         </ul>
       </div>

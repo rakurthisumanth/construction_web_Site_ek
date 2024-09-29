@@ -5,95 +5,357 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EK Homes</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <div class="only-mobile">
-        <div class="mobile_lo_not">
-          <img src="/logo.png" />
-        </div>
-        <div style="margin-top: 7px;">
-          <!-- <button class="menu-click"  onclick="toggleMenu()">click</button> -->
-          <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
-        </div>
-        
-      </div>
-  
-  
-  
-      <!-- laptop -->
-  
-      <nav class="navbar">
-        <div class="logo">
-          <img src="/logo.png" alt="EK Homes" class="logo-img">
-        </div>
-        <div>
-         
-          <div class="mobile_lo_not">
-            <img src="/logo.png" />
-          </div>
-          <ul class="nav-links mobile-nav-links"> <!-- Updated class -->
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/about.html">About Us</a></li>
-            <li><a href="/project.html">Projects</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
-            <li><a href="#">Invite Land Owners</a></li>
-          </ul>
-        </div>
-        
-        <img src="/logo.png" alt="EK Homes" class="mobile_disk">
-        <a href="#" class="get-quote-btn">Get Quote ⟶</a>
-      </nav>
-  
-  
-    <nav  class="mobile">
-      <div >
-        <img src="/logo.png" alt="EK Homes" class="logo-img">
-      </div>
-      <div>
-      
-        <ul id="menuList"> <!-- Updated class -->
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="/project.html">Projects</a></li>
-          <li><a href="/contact.html">Contact Us</a></li>
-          <li><a href="#">Invite Land Owners</a></li>
-        </ul>
-      </div>
-      <img src="/logo.png" alt="EK Homes" class="mobile_disk">
-      <a href="#" class="get-quote-btn">Get Quote ⟶</a>
-    </nav>
-  </header>
-    
-      <script>
-          let menuList = document.getElementById("menuList")
-          menuList.style.maxHeight = "0px";
-  
-          function toggleMenu(){
-              if(menuList.style.maxHeight == "0px")
-              {
-                  menuList.style.maxHeight = "300px";
-              }
-              else{
-                  menuList.style.maxHeight = "0px";
-              }
-          }
-          
-      </script>
-  
+    <style>
+      /* Basic styles */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
 
-  <section class="about">
-    <div class="overlay">
-      <div class="about-content">
-        <h1>About The EK Home's</h1>
-        <p>
-            Crafting Memories, Building Homes: EK Homes - Where Vision Meets Reality
-        </p>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+      }
+
+      header {
+          background-color: #c09a6b; /* Background color */
+          padding: 15px 30px;
+      }
+
+      .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-left: 32px;
+          width: 1440px;
+          height: 70px;
+      }
+
+      .logo-img {
+          width: 150px; /* Logo width */
+      }
+
+      .nav-links {
+          list-style: none;
+          display: flex;
+          gap: 30px;
+      }
+
+      .nav-links li a {
+          text-decoration: none;
+          color: #2c2c2c; /* Text color */
+          font-weight: 400;
+          font-size: 16px;
+          transition: color 0.3s;
+      }
+
+      .nav-links li a:hover {
+          color: #2e3b59; /* Hover effect */
+      }
+
+      /* Mobile Drawer Styles */
+      .mobile {
+          display: none; /* Hidden by default */
+      }
+
+      .only-mobile {
+          display: none;
+      }
+
+      .get-quote-btn {
+          background-color: #2e3b59; /* Button color */
+          color: white;
+          padding: 10px 25px;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: 500;
+          display: inline-block;
+          transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .get-quote-btn:hover {
+          background-color: #3f4f72;
+          transform: scale(1.05); /* Zoom effect on hover */
+      }
+
+      /* Dropdown Styles */
+      .dropdown {
+          position: relative;
+          display: inline-block;
+      }
+
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: white;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+          padding: 10px;
+          border-radius: 5px;
+      }
+
+      .dropdown:hover .dropdown-content,
+      .dropdown.active .dropdown-content {
+          display: block;
+      }
+
+      .dropdown-content a {
+          color: black;
+          text-decoration: none;
+          display: block;
+          padding: 5px;
+      }
+
+      .dropdown-content a:hover {
+          background-color: #f1f1f1;
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 768px) {
+          .navbar {
+              display: none; /* Hide desktop navbar */
+          }
+
+          .only-mobile {
+              display: flex; /* Show mobile header */
+              justify-content: space-between;
+              align-items: center;
+              height: 60px;
+              padding: 12px;
+          }
+
+          .mobile {
+              display: block; /* Show mobile menu */
+          }
+
+          .mobile-nav-links {
+              display: none; /* Hidden by default */
+              flex-direction: column;
+              background-color: #c09a6b;
+              position: absolute;
+              width: 100%;
+              top: 70px;
+              left: 0;
+              right: 0;
+              padding: 10px 0;
+          }
+
+          .mobile-nav-links.show {
+              display: flex; /* Show when active */
+          }
+
+          .menu-click {
+              display: block; /* Show menu toggle button */
+          }
+
+          .mobile-nav-links li {
+              padding: 20px 10px; /* Padding for mobile links */
+          }
+
+          .mobile-nav-links a {
+              color: white; /* Ensure the links are readable */
+              font-size: 18px; /* Font size for mobile */
+              text-decoration: none;
+          }
+
+          .mobile-nav-links a:hover {
+              color: #8e7057; /* Change hover color */
+          }
+      }
+  </style>
+
+</head>
+<body>
+    <header>
+        <div class="only-mobile">
+            <div class="mobile_lo_not">
+                <img src="/logo.png" />
+            </div>
+            <div style="margin-top: 7px;">
+                <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/logo.png" alt="EK Homes" class="logo-img">
+            </div>
+            <div>
+                <ul class="nav-links mobile-nav-links">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" onclick="toggleDropdown(event)">Projects <img src="/dropdown.svg" /></a>
+                        <div class="dropdown-content">
+                            <a href="/project.html">OnGoing</a>
+                            <a href="/complete_project.html">Completed</a>
+                        </div>
+                    </li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="#">Invite Land Owners</a></li>
+                </ul>
+            </div>
+            <a href="#" class="get-quote-btn" onclick="openModal()">Get Quote ⟶</a>
+        </nav>
+
+
+        <nav class="mobile">
+            <div>
+                <img src="/logo.png" alt="EK Homes" class="logo-img">
+            </div>
+            <div>
+                <ul id="menuList">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" onclick="toggleDropdown(event)">Projects <img src="/dropdown.svg" /></a>
+                        <div class="dropdown-content">
+                            <a href="/project.html">Ongoing Projects</a>
+                            <a href="/complete_project.html">Completed</a>
+                        </div>
+                    </li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="#">Invite Land Owners</a></li>
+                    <a href="#" class="get-quote-btn-mobile" onclick="openModal()">Get Quote ⟶</a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- Modal Structure -->
+    <div id="quoteModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Get a Quote</h2>
+        <form id="contact-form">
+          <input type="text" id="name" placeholder="Ex: John Dee" required>
+          <input type="email" id="email" placeholder="Ex: johndee@gmail.com" required>
+          <input type="tel" id="phone" placeholder="Ex: +91" required>
+          <textarea id="message" placeholder="Write your message here..." rows="5" required></textarea>
+          <button type="submit">Send Message ⟶</button>
+        </form>
       </div>
     </div>
-  </section>
-  <br/><br/>
+
+      <!-- Include EmailJS library -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <!-- Initialize EmailJS -->
+  <script type="text/javascript">
+      window.addEventListener('load', function() {
+          console.log('Attempting to load EmailJS...');
+
+          if (typeof emailjs !== 'undefined') {
+              emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
+              console.log("EmailJS initialized successfully.");
+          } else {
+              console.error('EmailJS failed to load.');
+              alert('EmailJS failed to load. Please try again later.');
+          }
+      });
+  </script>
+
+  <!-- Form Submission Handling and PDF generation -->
+  <script type="text/javascript">
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+
+          if (typeof emailjs !== 'undefined') {
+              emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', this)
+                  .then(function(response) {
+                      console.log('Message sent successfully!', response.status, response.text);
+                      alert('Message sent successfully!');
+                      document.getElementById("quoteModal").style.display = "block";
+
+                  }, function(error) {
+                      console.error('Failed to send message:', error);
+                      alert('Failed to send message. Please try again later.');
+                      document.getElementById("quoteModal").style.display = "block";
+                  });
+          } else {
+              console.error('EmailJS is not loaded.');
+              alert('EmailJS failed to load. Please try again later.');
+          }
+      });
+
+  
+  </script>
+    <script>
+
+    function openModal() {
+      document.getElementById("quoteModal").style.display = "block"; // Show modal
+      document.getElementById("heroSection").classList.add("hidden"); // Hide Hero Section
+    }
+    
+    // Function to close the modal and show the Hero Section
+    function closeModal() {
+      document.getElementById("quoteModal").style.display = "none"; // Hide modal
+      document.getElementById("heroSection").classList.remove("hidden"); // Show Hero Section
+    }
+    
+    // Close the modal when clicking outside of the modal content
+    window.onclick = function(event) {
+      const modal = document.getElementById("quoteModal");
+      if (event.target == modal) {
+        modal.style.display = "none";
+        document.getElementById("heroSection").classList.remove("hidden"); // Show Hero Section
+      }
+    }
+    
+
+  let menuList = document.getElementById("menuList")
+  menuList.style.maxHeight = "0px";
+
+  function toggleMenu(){
+      if(menuList.style.maxHeight == "0px")
+      {
+          menuList.style.maxHeight = "300px";
+      }
+      else{
+          menuList.style.maxHeight = "0px";
+      }
+  }
+
+  function toggleDropdown(event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            const dropdown = event.currentTarget.parentNode; // Get the dropdown parent
+            dropdown.classList.toggle("active"); // Toggle active class
+        }
+
+        // Close dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown a')) {
+                const dropdowns = document.getElementsByClassName("dropdown");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    dropdowns[i].classList.remove("active");
+                }
+            }
+        }
+  
+</script>
+
+      
+    
+      <section class="about">
+        <div class="overlay">
+          <div class="about-content">
+            <h1>About The EK Home's</h1>
+            <p>
+                Crafting Memories, Building Homes: EK Homes - Where Vision Meets Reality
+            </p>
+          </div>
+        </div>
+      </section>  <br/><br/>
   <section class="why-choose-us">
     <div  class="why-choose-last">
       <h3>Elevating Living Experiences with <br/>Innovation and Craftsmanship</h3>
@@ -110,13 +372,15 @@
 
 
         <div class="content-sec-column">
-            <p>ABOUT US</p>
+          <p style="display: flex; align-items: center;">
+            <img src="/home_icon_12.svg" style="margin-right: 10px;"/> ABOUT US
+          </p>
              <h1>Step into EK Homes' World of Construction Excellence</h1>
        
              <p style="margin-bottom:12px;">With the ability to think, create and sustain we are committed to enhancing your life by adding genuine value. Our projects like Arc, Tranquil, Alpha, and Spektrum, serve as a true testament to our commitment of crafting homes where memories are made.</p>
        <div class="about-gap">
             <img src="icon-1-ab-sec.png"/>
-            <img src="icon-about-sec-2.png"/>
+            <img src="/icon-about-sec-2.png.png"/>
             <img src="icon-3.png"/>
             <img src="icon-4.png"/>
             <img src="icon-5.png"/>
@@ -134,46 +398,51 @@
         </div>
     
         <!-- Text content on the right -->
-       
       </div>
 
-
-
-
-      <footer>
-        <div class="footer-content">
-          <div class="footer-column logo-column">
-            <img src="logo.png" alt="EK Homes Logo" class="footer-logo">
-            <p>Transforming Spaces - Elevating Lives.</p>
-          </div>
-          <div class="footer-column">
-            <h4>Projects</h4>
-            <ul>
-          <li><a href="/project.html">The Arc</a></li>
-          <li><a href="/project.html">Alpha</a></li>
-          <li><a href="/project.html">Aster</a></li>
-          <li><a href="/project.html">All Projects</a></li>
-        </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Contact Info</h4>
-            <p>Office Address: 21 Raja Badar St, Pondy Bazaar, T. Nagar, Chennai, Tamil Nadu 600017</p>
-            <p>Phone: +91 9360006000</p>
-            <p>Email: sales@ekhomes.in</p>
-          </div>
-          <div class="footer-column">
-            <h4>Social Media</h4>
-            <ul>
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">LinkedIn</a></li>
-              <li><a href="#">YouTube</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>Copyright © 2024 The EK Homes</p>
-        </div>
-      </footer>
+<br/><br/><br/>
+<div class="contactsss-section">
+  <div class="contactsss-text">
+    <h2>Contact us to learn more about our projects and find your dream property.</h2>
+  </div>
+  <div class="contactsss-btn">
+    <a href="/contact.html" class="contactsss-btn-nav">Contact Our Team ⟶</a>
+  </div>
+</div>
+<footer>
+  <div class="footer-content">
+    <div class="footer-column logo-column">
+      <img src="logo.png" alt="EK Homes Logo" class="footer-logo">
+      <p>Transforming Spaces - Elevating Lives.</p>
+    </div>
+    <div class="footer-column">
+      <h4>Projects</h4>
+      <ul>
+        <li><a href="/ARC.html">The Arc</a></li>
+        <li><a href="/alpha.html">Alpha</a></li>
+        <li><a href="/aster.html">Aster</a></li>
+        <li><a href="/project.html">All Projects</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Contact Info</h4>
+      <p>Office Address: 21 Raja Badar St, Pondy Bazaar, T. Nagar, Chennai, Tamil Nadu 600017</p>
+      <p>Phone: +91 9360006000</p>
+      <p>Email: sales@ekhomes.in</p>
+    </div>
+    <div class="footer-column">
+      <h4>Social Media</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright © 2024 The EK Homes</p>
+  </div>
+</footer>
 </body>
 </html>

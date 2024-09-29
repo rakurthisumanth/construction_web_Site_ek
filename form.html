@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EK Homes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <div class="only-mobile">
+      <div class="mobile_lo_not">
+        <img src="/logo.png" />
+      </div>
+      <div style="margin-top: 7px;">
+        <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+      </div>
+    </div>
+
+    <!-- laptop -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="/logo.png" alt="EK Homes" class="logo-img">
+      </div>
+      <div>
+        <div class="mobile_lo_not">
+          <img src="/logo.png" />
+        </div>
+        <ul class="nav-links mobile-nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/project.html">Projects</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+          <li><a href="#">Invite Land Owners</a></li>
+        </ul>
+      </div>
+      <img src="/logo.png" alt="EK Homes" class="mobile_disk">
+      <a href="#" class="get-quote-btn">Get Quote ⟶</a>
+    </nav>
+
+    <nav class="mobile">
+      <div>
+        <img src="/logo.png" alt="EK Homes" class="logo-img">
+      </div>
+      <div>
+        <ul id="menuList">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/project.html">Projects</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+          <li><a href="#">Invite Land Owners</a></li>
+        </ul>
+      </div>
+      <img src="/logo.png" alt="EK Homes" class="mobile_disk">
+      <a href="/contact.html" class="get-quote-btn">Get Quote ⟶</a>
+    </nav>
+  </header>
+
+
+  <section class="contact-us">
+    <div class="container">
+
+      <div class="contact-right">
+        <form id="contact-form">
+          <input type="text" id="name" placeholder="Ex: John Dee" required>
+          <input type="email" id="email" placeholder="Ex: johndee@gmail.com" required>
+          <input type="tel" id="phone" placeholder="Ex: +91" required>
+          <textarea id="message" placeholder="Write your message here..." rows="5" required></textarea>
+          <button type="submit">Send Message ⟶</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Include jsPDF library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- Include EmailJS library -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <!-- Initialize EmailJS -->
+  <script type="text/javascript">
+      window.addEventListener('load', function() {
+          console.log('Attempting to load EmailJS...');
+
+          if (typeof emailjs !== 'undefined') {
+              emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
+              console.log("EmailJS initialized successfully.");
+          } else {
+              console.error('EmailJS failed to load.');
+              alert('EmailJS failed to load. Please try again later.');
+          }
+      });
+  </script>
+
+  <!-- Form Submission Handling and PDF generation -->
+  <script type="text/javascript">
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+
+          if (typeof emailjs !== 'undefined') {
+              emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', this)
+                  .then(function(response) {
+                      console.log('Message sent successfully!', response.status, response.text);
+                      alert('Message sent successfully!');
+
+                      // Generate PDF after successful submission
+                      generatePDF();
+
+                  }, function(error) {
+                      console.error('Failed to send message:', error);
+                      alert('Failed to send message. Please try again later.');
+                  });
+          } else {
+              console.error('EmailJS is not loaded.');
+              alert('EmailJS failed to load. Please try again later.');
+          }
+      });
+
+      function generatePDF() {
+          const { jsPDF } = window.jspdf;
+          const doc = new jsPDF();
+
+          // Fetch form data
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const phone = document.getElementById('phone').value;
+          const message = document.getElementById('message').value;
+
+          // Add content to PDF
+          doc.text("Contact Form Details", 10, 10);
+          doc.text(`Name: ${name}`, 10, 20);
+          doc.text(`Email: ${email}`, 10, 30);
+          doc.text(`Phone: ${phone}`, 10, 40);
+          doc.text(`Message: ${message}`, 10, 50);
+
+          // Save the PDF
+          doc.save("contact_details.pdf");
+      }
+  </script>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column logo-column">
+        <img src="logo.png" alt="EK Homes Logo" class="footer-logo">
+        <p>Transforming Spaces - Elevating Lives.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Projects</h4>
+        <ul>
+          <li><a href="/project.html">The Arc</a></li>
+          <li><a href="/project.html">Alpha</a></li>
+          <li><a href="/project.html">Aster</a></li>
+          <li><a href="/project.html">All Projects</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact Info</h4>
+        <p>Office Address: 21 Raja Badar St, Pondy Bazaar, T. Nagar, Chennai, Tamil Nadu 600017</p>
+        <p>Phone: +91 9360006000</p>
+        <p>Email: sales@ekhomes.in</p>
+      </div>
+      <div class="footer-column">
+        <h4>Social Media</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2024 The EK Homes</p>
+    </div>
+  </footer>
+</body>
+</html>

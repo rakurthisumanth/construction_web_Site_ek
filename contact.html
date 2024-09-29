@@ -5,92 +5,236 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EK Homes</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <div class="only-mobile">
-        <div class="mobile_lo_not">
-          <img src="/logo.png" />
-        </div>
-        <div style="margin-top: 7px;">
-          <!-- <button class="menu-click"  onclick="toggleMenu()">click</button> -->
-          <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
-        </div>
-        
-      </div>
-  
-  
-  
-      <!-- laptop -->
-  
-      <nav class="navbar">
-        <div class="logo">
-          <img src="/logo.png" alt="EK Homes" class="logo-img">
-        </div>
-        <div>
-         
-          <div class="mobile_lo_not">
-            <img src="/logo.png" />
-          </div>
-          <ul class="nav-links mobile-nav-links"> <!-- Updated class -->
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/about.html">About Us</a></li>
-            <li><a href="/project.html">Projects</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
-            <li><a href="#">Invite Land Owners</a></li>
-          </ul>
-        </div>
-        
-        <img src="/logo.png" alt="EK Homes" class="mobile_disk">
-        <a href="#" class="get-quote-btn">Get Quote ⟶</a>
-      </nav>
-  
-  
-    <nav  class="mobile">
-      <div >
-        <img src="/logo.png" alt="EK Homes" class="logo-img">
-      </div>
-      <div>
-      
-        <ul id="menuList"> <!-- Updated class -->
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="/project.html">Projects</a></li>
-          <li><a href="/contact.html">Contact Us</a></li>
-          <li><a href="#">Invite Land Owners</a></li>
-        </ul>
-      </div>
-      <img src="/logo.png" alt="EK Homes" class="mobile_disk">
-      <a href="#" class="get-quote-btn">Get Quote ⟶</a>
-    </nav>
-  </header>
-    
-      <script>
-          let menuList = document.getElementById("menuList")
-          menuList.style.maxHeight = "0px";
-  
-          function toggleMenu(){
-              if(menuList.style.maxHeight == "0px")
-              {
-                  menuList.style.maxHeight = "300px";
-              }
-              else{
-                  menuList.style.maxHeight = "0px";
-              }
+    <style>
+      /* Basic styles */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+      }
+
+      header {
+          background-color: #c09a6b; /* Background color */
+          padding: 15px 30px;
+      }
+
+      .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-left: 32px;
+          width: 1440px;
+          height: 70px;
+      }
+
+      .logo-img {
+          width: 150px; /* Logo width */
+      }
+
+      .nav-links {
+          list-style: none;
+          display: flex;
+          gap: 30px;
+      }
+
+      .nav-links li a {
+          text-decoration: none;
+          color: #2c2c2c; /* Text color */
+          font-weight: 400;
+          font-size: 16px;
+          transition: color 0.3s;
+      }
+
+      .nav-links li a:hover {
+          color: #2e3b59; /* Hover effect */
+      }
+
+      /* Mobile Drawer Styles */
+      .mobile {
+          display: none; /* Hidden by default */
+      }
+
+      .only-mobile {
+          display: none;
+      }
+
+      .get-quote-btn {
+          background-color: #2e3b59; /* Button color */
+          color: white;
+          padding: 10px 25px;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: 500;
+          display: inline-block;
+          transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .get-quote-btn:hover {
+          background-color: #3f4f72;
+          transform: scale(1.05); /* Zoom effect on hover */
+      }
+
+      /* Dropdown Styles */
+      .dropdown {
+          position: relative;
+          display: inline-block;
+      }
+
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: white;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+          padding: 10px;
+          border-radius: 5px;
+      }
+
+      .dropdown:hover .dropdown-content,
+      .dropdown.active .dropdown-content {
+          display: block;
+      }
+
+      .dropdown-content a {
+          color: black;
+          text-decoration: none;
+          display: block;
+          padding: 5px;
+      }
+
+      .dropdown-content a:hover {
+          background-color: #f1f1f1;
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 768px) {
+          .navbar {
+              display: none; /* Hide desktop navbar */
           }
-          
-      </script>
-  
 
+          .only-mobile {
+              display: flex; /* Show mobile header */
+              justify-content: space-between;
+              align-items: center;
+              height: 60px;
+              padding: 12px;
+          }
 
+          .mobile {
+              display: block; /* Show mobile menu */
+          }
+
+          .mobile-nav-links {
+              display: none; /* Hidden by default */
+              flex-direction: column;
+              background-color: #c09a6b;
+              position: absolute;
+              width: 100%;
+              top: 70px;
+              left: 0;
+              right: 0;
+              padding: 10px 0;
+          }
+
+          .mobile-nav-links.show {
+              display: flex; /* Show when active */
+          }
+
+          .menu-click {
+              display: block; /* Show menu toggle button */
+          }
+
+          .mobile-nav-links li {
+              padding: 20px 10px; /* Padding for mobile links */
+          }
+
+          .mobile-nav-links a {
+              color: white; /* Ensure the links are readable */
+              font-size: 18px; /* Font size for mobile */
+              text-decoration: none;
+          }
+
+          .mobile-nav-links a:hover {
+              color: #8e7057; /* Change hover color */
+          }
+      }
+  </style>
+
+</head>
+<body>
+    <header>
+        <div class="only-mobile">
+            <div class="mobile_lo_not">
+                <img src="/logo.png" />
+            </div>
+            <div style="margin-top: 7px;">
+                <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/logo.png" alt="EK Homes" class="logo-img">
+            </div>
+            <div>
+                <ul class="nav-links mobile-nav-links">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" onclick="toggleDropdown(event)">Projects <img src="/dropdown.svg" /></a>
+                        <div class="dropdown-content">
+                            <a href="/project.html">OnGoing</a>
+                            <a href="/complete_project.html">Completed</a>
+                        </div>
+                    </li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="#">Invite Land Owners</a></li>
+                </ul>
+            </div>
+            <a href="#" class="get-quote-btn" onclick="openModal()">Get Quote ⟶</a>
+        </nav>
+
+        <nav class="mobile">
+            <div>
+                <img src="/logo.png" alt="EK Homes" class="logo-img">
+            </div>
+            <div>
+                <ul id="menuList">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" onclick="toggleDropdown(event)">Projects <img src="/dropdown.svg" /></a>
+                        <div class="dropdown-content">
+                            <a href="/project.html">Ongoing Projects</a>
+                            <a href="/complete_project.html">Completed</a>
+                        </div>
+                    </li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="#">Invite Land Owners</a></li>
+                    <a href="#" class="get-quote-btn-mobile" onclick="openModal()">Get Quote ⟶</a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+  <!-- Contact Form Section -->
   <section class="contact">
     <div class="overlay">
       <div class="contact-content">
         <h1>Contact Us</h1>
-        <p>
-          Today! Your dream home is just one call away.
-        </p>
+        <p>Today! Your dream home is just one call away.</p>
       </div>
     </div>
   </section>
@@ -101,7 +245,6 @@
       <div class="contact-left">
         <h3>Get In Touch</h3>
         <p>Contact us to learn more about our projects and find your dream property.</p>
-
         <div class="contact-info">
           <p><i class="fas fa-home"></i> <strong>Registered Address:</strong></p>
           <p>First Floor, Flat No M3 F2, RS Elegance Phase 2, JK Avenue Road, Ravi 1st Street, Medavakkam, Chennai, Chengalpattu, Tamil Nadu - 600 100</p>
@@ -115,7 +258,6 @@
           <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong></p>
           <p>+91 9360 006 000</p>
         </div>
-        
 
         <div class="map">
           <img src="/map.png" alt="Map">
@@ -123,17 +265,62 @@
       </div>
 
       <div class="contact-right">
-        <form>
-          <input type="text" placeholder="Ex: Jhon Dee" required>
-          <input type="email" placeholder="Ex: jhondee@gmail.com" required>
-          <input type="tel" placeholder="Ex: +91" required>
-          <textarea placeholder="Writing your message here..." rows="5" required></textarea>
-          <button type="submit">Send Message ⟶</button>
-        </form>
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" style="background-color: #c09a6b;color: white;">Send Message ⟶</button>
+          </form>
+          
       </div>
     </div>
   </section>
 
+  <!-- Include jsPDF library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- Include EmailJS library -->
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+      window.addEventListener('load', function() {
+        console.log('Attempting to load EmailJS...');
+
+        if (typeof emailjs !== 'undefined') {
+          emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
+          console.log("EmailJS initialized successfully.");
+        } else {
+          console.error('EmailJS failed to load.');
+          alert('EmailJS failed to load. Please try again later.');
+        }
+      });
+
+      // Handle form submission
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+        
+          console.log(this,"thisssssssssssssssss")
+        if (typeof emailjs !== 'undefined') {
+          emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', this)
+            .then(function(response) {
+              console.log('Message sent successfully!', response.status, response.text);
+              alert('Message sent successfully!');
+              document.getElementById('contact-form').reset();
+            }, function(error) {
+              console.error('Failed to send message:', error);
+              alert('Failed to send message. Please try again later.');
+            });
+        } else {
+          console.error('EmailJS is not loaded.');
+          alert('EmailJS failed to load. Please try again later.');
+        }
+      });
+    </script>
 
   <footer>
     <div class="footer-content">
@@ -170,6 +357,5 @@
       <p>Copyright © 2024 The EK Homes</p>
     </div>
   </footer>
-
 </body>
 </html>
