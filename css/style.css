@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Manrope;
+  font-family: 'Manrope';
 }
 
 body {
-  font-family: Manrope;
+  font-family: 'Manrope';
 
   margin: 0;
   padding: 0;
@@ -35,6 +35,8 @@ header {
 
 .logo-img {
   width: 150px; /* Set the width of the logo */
+  margin-left: 115px;
+  margin-top: 2px;
 }
 
 .nav-links {
@@ -45,7 +47,7 @@ header {
 
 .nav-links li a {
   text-decoration: none;
-  color: #2c2c2c; /* Dark text color for navigation links */
+  color: black; /* Dark text color for navigation links */
   font-weight: 400;
   font-size: 16px;
   transition: color 0.3s;
@@ -65,7 +67,6 @@ header {
   width: 250px;
   height: 100%;
   background-color: #c09a6b;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
   transition: left 0.3s ease;
   z-index: 1000;
   padding: 20px;
@@ -104,11 +105,12 @@ header {
   background-color: #2e3b59; /* Button background color */
   color: white;
   padding: 10px 25px;
-  border-radius: 5px;
   text-decoration: none;
   font-weight: 500;
   display: inline-block;
-  transition: background-color 0.3s, transform 0.3s;
+  margin-right: 138px;
+  border-radius:0px
+
 }
 
 .get-quote-btn:hover {
@@ -118,7 +120,6 @@ header {
   background-color: #2e3b59; /* Button background color */
   color: white;
   padding: 10px;
-  border-radius: 1px;
   text-decoration: none;
   font-weight: 50;
   display: inline-block;
@@ -129,7 +130,6 @@ header {
   background-color: #2e3b59; /* Button background color */
   color: white;
   padding: 10px 25px;
-  border-radius: 5px;
   text-decoration: none;
   font-weight: 500;
   display: inline-block;
@@ -148,7 +148,7 @@ header {
   height: 100vh; /* Full height of the viewport */
   display: flex;
   justify-content: flex-start; /* Align content to the left */
-  padding-left: 200px; /* Add padding to the left for spacing */
+  padding-left: 175px; /* Add padding to the left for spacing */
   background: url('/home.png') center center/cover no-repeat; /* Background image */
 }
 .branding-container{
@@ -169,6 +169,17 @@ header {
   align-items: center; /* Vertically center the content */
   justify-content: center; /* Align content to the left */
   background: url('/shaking.png') center center/cover no-repeat; /* Background image */
+
+}
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 1; /* Ensure the overlay stays below the content */
 }
 .ARC_PRO {
   position: relative;
@@ -275,21 +286,26 @@ header {
   padding-top: 62px;
 }
 
+.overlay-contact {
+  padding-top: 2px;
+}
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 600px;
+  max-width: 916px;
   color: white;
-  margin-top: 63px;
+  margin-top: 13px;
   font-family:Manrope;
   
 }
 
 .about-content {
-  position: relative;
   z-index: 2;
   max-width: 800px;
   color: white;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .contact-content {
@@ -297,6 +313,7 @@ header {
   z-index: 2;
   max-width: 800px;
   color: white;
+  margin-bottom: 123px;
 }
 .ARC_PRO-content {
   position: relative;
@@ -305,6 +322,7 @@ header {
   justify-content: center;
   text-align: center;
   color: white;
+  margin-bottom: 123px;
 }
 .ALFA_PRO-content {
   position: relative;
@@ -337,6 +355,9 @@ header {
 }
 .hero-content h1{
   font-family: Manrope;
+}
+.hero-content p{
+
 }
 .hero p {
   margin: 20px 0;
@@ -409,17 +430,45 @@ header {
 .btn {
   background-color: #c09a6b;
   padding: 10px 25px;
-  color: white;
   text-decoration: none;
-  border-radius: 5px;
   transition: background-color 0.3s, transform 0.3s;
+  color: black;
+}
+.btn-hero-main{
+  background-color: #c09a6b;
+  padding: 15px  42px 15px    42px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  color: black;
+}
+.arrow {
+  margin-left: 10px; /* Adjust the space as needed */
+}
+.arrow-back{
+  margin-right: 10px;
+}
+.btn-hero-main-quote{
+  background-color:#222D53;
+  padding: 15px  42px 15px    42px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  color: white;
+  margin-right: 160px;
+}
+.ar-arc-btn{
+  background-color: #c09a6b;
+  padding: 15px  42px 15px    42px;;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  color: black;
+  margin-right: 320px;
+  margin-top: 23px;
 }
 .btn-arc{
   background-color: #c09a6b;
   padding: 10px 25px;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
   transition: background-color 0.3s, transform 0.3s;
   margin-right: 300px;
 }
@@ -428,7 +477,6 @@ header {
   padding: 10px 25px;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
   transition: background-color 0.3s, transform 0.3s;
   margin-right: 200px;
 }
@@ -437,13 +485,113 @@ header {
   transform: scale(1.05);
 }
 
+
+.new-change-about-gap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.new-change-about-btn {
+  background-color: #2e3b59;
+  color: white;
+  border: none;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align content to the left */
+}
+
+.edge-new-change-about-btn{
+  background-color:#494035;
+  color: white;
+  border: none;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.new-change-about-btn.new-change-active {
+  background-color: #3a53b1;
+}
+.edge-new-change-about-btn.new-change-active {
+  background-color: #7A6A56;
+}
+.new-change-about-btn i {
+  margin-right: 10px;
+  font-size: 1.2rem; /* Adjust icon size */
+}
+
+.edge-new-change-about-btn i{
+  margin-right: 10px;
+  font-size: 1.2rem; /* Adjust icon size */
+}
+
+
+
 /* About Section */
 .about-section {
-  max-width: 1200px;
   margin: auto;
-  padding: 40px;
+  padding: 100px 165px 100px 165px;
   display: flex;
   gap: 40px; /* Space between columns */
+  margin-top: 63px;
+  background-color:#FFF7ED;
+}
+.main-about-section {
+  margin: auto;
+  padding: 100px 165px 100px 165px;
+  display: flex;
+  gap: 40px; /* Space between columns */
+  margin-top: 63px;
+  
+}
+.edge-about-section {
+  margin: auto;
+  padding: 0px 165px 50px 165px;
+  display: flex;
+  gap: 40px; /* Space between columns */
+  margin-top: 63px;
+  ;
+}
+
+/* Container for the image and overlay */
+.image-container {
+  position: relative;
+  display: inline-block; /* Ensure the container only takes up as much space as the image */
+  width: 100%; /* Ensure the image takes up full width of its parent */
+}
+
+/* The image */
+.bottom-image {
+  display: block;
+  width: 100%;
+  height: auto; /* Ensure the image is responsive */
+}
+
+/* Overlay content */
+.overlay-content {
+  position: absolute;
+  top: 20px; /* Position from top of the image */
+  left: 20px; /* Position from left of the image */
+  color: white; /* White text */
+  padding: 10px 20px;
+  font-family: 'Manrope', sans-serif; /* Ensure the same font is applied */
+}
+
+.overlay-content h3 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.overlay-content p {
+  margin: 5px 0 0;
+  font-size: 18px;
 }
 
 .image-column {
@@ -452,21 +600,51 @@ header {
   flex-direction: column;
   gap: 20px; /* Gap between the two images */
 }
-.arc-image-column {
-  
-  display: flex;
-}
 
-.top-image, .bottom-image {
+.top-image {
   width: 100%; /* Ensure images fit full width */
   object-fit: cover; /* Maintain aspect ratio */
+}
 
+.about {
+  position: relative;
+  height: 80vh; /* Set the height for the about section */
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  background: url('/sky.png') center center/cover no-repeat; /* Background image */
 }
-.about-sec-top-image{
-  height: 100vh;
+
+.overlay-about {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: Dark overlay for better text readability */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.arc-inv-sec-top-image{
-  width: 400px;
+
+.about-content {
+  z-index: 2;
+  color: white;
+  text-align: center;
+}
+
+.about-content p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.about-content p:first-child {
+  font-size: 4rem; /* Adjust as needed */
+  margin-bottom: 20px;
+}
+
+.about-content p:last-child {
+  font-size: 1.5rem; /* Adjust as needed */
 }
 
 .content-column {
@@ -479,22 +657,28 @@ header {
 .content-column h1 {
   margin-bottom: 20px;
   line-height: 1.2;
-  font-family: Manrope;
   font-size: 64px;
   font-weight: 400;
   line-height: 83.2px;
 }
 
-.content-sec-column h1{
-  margin-bottom: 10px;
-  line-height: 1.2;
-  font-family: Manrope;
-  font-size: 64px;
-  font-weight: 400;
-  line-height: 73.2px;
-
+.content-column p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
+.content-column h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.vision-text, .mission-text {
+  background-color: #2A67B9;
+  color: white;
+  padding: 21px 24px;
+  margin-bottom: 20px;
+}
 .arc-inv-content-sec-column h1{
   margin-bottom: 10px;
   font-family: Manrope;
@@ -544,7 +728,6 @@ header {
   padding: 10px 25px;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
   transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -557,11 +740,12 @@ header {
 .projects {
   background-color: #f9f9f9;
   text-align: center;
-  padding: 80px 0;
+  padding-top: 80px;
+  margin-top: 23px;
 }
 
 .projects h3 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-family: Manrope;
   font-size: 64px;
   font-weight: 400;
@@ -570,7 +754,7 @@ header {
 
 .projects p {
   font-size: 1.2rem;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .projects a.btn {
@@ -578,7 +762,6 @@ header {
   padding: 10px 25px;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
   transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -590,7 +773,7 @@ header {
 /* Arc Project Section */
 .arc-project {
   display: flex;
-  position: relative;
+  /* position: relative; */
   margin-top: 90px;
 }
 
@@ -606,7 +789,7 @@ header {
 
 .aster-text {
   flex: 1;
-  margin-left: 130px;
+  margin-left: 45px;
 }
 .arc-text img {
   max-width: 100%;
@@ -621,6 +804,7 @@ header {
   flex: 1;
   position: relative;
   text-align: left;
+  margin-right: 123px;
 }
 
 .arc-image img {
@@ -630,13 +814,11 @@ header {
 
 .arc-description {
   position: absolute;
-  bottom: -40px;
-  left: 20px;
+  bottom: 0px;
+  left: -280px;
   background-color: white;
-  padding: 20px;
-  width: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  padding: 40px;
+  width: 100%;
 }
 
 .arc-description h2 {
@@ -656,10 +838,12 @@ header {
   justify-content: space-between;
   margin-top: 110px;
   flex-direction: row-reverse;
+  margin-left: 23px;
 }
 
 .alpha-text {
   flex: 1;
+  margin-left: 300px;
 }
 
 .alpha-text img {
@@ -669,7 +853,7 @@ header {
 .alpha-image {
   flex: 1;
   position: relative;
-  margin-left: 110px;
+  margin-left: 150px;
 }
 
 .alpha-image img {
@@ -679,13 +863,12 @@ header {
 
 .alpha-description {
   position: absolute;
-  bottom: -40px;
-  right: 20px;
+  bottom: 0px;
+  right: -320px;
   background-color: white;
-  padding: 20px;
-  width: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  padding: 40px;
+  width: 100%;
+  width: 723px;
 }
 
 .alpha-description h2 {
@@ -749,7 +932,6 @@ header {
 .map img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
 }
 
 .contact-right form {
@@ -762,7 +944,6 @@ header {
   padding: 15px;
   font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
   background-color: #f0f0f0;
   width: 100%;
 }
@@ -773,7 +954,6 @@ header {
   color: white;
   font-size: 16px;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -876,6 +1056,15 @@ footer {
   justify-content: space-between;
 
 }
+/* Custom line styling */
+.custom-line {
+  width: 100%; /* Full width of the container */
+  height: 0.11px; /* Line height */
+  background-color: rgb(77, 74, 74); /* Color of the line */
+  margin-top: 20px; /* Adjust spacing as needed */
+  margin-bottom: 100px; /* Space below the line */
+}
+
 
 .contact-info {
   display: flex;
@@ -907,18 +1096,156 @@ footer {
   display: none;
 }
 
+/* Container for New Contact section */
+.new-contact-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 50px;
+  padding: 40px 20px;
+  align-items: stretch; /* Ensure both sections have the same height */
+}
+
+/* Left Section Styles */
+.new-contact-left {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.new-contact-left h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.new-contact-left p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Contact Info Item */
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.contact-info-item i {
+  font-size: 1.5rem;
+  color: #A0522D;
+  margin-right: 15px;
+}
+
+.contact-info-item div {
+  max-width: 80%;
+}
+
+.contact-info-item strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.contact-info-item p {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Map Image Styling */
+.new-contact-map img {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+/* Right Section Styles (Form) */
+.new-contact-right {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 155px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+.form-group-drop {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-drop label{
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+.form-group-drop label {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* Remove borders from left and right sides */
+.form-group-drop input,
+.form-group textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-left: none; /* Remove left border */
+  border-right: none; /* Remove right border */
+  background-color: #f0f0f0;
+  border-radius: 0; /* Remove any rounding from the input fields */
+  width: 100%;
+}
+
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-left: none; /* Remove left border */
+  border-right: none; /* Remove right border */
+  background-color: #f0f0f0;
+  border-radius: 0; /* Remove any rounding from the input fields */
+  width: 100%;
+}
+
+
+.new-contact-right button {
+  padding: 15px;
+  background-color: #a67c52;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.new-contact-right button:hover {
+  background-color: #8e6a44;
+}
+
+/* Ensure that left and right sections have equal heights */
+.new-contact-container {
+  align-items: stretch;
+}
+
 
 /* Modal Background */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4); /* Black with opacity */
 }
 
 /* Modal Content */
@@ -926,10 +1253,8 @@ footer {
   background-color: #fff;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border-radius: 10px;
   width: 80%; /* Width of the modal */
   max-width: 500px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* Close Button */
@@ -953,7 +1278,6 @@ footer {
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 #contact-form button {
@@ -961,7 +1285,6 @@ footer {
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
 }
 /* Hide the hero section by default */
@@ -989,12 +1312,20 @@ footer {
   padding: 20px;
   color: white;
 }
+.aster-alfa-project-section {
+  display: flex;
+  justify-content: center;
+  background-color:#085394; /* Background color of the section */
+  padding: 20px;
+  color: white;
+}
 .alfa-sig-project-section {
   display: flex;
   justify-content: center;
   background-color:#929056; /* Background color of the section */
   padding: 20px;
   color: white;
+  
 }
 .avenu-sig-project-section {
   display: flex;
@@ -1023,9 +1354,19 @@ footer {
   justify-content: space-between;
   width: 100%;
   max-width: 1440px;
-  margin-left: 180px;
+  margin-left: 150px;
 }
 
+.pro-sig-project-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  margin-left: 150px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
 .left-content {
   flex: 1;
 }
@@ -1035,24 +1376,23 @@ footer {
   letter-spacing: 2px;
   font-weight: 600;
   color: #eee;
-  text-transform: uppercase;
-  padding: 13px;
-  margin-top: 50px;
+  margin-top: 80px;
+  margin-right: 92px;
 }
 
 .project-title {
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 3rem;
   margin-top: 10px;
-  padding: 13px;
+  /* padding: 13px; */
+  margin-right: 3px;
 }
 
 .handover-info {
   font-size: 16px;
   font-weight: 400;
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
-  margin-left: 12px;
+  margin-left: 8px;
 }
 
 .handover-info i {
@@ -1070,6 +1410,15 @@ footer {
   display: flex;
 padding-bottom: 50px;
 text-align: center;
+gap: 52;
+}
+.aster-project-image{
+  justify-content: center;
+  background-color: #085394; /* Background color of the section */
+  display: flex;
+padding-bottom: 50px;
+text-align: center;
+gap: 52;
 }
 .alfa-project-image img{
   margin-left: 32px;
@@ -1126,7 +1475,14 @@ padding-bottom: 90px;
   gap: 20px;
   padding: 47px; /* Spacing from the left section */
 }
-
+.sig-pro-right-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 67px; /* Spacing from the left section */
+  margin-top: 123px;
+}
 .project-actions {
   display: flex;
   flex-direction: column;
@@ -1165,8 +1521,7 @@ padding-bottom: 90px;
   background-color: #000; /* Black background for the box */
   padding: 20px;
   color: #fff; /* White text color */
-  border-radius: 8px;
-  width: 250px; /* Adjust width as necessary */
+  width: 350px; /* Adjust width as necessary */
   margin-right: 140px;
 }
 
@@ -1201,6 +1556,7 @@ padding-bottom: 90px;
 
 .arc-logo {
   display: flex;
+  margin-left: 523px;
 
 }
 .aster-arc-logo{
@@ -1214,7 +1570,8 @@ padding-bottom: 90px;
   margin-left: 100px;
 }
 .arc-pro-arc-logo{
-  margin-left: 100px;
+  margin-left: 0px;
+  margin-bottom: 23px;
 }
 .alpha_desarc-logo{
   
@@ -1236,7 +1593,7 @@ padding-bottom: 90px;
 .project-overview-section {
   background-color: #f9f9f9;
   color: #333;
-  padding: 73px;
+  padding:10px 173px 0px 173px;
 }
 
 .project-overview-section h2 {
@@ -1274,7 +1631,6 @@ padding-bottom: 90px;
 .overview-images img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
 }
 
 
@@ -1283,7 +1639,7 @@ padding-bottom: 90px;
 
 
 .amenities-section {
-  padding: 80px 100px;
+  padding: 8px 30px 10px 160px;
   background-color: #fff;
 }
 
@@ -1324,7 +1680,7 @@ padding-bottom: 90px;
   align-items: center;
 }
 .Real-home{
-  color: white; display: flex; align-items: center;
+  color: white; display: flex; align-items: center;margin-right: 123px;
 }
 .left-amenities li i {
   color: #c09a6b;
@@ -1353,6 +1709,13 @@ padding-bottom: 90px;
   display: flex;
   align-items: center;
 }
+.subtext {
+  font-size: 1.5rem; /* Adjust as needed */
+  margin: 0 auto;
+  max-width: calc(100% - 60px); /* Ensures the paragraph width doesn’t exceed container width */
+  text-align: justify;
+  width: 640px; /* Set this width equal to the width of the title */
+}
 
 .list-icon {
   margin-right: 10px; /* This will create the gap between the icon and the text */
@@ -1370,6 +1733,42 @@ padding-bottom: 90px;
   display: none;
 }
 
+.contactsss-section {
+  display: flex;
+  justify-content: space-between; /* Space between text and button */
+  align-items: center; /* Vertically center the text and button */
+  background-color: #816d58; /* The background color */
+  padding: 40px 60px; /* Padding around the section */
+}
+
+.contactsss-text {
+  flex: 1; /* Take up available space */
+}
+
+.contactsss-text p {
+  font-size: 2rem;
+  color: white;
+  margin: 0;
+}
+
+.contactsss-btn {
+  margin-left: 30px; /* Add space between the text and button */
+}
+
+.contactsss-btn-nav {
+  background-color: #d9b999; /* Button background color */
+  color: #333; /* Button text color */
+  padding: 15px 30px; /* Padding for the button */
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.contactsss-btn-nav:hover {
+  background-color: #c0a67b;
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
 .Real_img_home{
   margin-right: 10px;
 }
@@ -1384,16 +1783,22 @@ padding-bottom: 90px;
 .all-projects-desk{
   margin-right: 10px;
 }
+.contactsss-btn-nav{
+  margin-left: 234px;
+  margin-top: 22px;
+}
 .contactsss-section{
-  width: 100vw; /* Make the section span the full viewport width */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #816d58; /* The background color based on the screenshot */
-  padding: 40px 60px;
-  margin: 0 auto;
-  box-sizing: border-box; /* Ensure padding doesn't add to width */
-  
+  /* justify-content: space-between;
+  align-items: center; */
+  background-color: #7A6A56; /* The background color based on the screenshot */
+  /* margin: 0 auto; */
+  width: 1520px;
+height: 300px;
+padding: 89px 152px 89px 150px;
+gap: 0px;
+opacity: 0px;
+
 }
 .contactsss-text h2{
   font-size: 24px;
@@ -1415,13 +1820,74 @@ padding-bottom: 90px;
   margin-right: 32px;
 }
 
+
+
+
 .hero-hero{
   font-size:3rem;
 }
+
+.new-change-end-image-column {
+  position: relative; /* Allows positioning of overlay content inside this container */
+  width: 100%; /* Ensure it takes full width */
+}
+
+.new-change-end-about-sec-top-image {
+  width: 100%;
+  height: auto; /* Responsive image */
+  display: block;
+}
+
+.new-change-end-black-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+  z-index: 5; /* Ensure it is placed above the image */
+}
+
+.new-change-end-overlay-content {
+  position: absolute;
+  top: 5%; /* Adjust as needed to vertically align */
+  left: 20px; /* Align from the left */
+  color: white; /* Make text white to contrast against the background */
+  z-index: 10; /* Ensure text is above the image and black overlay */
+  font-family: 'Manrope' /* Consistent font */
+}
+
+.new-change-end-overlay-content h1 {
+  font-size: 3rem; /* Adjust to match desired size */
+  font-weight: bold;
+}
+
+.new-change-end-overlay-content p {
+  font-size: 1.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .new-change-end-overlay-content {
+      top: 10%; /* Adjust for mobile */
+      left: 10px; /* Reduce left margin on mobile */
+      text-align: center; /* Center align text on mobile */
+  }
+
+  .new-change-end-overlay-content h1 {
+      font-size: 2rem; /* Reduce font size for mobile */
+  }
+
+  .new-change-end-overlay-content p {
+      font-size: 1rem; /* Reduce font size for mobile */
+  }
+}
+
 /* Mobile Responsive Styles */
 .overlay-mobile{
   display: none;
 }
+
 
 
 @media (max-width: 768px) {
@@ -1519,7 +1985,6 @@ nav ul li{
   padding: 10px 25px;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
   transition: background-color 0.3s, transform 0.3s;
   margin-right: 0px;
 }
@@ -1545,7 +2010,6 @@ header {
   padding: 10px 25px;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
   transition: background-color 0.3s, transform 0.3s;
   margin-right: 0px;
   margin-bottom: 12px;

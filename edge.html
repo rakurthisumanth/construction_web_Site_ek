@@ -1,305 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EK Homes</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <style>
-      /* Basic styles */
-      * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-      }
 
-      body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EK Homes</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
 
-      header {
-          background-color: #c09a6b; /* Background color */
-          padding: 15px 30px;
-      }
+<body>
+  <style>
+    /* Basic styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #c09a6b;
+      /* Background color */
+      padding: 15px 30px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 32px;
+      width: 1440px;
+      height: 70px;
+    }
+
+    .logo-img {
+      width: 150px;
+      /* Logo width */
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #2c2c2c;
+      /* Text color */
+      font-weight: 400;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #2e3b59;
+      /* Hover effect */
+    }
+
+    /* Mobile Drawer Styles */
+    .mobile {
+      display: none;
+      /* Hidden by default */
+    }
+
+    .only-mobile {
+      display: none;
+    }
+
+    .get-quote-btn {
+      background-color: #2e3b59;
+      /* Button color */
+      color: white;
+      padding: 10px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .get-quote-btn:hover {
+      background-color: #3f4f72;
+      transform: scale(1.05);
+      /* Zoom effect on hover */
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown.active .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      color: black;
+      text-decoration: none;
+      display: block;
+      padding: 5px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-content {
+  position: relative;
+  margin: 5% auto;
+  padding: 40px 50px; /* Padding for top-bottom and left-right */
+  background-color: white;
+  width: 40%; /* Width as per your preference */
+  max-width: 600px; /* Max width to ensure responsiveness */
+  border-radius: 8px;
+  font-family: 'Manrope', sans-serif;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Shadow for better visual impact */
+}
+
+.modal-content h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  text-align: center; /* Center the heading */
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.modal-content textarea {
+  height: 100px;
+}
+
+.download-btn {
+  background-color: #c09a6b;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.download-btn:hover {
+  background-color: #b0895a;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
       .navbar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-left: 32px;
-          width: 1440px;
-          height: 70px;
-      }
-
-      .logo-img {
-          width: 150px; /* Logo width */
-      }
-
-      .nav-links {
-          list-style: none;
-          display: flex;
-          gap: 30px;
-      }
-
-      .nav-links li a {
-          text-decoration: none;
-          color: #2c2c2c; /* Text color */
-          font-weight: 400;
-          font-size: 16px;
-          transition: color 0.3s;
-      }
-
-      .nav-links li a:hover {
-          color: #2e3b59; /* Hover effect */
-      }
-
-      /* Mobile Drawer Styles */
-      .mobile {
-          display: none; /* Hidden by default */
+        display: none;
+        /* Hide desktop navbar */
       }
 
       .only-mobile {
-          display: none;
+        display: flex;
+        /* Show mobile header */
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        padding: 12px;
       }
 
-      .get-quote-btn {
-          background-color: #2e3b59; /* Button color */
-          color: white;
-          padding: 10px 25px;
-          border-radius: 5px;
-          text-decoration: none;
-          font-weight: 500;
-          display: inline-block;
-          transition: background-color 0.3s, transform 0.3s;
+      .mobile {
+        display: block;
+        /* Show mobile menu */
       }
 
-      .get-quote-btn:hover {
-          background-color: #3f4f72;
-          transform: scale(1.05); /* Zoom effect on hover */
+      .mobile-nav-links {
+        display: none;
+        /* Hidden by default */
+        flex-direction: column;
+        background-color: #c09a6b;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 10px 0;
       }
 
-      /* Dropdown Styles */
-      .dropdown {
-          position: relative;
-          display: inline-block;
+      .mobile-nav-links.show {
+        display: flex;
+        /* Show when active */
       }
 
-      .dropdown-content {
-          display: none;
-          position: absolute;
-          background-color: white;
-          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-          z-index: 1;
-          padding: 10px;
-          border-radius: 5px;
+      .menu-click {
+        display: block;
+        /* Show menu toggle button */
       }
 
-      .dropdown:hover .dropdown-content,
-      .dropdown.active .dropdown-content {
-          display: block;
+      .mobile-nav-links li {
+        padding: 20px 10px;
+        /* Padding for mobile links */
       }
 
-      .dropdown-content a {
-          color: black;
-          text-decoration: none;
-          display: block;
-          padding: 5px;
+      .mobile-nav-links a {
+        color: white;
+        /* Ensure the links are readable */
+        font-size: 18px;
+        /* Font size for mobile */
+        text-decoration: none;
       }
 
-      .dropdown-content a:hover {
-          background-color: #f1f1f1;
+      .mobile-nav-links a:hover {
+        color: #8e7057;
+        /* Change hover color */
       }
-
-      /* Mobile Styles */
-      @media (max-width: 768px) {
-          .navbar {
-              display: none; /* Hide desktop navbar */
-          }
-
-          .only-mobile {
-              display: flex; /* Show mobile header */
-              justify-content: space-between;
-              align-items: center;
-              height: 60px;
-              padding: 12px;
-          }
-
-          .mobile {
-              display: block; /* Show mobile menu */
-          }
-
-          .mobile-nav-links {
-              display: none; /* Hidden by default */
-              flex-direction: column;
-              background-color: #c09a6b;
-              position: absolute;
-              width: 100%;
-              top: 70px;
-              left: 0;
-              right: 0;
-              padding: 10px 0;
-          }
-
-          .mobile-nav-links.show {
-              display: flex; /* Show when active */
-          }
-
-          .menu-click {
-              display: block; /* Show menu toggle button */
-          }
-
-          .mobile-nav-links li {
-              padding: 20px 10px; /* Padding for mobile links */
-          }
-
-          .mobile-nav-links a {
-              color: white; /* Ensure the links are readable */
-              font-size: 18px; /* Font size for mobile */
-              text-decoration: none;
-          }
-
-          .mobile-nav-links a:hover {
-              color: #8e7057; /* Change hover color */
-          }
-      }
+    }
   </style>
 
-</head>
-<body>
+  </head>
+
+  <body>
     <header>
-        <div class="only-mobile">
-            <div class="mobile_lo_not">
-                <img src="/logo.png" />
-            </div>
-            <div style="margin-top: 7px;">
-                <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
-            </div>
+      <div class="only-mobile">
+        <div class="mobile_lo_not">
+          <img src="/logo.png" />
         </div>
+        <div style="margin-top: 7px;">
+          <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+        </div>
+      </div>
 
-        <nav class="navbar">
-            <div class="logo">
-                <img src="/logo.png" alt="EK Homes" class="logo-img">
-            </div>
-            <div>
-                <ul class="nav-links mobile-nav-links">
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="/about.html">About Us</a></li>
-                    <li class="dropdown">
-                        <a href="#" onclick="toggleDropdown(event)">Projects <img src="/dropdown.svg" /></a>
-                        <div class="dropdown-content">
-                            <a href="/project.html">OnGoing</a>
-                            <a href="/complete_project.html">Completed</a>
-                        </div>
-                    </li>
-                    <li><a href="/contact.html">Contact Us</a></li>
-                    <li><a href="#">Invite Land Owners</a></li>
-                </ul>
-            </div>
-            <a href="#" class="get-quote-btn" onclick="openModal()">Get Quote ⟶</a>
-        </nav>
+      <nav class="navbar">
+        <div class="logo">
+          <img src="/logo.png" alt="EK Homes" class="logo-img">
+        </div>
+        <div>
+          <ul class="nav-links mobile-nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li class="dropdown">
+              <a href="#" onclick="toggleDropdown(event)">Projects <img src="/dropdown.svg" /></a>
+              <div class="dropdown-content">
+                <a href="/project.html">OnGoing</a>
+                <a href="/complete_project.html">Completed</a>
+              </div>
+            </li>
+            <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="#">Invite Land Owners</a></li>
+          </ul>
+        </div>
+        <a href="#" class="btn-hero-main-quote" onclick="openModal()">Get Quote <span class="arrow">⟶</span></a>
+      </nav>
 
-        <nav class="mobile">
-            <div>
-                <img src="/logo.png" alt="EK Homes" class="logo-img">
-            </div>
-            <div>
-                <ul id="menuList">
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="/about.html">About Us</a></li>
-                    <li class="dropdown">
-                        <a href="#" onclick="toggleDropdown(event)">Projects <img src="/dropdown.svg" /></a>
-                        <div class="dropdown-content">
-                            <a href="/project.html">Ongoing Projects</a>
-                            <a href="/complete_project.html">Completed</a>
-                        </div>
-                    </li>
-                    <li><a href="/contact.html">Contact Us</a></li>
-                    <li><a href="#">Invite Land Owners</a></li>
-                    <a href="#" class="get-quote-btn-mobile" onclick="openModal()">Get Quote ⟶</a>
-                </ul>
-            </div>
-        </nav>
+
+      <nav class="mobile">
+        <div>
+          <img src="/logo.png" alt="EK Homes" class="logo-img">
+        </div>
+        <div>
+          <ul id="menuList">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li class="dropdown">
+              <a href="#" onclick="toggleDropdown(event)">Projects <img src="/dropdown.svg" /></a>
+              <div class="dropdown-content">
+                <a href="/project.html">Ongoing Projects</a>
+                <a href="/complete_project.html">Completed</a>
+              </div>
+            </li>
+            <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="#">Invite Land Owners</a></li>
+            <a href="#" class="get-quote-btn-mobile" onclick="openModal()">Get Quote ⟶</a>
+          </ul>
+        </div>
+      </nav>
     </header>
-  <!-- Include jsPDF library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <!-- Include EmailJS library -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
-  <!-- Initialize EmailJS -->
-  <script type="text/javascript">
-      window.addEventListener('load', function() {
-          console.log('Attempting to load EmailJS...');
 
-          if (typeof emailjs !== 'undefined') {
-              emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
-              console.log("EmailJS initialized successfully.");
-          } else {
-              console.error('EmailJS failed to load.');
-              alert('EmailJS failed to load. Please try again later.');
-          }
+
+    <!-- Modal Structure -->
+    <div id="quoteModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p style="margin-right: 200px;font-size: 1.5rem;">Our Team will Reach you</p>
+        <br/>
+        <form id="contact-form">
+          <label for="name" style="color: #BFA17C;">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Ex: John Dee" required>
+    
+          <label for="email" style="color: #BFA17C;">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="Ex: johndee@gmail.com" required>
+    
+          <label for="phone" style="color: #BFA17C;">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="Ex: +91" required>
+    
+          <label for="message" style="color: #BFA17C;">Message</label>
+          <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+    
+          <button type="submit" class="btn-hero-main" style="background-color: #BFA17C;color: white;">Contact Us <span class="arrow">⟶</span></button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Include EmailJS library -->
+
+    <!-- Initialize EmailJS -->
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Include EmailJS library -->
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+      window.addEventListener('load', function () {
+        console.log('Attempting to load EmailJS...');
+
+        if (typeof emailjs !== 'undefined') {
+          emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
+          console.log("EmailJS initialized successfully.");
+        } else {
+          console.error('EmailJS failed to load.');
+          alert('EmailJS failed to load. Please try again later.');
+        }
       });
-  </script>
 
-  <!-- Form Submission Handling and PDF generation -->
-  <script type="text/javascript">
-      document.getElementById('contact-form').addEventListener('submit', function(event) {
-          event.preventDefault();
+      // Handle form submission
+      document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
 
-          if (typeof emailjs !== 'undefined') {
-              emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', this)
-                  .then(function(response) {
-                      console.log('Message sent successfully!', response.status, response.text);
-                      alert('Message sent successfully!');
 
-                      // Generate PDF after successful submission
-                      generatePDF();
-
-                  }, function(error) {
-                      console.error('Failed to send message:', error);
-                      alert('Failed to send message. Please try again later.');
-                  });
-          } else {
-              console.error('EmailJS is not loaded.');
-              alert('EmailJS failed to load. Please try again later.');
-          }
+        console.log(this, "thisssssssssssssssss")
+        if (typeof emailjs !== 'undefined') {
+          emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', this)
+            .then(function (response) {
+              console.log('Message sent successfully!', response.status, response.text);
+              alert('Message sent successfully!');
+              document.getElementById('contact-form').reset();
+              document.getElementById("quoteModal").style.display = "none"; // Hide modal
+            }, function (error) {
+              console.error('Failed to send message:', error);
+              alert('Failed to send message. Please try again later.');
+            });
+        } else {
+          console.error('EmailJS is not loaded.');
+          alert('EmailJS failed to load. Please try again later.');
+        }
       });
+    </script>
+    <script>
 
-      function generatePDF() {
-          const { jsPDF } = window.jspdf;
-          const doc = new jsPDF();
+function openModal() {
+  document.getElementById("quoteModal").style.display = "block"; // Show modal
+}
 
-          // Fetch form data
-          const name = document.getElementById('name').value;
-          const email = document.getElementById('email').value;
-          const phone = document.getElementById('phone').value;
-          const message = document.getElementById('message').value;
+// Function to close the modal
+function closeModal() {
+  document.getElementById("quoteModal").style.display = "none"; // Hide modal
+}
+      // Close the modal when clicking outside of the modal content
+      window.onclick = function(event) {
+  const modal = document.getElementById("quoteModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
-          // Add content to PDF
-          doc.text("Contact Form Details", 10, 10);
-          doc.text(`Name: ${name}`, 10, 20);
-          doc.text(`Email: ${email}`, 10, 30);
-          doc.text(`Phone: ${phone}`, 10, 40);
-          doc.text(`Message: ${message}`, 10, 50);
 
-          // Save the PDF
-          doc.save("contact_details.pdf");
+      let menuList = document.getElementById("menuList")
+      menuList.style.maxHeight = "0px";
+
+      function toggleMenu() {
+        if (menuList.style.maxHeight == "0px") {
+          menuList.style.maxHeight = "300px";
+        }
+        else {
+          menuList.style.maxHeight = "0px";
+        }
       }
-  </script>
+
+      function toggleDropdown(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        const dropdown = event.currentTarget.parentNode; // Get the dropdown parent
+        dropdown.classList.toggle("active"); // Toggle active class
+      }
+
+      // Close dropdown if clicked outside
+      window.onclick = function (event) {
+        if (!event.target.matches('.dropdown a')) {
+          const dropdowns = document.getElementsByClassName("dropdown");
+          for (let i = 0; i < dropdowns.length; i++) {
+            dropdowns[i].classList.remove("active");
+          }
+        }
+      }
+
+    </script>
+
 
 
 <section class="EDGE_PRO">
     <div class="overlay">
       <div class="ARC_PRO-content">
         <h1>Edge</h1>
-        <p>More than a home: A life of limitless aspirations</p>
+        <p style="margin-bottom: 53px;">More than a home: A life of limitless aspirations</p>
+        <a href="/complete_project.html" class="btn-hero-main"  ><span class="arrow-back">⟵</span> Back</a>
       </div>
     </div>
   </section>
@@ -313,13 +468,13 @@
         <div class="project-content">
           <div class="left-content">
             <p class="status"> COMPLETED</p>
-            <h1 class="project-title">Edge</h1>
+            <p class="project-title">Edge</p>
             <p class="handover-info"><i class="fa-regular fa-file-lines"></i> 2023</p>
           </div>
       
           <div class="right-content">
             <div class="project-actions-box">
-              <div class="arc-logo">
+              <div >
                 <img src="/edge_main_icon.png" alt="The ARC Logo" /> <!-- Assuming you have a logo here -->
               </div>
               <hr class="divider" />
@@ -349,8 +504,8 @@
  <!-- Next Section: The Arc Project Overview -->
 <section class="project-overview-section">
     <div class="overview-content">
-      <h2>The Edge Project Overview</h2>
-      <p>
+      <h3>The Edge Project Overview</h3>
+      <p style="margin-top: 8px;">
         Discover a life that promises more than the usual with a home conceived for your limitless aspirations and needs. Here, spaces are designed to allow you to grow and rejuvenate, enabling you to conquer the world, time and again. All that you seek—safety, privacy, luxury, tranquility, and convenience—serves as the inspiration for what is unfolding in the well-connected neighborhood of Guindy. This is the beginning of a new chapter for you and your loved ones, with ample space for priceless memories yet to be created. It is a community of like-minded individuals who choose to stand out with their dreams rather than blend into a normal crowd.
       </p>
     </div>
@@ -365,8 +520,8 @@
     </div>
   
     <div class="overview-content">
-      <h2>Guindy's gateway to connectivity and convenience</h2>
-      <p>
+      <h3>Guindy's gateway to connectivity and convenience</h3>
+      <p style="margin-top: 8px;">
         EDGE is located in Guindy, one of the most prestigious and prominent neighborhoods in Chennai, often referred to as the Gateway to Chennai. Guindy is home to several residential projects and commercial properties, as well as many of the city's famous landmarks, including the Guindy National Park. The area boasts excellent infrastructure, with hospitals, retail outlets, SEZs and tech parks, and schools all within close proximity. Additionally, Guindy is well-connected to major roads such as Anna Salai Road, Sardar Patel Road, and Alandur Road. For transportation, Guindy Railway Station, Chennai International Airport, Guindy Metro Station, and Little Mount Metro Station are just minutes away from the locality.
       </p>
     </div>
@@ -378,24 +533,41 @@
   <!-- last sec -->
   
   
-  <div class="about-section">
+  <div class="edge-about-section">
 
 
     <div class="arc-inv-content-sec-column">
-        <p>Amenities</p>
-        <br/>
-         <h1>Every detail crafted for comfort</h1>
+      <p style="padding-top: 0px;margin-bottom: 13px;display: flex; align-items: center;">
+        <img src="/contact-1-ic.svg"  style="margin-right: 10px;"/><span style="color:#C46D00;">AMENITIES</span> 
+      </p>
+         <p style="font-size: 4rem;">Every detail crafted for comfort</p>
    
-   <div class="arc-about-gap">
-        <img src="edge_img1_.png"/>
-        <img src="/edge_2imag_.png"/>
-        <img src="/edge_img3.png"/>
-        <img src="/edge_img4_.png"/>
-        <img src="/edge5_img.png"/>
-        <img src="/edge_6_.png"/>
-        <img src="/edge_7_.png"/>
-        <img src="/edge_8_.png"/>
-   </div>
+         <div class="new-change-about-gap">
+          <button class="edge-new-change-about-btn new-change-active">
+              <i class="fa fa-check"></i> Landscaped Terrace
+          </button>
+          <button class="edge-new-change-about-btn">
+              <i class="fa fa-check"></i> Spacious Homes
+          </button>
+          <button class="edge-new-change-about-btn">
+              <i class="fa fa-check"></i> 24/7 Power Backup
+          </button>
+          <button class="edge-new-change-about-btn">
+              <i class="fa fa-check"></i> Covered Car Park
+          </button>
+          <button class="edge-new-change-about-btn">
+              <i class="fa fa-check"></i> CCTV Surveillance
+          </button>
+          <button class="edge-new-change-about-btn">
+              <i class="fa fa-check"></i> Car Charging Portal
+          </button>
+          <button class="edge-new-change-about-btn">
+            <i class="fa fa-check"></i> High-Tech Security System
+        </button>
+        <button class="edge-new-change-about-btn">
+            <i class="fa fa-check"></i> Natural Lighting & Ventilation
+        </button>
+      </div>
        </div>
     <!-- Images on the left -->
     <div class="image-column">
@@ -406,13 +578,19 @@
     <!-- Text content on the right -->
    
   </div>
-  <div style="padding-left: 187px;padding-right: 187px;">
+  <div style="margin-left: 163px;margin-bottom: 130px;">
     <h1>Discover your sanctuary at EDGE</h1><br/>
-    <p>Located in Chennai's highly desirable residential neighborhood, the project spans across a land parcel of 4,315 sq ft and seamlessly blends private and social spaces. The central area of the facade and a series of social pockets are designed to foster community interaction, while each individual home is equipped with luxury, comfort, and unmatched privacy.</p>
+    <p style="padding: 0px 190px 0px 5px;">Located in Chennai's highly desirable residential neighborhood, the project spans across a land parcel of 4,315 sq ft and seamlessly blends private and social spaces. The central area of the facade and a series of social pockets are designed to foster community interaction, while each individual home is equipped with luxury, comfort, and unmatched privacy.</p>
   
   </div>
-  <br/><br/><br/>
-  
+  <div class="contactsss-section">
+    <div class="contactsss-text">
+      <p>Contact us to learn more about <br/>our projects and find your dream property.</p>
+    </div>
+    <div class="contactsss-btn">
+      <a href="/contact.html" class="contactsss-btn-nav">Contact Our Team ⟶</a>
+    </div>
+  </div>  
   
 
 
