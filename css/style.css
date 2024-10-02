@@ -841,15 +841,15 @@ header {
 /* Alpha Project Section */
 .alpha-project {
   display: flex;
-  justify-content: space-between;
   margin-top: 110px;
   flex-direction: row-reverse;
   margin-left: 23px;
 }
 
 .alpha-text {
-  flex: 1;
-  margin-left: 300px;
+  /* flex: 1; */
+  margin-right:150px;
+
 }
 
 .alpha-text img {
@@ -870,7 +870,16 @@ header {
 .alpha-description {
   position: absolute;
   bottom: 0px;
-  right: -320px;
+  right: -120px;
+  background-color: white;
+  padding: 40px;
+  width: 100%;
+  width: 723px;
+}
+.Brickverse{
+  position: absolute;
+  bottom: 0px;
+  right: -120px;
   background-color: white;
   padding: 40px;
   width: 100%;
@@ -1014,7 +1023,7 @@ footer {
 .footer-column ul li a {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #fff;
+  color: #A6AFB5
 }
 .menu-toggle{
   display: none;
