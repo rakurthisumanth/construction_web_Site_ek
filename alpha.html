@@ -28,7 +28,9 @@
       margin: 0;
       padding: 0;
     }
-
+    .finals-modal {
+    display: none;
+  }
     header {
       background-color: #c09a6b;
       /* Background color */
@@ -209,6 +211,94 @@
         display: none;
         /* Hide desktop navbar */
       }
+      .modal {
+    display: none; /* Hide desktop modal on mobile */
+  }
+
+  .finals-modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.finals-modal-content {
+  background-color: white;
+  /* margin: 5% auto; */
+  width: 80%; /* Adjust width for mobile view */
+  max-width: 900px; /* Ensure it is not larger than desktop modal */
+  border-radius: 8px;
+  font-family: 'Manrope', sans-serif;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Matching shadow */
+  text-align: left; /* Align text similarly */
+}
+
+.finals-modal-content input,
+.finals-modal-content textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.finals-close {
+  position: absolute;
+  /* top: 10px; */
+  right: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+
+  .finals-close:hover,
+  .finals-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .finals-modal-title {
+    font-size: 1.5rem;
+    color: black;
+    margin-bottom: 15px;
+  }
+
+  #finals-contact-form input,
+  #finals-contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  #finals-contact-form textarea {
+    height: 100px;
+  }
+  .modal {
+    display: none;
+  }
+
+  .finals-btn-hero-main {
+    background-color: #BFA17C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .finals-btn-hero-main:hover {
+    background-color: #a58464;
+  }
 
       .only-mobile {
         display: flex;
@@ -351,7 +441,31 @@
         </form>
       </div>
     </div>
+   <!-- Mobile Modal Structure -->
+<div id="finalsModal" class="finals-modal">
+  <div class="finals-modal-content">
+    <span class="finals-close" onclick="closeModal()">&times;</span>
+    <p class="finals-modal-title">Our Team will Reach You</p>
+    <br />
+    <form id="mobile-contact-form">
+      <label for="finals-name" style="color: #BFA17C;">Your Name</label>
+      <input type="text" id="mobile-name" name="name" placeholder="Ex: John Dee" required>
 
+      <label for="finals-email" style="color: #BFA17C;">Your Email</label>
+      <input type="email" id="mobile-email" name="email" placeholder="Ex: johndee@gmail.com" required>
+
+      <label for="finals-phone" style="color: #BFA17C;">Phone</label>
+      <input type="tel" id="mobile-phone" name="phone" placeholder="Ex: +91" required>
+
+      <label for="message" style="color: #BFA17C;">Message</label>
+      <textarea id="mobile-message" name="message" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit" style="background-color: #BFA17C;color: white;padding: 12px;">Contact Us <span class="arrow">⟶</span></button>
+    </form>
+  </div>
+</div>
+
+    
     <!-- Include EmailJS library -->
 
     <!-- Initialize EmailJS -->
@@ -361,62 +475,84 @@
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
-      window.addEventListener('load', function () {
-        console.log('Attempting to load EmailJS...');
+window.addEventListener('load', function () {
+    console.log('Attempting to load EmailJS...');
 
-        if (typeof emailjs !== 'undefined') {
-          emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
-          console.log("EmailJS initialized successfully.");
-        } else {
-          console.error('EmailJS failed to load.');
-          alert('EmailJS failed to load. Please try again later.');
-        }
-      });
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
+        console.log("EmailJS initialized successfully.");
+    } else {
+        console.error('EmailJS failed to load.');
+        alert('EmailJS failed to load. Please try again later.');
+    }
 
-      // Handle form submission
-      document.getElementById('contact-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const message = document.getElementById('message').value;
+    // Attach form submission handlers for both desktop and mobile forms
+    attachFormHandlers();
+});
 
+function attachFormHandlers() {
+    // Desktop form submission handler
+    const desktopForm = document.getElementById('contact-form');
+    if (desktopForm) {
+        desktopForm.addEventListener('submit', handleSubmit);
+    }
 
-        console.log(this, "thisssssssssssssssss")
-        if (typeof emailjs !== 'undefined') {
-          emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', this)
+    // Mobile form submission handler
+    const mobileForm = document.getElementById('mobile-contact-form');
+    if (mobileForm) {
+        mobileForm.addEventListener('submit', handleSubmit);
+    }
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = this; // Reference the form that triggered the submission
+    const name = form.querySelector('input[name="name"]').value;
+    const email = form.querySelector('input[name="email"]').value;
+    const phone = form.querySelector('input[name="phone"]').value;
+    const message = form.querySelector('textarea[name="message"]').value;
+
+    if (typeof emailjs !== 'undefined') {
+        emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', form)
             .then(function (response) {
-              console.log('Message sent successfully!', response.status, response.text);
-              alert('Message sent successfully!');
-              document.getElementById('contact-form').reset();
-              document.getElementById("quoteModal").style.display = "none"; // Hide modal
+                console.log('Message sent successfully!', response.status, response.text);
+                alert('Message sent successfully!');
+                form.reset();
+                closeModal(); // Close the modal after submission
             }, function (error) {
-              console.error('Failed to send message:', error);
-              alert('Failed to send message. Please try again later.');
+                console.error('Failed to send message:', error);
+                alert('Failed to send message. Please try again later.');
             });
-        } else {
-          console.error('EmailJS is not loaded.');
-          alert('EmailJS failed to load. Please try again later.');
-        }
-      });
-    </script>
-    <script>
+    } else {
+        console.error('EmailJS is not loaded.');
+        alert('EmailJS failed to load. Please try again later.');
+    }
+}
 
 function openModal() {
-  document.getElementById("quoteModal").style.display = "block"; // Show modal
+    const isMobile = window.innerWidth <= 768; // Check if the screen width is less than or equal to 768px
+    if (isMobile) {
+        document.getElementById("finalsModal").style.display = "block"; // Show mobile modal
+    } else {
+        document.getElementById("quoteModal").style.display = "block"; // Show desktop modal
+    }
 }
 
-// Function to close the modal
 function closeModal() {
-  document.getElementById("quoteModal").style.display = "none"; // Hide modal
+    document.getElementById("quoteModal").style.display = "none"; // Close desktop modal
+    document.getElementById("finalsModal").style.display = "none"; // Close mobile modal
 }
-      // Close the modal when clicking outside of the modal content
-      window.onclick = function(event) {
-  const modal = document.getElementById("quoteModal");
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+
+// Close the modal when clicking outside of the modal content
+window.onclick = function(event) {
+    const modal = document.getElementById("quoteModal");
+    const mobileModal = document.getElementById("finalsModal");
+    if (event.target == modal || event.target == mobileModal) {
+        closeModal();
+    }
 }
+
 
 
       let menuList = document.getElementById("menuList")
@@ -495,6 +631,35 @@ function closeModal() {
         </div>
       
       </section>
+      <section class="last6-alfa-project-section">
+        <div class="last6-project-content">
+          <div class="last6-left-content">
+            <br/><br/><br/>
+            <p class="last6-status" style="color:#DEC261">ONGOING</p>
+            <h1 class="last6-project-title" style="color:#DEC261">Alpha</h1>
+            <p class="last6-handover-info" style="color:#DEC261"><i class="fa-regular fa-file-lines"></i> <span></span> handover</p>
+          </div>
+      
+          <div class="last6-right-content">
+            <div class="last6-project-actions-box">
+              <div>
+                <img src="/alpha_main_logo_.png" alt="Alpha Logo" />
+              </div>
+              <hr class="last6-divider" />
+              <div class="last6-download">
+                <i class="fa-solid fa-file-arrow-down" style="color: #DEC261;"></i>
+                <span style="color: white;">Download Brochure</span>
+              </div>
+              <hr class="last6-divider" />
+              <div class="last6-location">
+                <i class="fa-solid fa-location-dot" style="color: #DEC261;"></i>
+                <span style="color: white;">Location: Anna Nagar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <div class="alfa-project-image">
         <img src="/alpha10.png" alt="The ARC" style="margin-right: 30px;" />
         <img src="/alpha11.png" alt="The ARC" style="margin-right: 30px;"/>
@@ -576,26 +741,74 @@ function closeModal() {
   </div>
 </div>
 
-   
+  
+<div class="last7-amenities-section">
+  <br/>
+  <p style="padding-top: 0px;margin-bottom: 13px;display: flex; align-items: center;margin-left: 32px;">
+    <img src="/contact-1-ic.svg" style="margin-right: 10px;" /><span style="color:#C46D00;">AMENITIES</span> 
+  </p><br/>
+  <h1 class="last7-main-heading">Your Gateway to a well- <br />appointed lifestyle</h1><br/>
+
+  <div class="last7-amenities-content">
+    <!-- Left side amenities list -->
+    <div class="last7-left-amenities">
+      <ul>
+        <li><img src="/arrow-right-circle.svg" class="last7-list-icon" /> CCTV Surveillance</li>
+        <li><img src="/arrow-right-circle.svg" class="last7-list-icon" /> 24/7 Power Backup</li>
+        <li><img src="/arrow-right-circle.svg" class="last7-list-icon" /> Party Hall for Events</li>
+        <li><img src="/arrow-right-circle.svg" class="last7-list-icon" /> Premium Alpha Gym</li>
+        <li><img src="/arrow-right-circle.svg" class="last7-list-icon" /> Yoga and Meditation Area</li>
+        <li><img src="/arrow-right-circle.svg" class="last7-list-icon" /> Landscaped Terrace</li>
+        <li><img src="/arrow-right-circle.svg" class="last7-list-icon" /> Covered Car Parking</li>
+      </ul>
+    </div>
+
+    <!-- Right side images -->
+    <div class="last7-right-images">
+      <img src="/alpha_final11.png" alt="Image 1" class="last7-amenity-img1" />
+      <img src="/alpha_final_im2.png" alt="Image 2" class="last7-amenity-img" />
+    </div>
+  </div>
+</div>
+
   
 
     <!-- Text content on the right -->
    <br/>
   
-  <div style="padding-left: 164px;padding-right: 74px;">
-    <h2>Explore our homes that inspire inside and out</h2><br/>
-<p style="line-height: 2rem;">The spacious 2 and 3 BHK residences at EK ALPHA are designed to meet the refined tastes of contemporary buyers. Each unit features expansive living rooms and majestic landscaped terraces, meticulously crafted to provide absolute comfort and tranquility. With intricate design and thoughtful adornments, every detail at Alpha is tailored to suit the sophisticated preferences of the elite.</p>  
-  </div>
-  <br/> <br/> <br/> <br/>
-  <div class="contactsss-section">
-    <div class="contactsss-text">
-      <p>Contact us to learn more about <br/>our projects and find your dream property.</p>
+
+
+
+  <div class="new-desk">
+    <div style="padding-left: 157px;padding-right: 187px;">
+      <h1>Explore our homes that inspire inside and out</h1><br/>
+      <p>The spacious 2 and 3 BHK residences at EK ALPHA are designed to meet the refined tastes of contemporary buyers. Each unit features expansive living rooms and majestic landscaped terraces, meticulously crafted to provide absolute comfort and tranquility. With intricate design and thoughtful adornments, every detail at Alpha is tailored to suit the sophisticated preferences of the elite.</p>
+    <br/><br/>
     </div>
-    <div class="contactsss-btn">
-      <a href="/contact.html" class="contactsss-btn-nav">Contact Our Team ⟶</a>
+  </div>
+    
+    
+  <div class="new-mobile-mobile">
+    <div style="padding: 12px;">
+      <h1>Explore our homes that inspire inside and out</h1><br/>
+      <p>The spacious 2 and 3 BHK residences at EK ALPHA are designed to meet the refined tastes of contemporary buyers. Each unit features expansive living rooms and majestic landscaped terraces, meticulously crafted to provide absolute comfort and tranquility. With intricate design and thoughtful adornments, every detail at Alpha is tailored to suit the sophisticated preferences of the elite.</p>
+    <br/><br/>
     </div>
   </div>
   
+  <br/> <br/> <br/> <br/>
+  <div class="mobile-contact-section">
+    <div style="background-color: #816d58;padding: 20px;">
+      <div class="mobile-contact-text">
+        <p style="color: white;" >Contact us to learn more about our projects and find your dream property.</p>
+      </div>
+      <div class="mobile-contact-btn">
+        <a href="/contact.html" >Contact Our Team ⟶</a>
+      </div>
+      <br/><br/>
+    </div>
+   
+  </div>
   
 
 

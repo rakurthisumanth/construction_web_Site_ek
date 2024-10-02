@@ -28,7 +28,9 @@
       margin: 0;
       padding: 0;
     }
-
+    .finals-modal {
+    display: none;
+  }
     header {
       background-color: #c09a6b;
       /* Background color */
@@ -209,6 +211,94 @@
         display: none;
         /* Hide desktop navbar */
       }
+      .modal {
+    display: none; /* Hide desktop modal on mobile */
+  }
+
+  .finals-modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.finals-modal-content {
+  background-color: white;
+  /* margin: 5% auto; */
+  width: 80%; /* Adjust width for mobile view */
+  max-width: 900px; /* Ensure it is not larger than desktop modal */
+  border-radius: 8px;
+  font-family: 'Manrope', sans-serif;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Matching shadow */
+  text-align: left; /* Align text similarly */
+}
+
+.finals-modal-content input,
+.finals-modal-content textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.finals-close {
+  position: absolute;
+  /* top: 10px; */
+  right: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+
+  .finals-close:hover,
+  .finals-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .finals-modal-title {
+    font-size: 1.5rem;
+    color: black;
+    margin-bottom: 15px;
+  }
+
+  #finals-contact-form input,
+  #finals-contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  #finals-contact-form textarea {
+    height: 100px;
+  }
+  .modal {
+    display: none;
+  }
+
+  .finals-btn-hero-main {
+    background-color: #BFA17C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .finals-btn-hero-main:hover {
+    background-color: #a58464;
+  }
 
       .only-mobile {
         display: flex;
@@ -351,7 +441,31 @@
         </form>
       </div>
     </div>
+   <!-- Mobile Modal Structure -->
+<div id="finalsModal" class="finals-modal">
+  <div class="finals-modal-content">
+    <span class="finals-close" onclick="closeModal()">&times;</span>
+    <p class="finals-modal-title">Our Team will Reach You</p>
+    <br />
+    <form id="mobile-contact-form">
+      <label for="finals-name" style="color: #BFA17C;">Your Name</label>
+      <input type="text" id="mobile-name" name="name" placeholder="Ex: John Dee" required>
 
+      <label for="finals-email" style="color: #BFA17C;">Your Email</label>
+      <input type="email" id="mobile-email" name="email" placeholder="Ex: johndee@gmail.com" required>
+
+      <label for="finals-phone" style="color: #BFA17C;">Phone</label>
+      <input type="tel" id="mobile-phone" name="phone" placeholder="Ex: +91" required>
+
+      <label for="message" style="color: #BFA17C;">Message</label>
+      <textarea id="mobile-message" name="message" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit" style="background-color: #BFA17C;color: white;padding: 12px;">Contact Us <span class="arrow">⟶</span></button>
+    </form>
+  </div>
+</div>
+
+    
     <!-- Include EmailJS library -->
 
     <!-- Initialize EmailJS -->
@@ -361,62 +475,84 @@
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
-      window.addEventListener('load', function () {
-        console.log('Attempting to load EmailJS...');
+window.addEventListener('load', function () {
+    console.log('Attempting to load EmailJS...');
 
-        if (typeof emailjs !== 'undefined') {
-          emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
-          console.log("EmailJS initialized successfully.");
-        } else {
-          console.error('EmailJS failed to load.');
-          alert('EmailJS failed to load. Please try again later.');
-        }
-      });
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
+        console.log("EmailJS initialized successfully.");
+    } else {
+        console.error('EmailJS failed to load.');
+        alert('EmailJS failed to load. Please try again later.');
+    }
 
-      // Handle form submission
-      document.getElementById('contact-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const message = document.getElementById('message').value;
+    // Attach form submission handlers for both desktop and mobile forms
+    attachFormHandlers();
+});
 
+function attachFormHandlers() {
+    // Desktop form submission handler
+    const desktopForm = document.getElementById('contact-form');
+    if (desktopForm) {
+        desktopForm.addEventListener('submit', handleSubmit);
+    }
 
-        console.log(this, "thisssssssssssssssss")
-        if (typeof emailjs !== 'undefined') {
-          emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', this)
+    // Mobile form submission handler
+    const mobileForm = document.getElementById('mobile-contact-form');
+    if (mobileForm) {
+        mobileForm.addEventListener('submit', handleSubmit);
+    }
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = this; // Reference the form that triggered the submission
+    const name = form.querySelector('input[name="name"]').value;
+    const email = form.querySelector('input[name="email"]').value;
+    const phone = form.querySelector('input[name="phone"]').value;
+    const message = form.querySelector('textarea[name="message"]').value;
+
+    if (typeof emailjs !== 'undefined') {
+        emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', form)
             .then(function (response) {
-              console.log('Message sent successfully!', response.status, response.text);
-              alert('Message sent successfully!');
-              document.getElementById('contact-form').reset();
-              document.getElementById("quoteModal").style.display = "none"; // Hide modal
+                console.log('Message sent successfully!', response.status, response.text);
+                alert('Message sent successfully!');
+                form.reset();
+                closeModal(); // Close the modal after submission
             }, function (error) {
-              console.error('Failed to send message:', error);
-              alert('Failed to send message. Please try again later.');
+                console.error('Failed to send message:', error);
+                alert('Failed to send message. Please try again later.');
             });
-        } else {
-          console.error('EmailJS is not loaded.');
-          alert('EmailJS failed to load. Please try again later.');
-        }
-      });
-    </script>
-    <script>
+    } else {
+        console.error('EmailJS is not loaded.');
+        alert('EmailJS failed to load. Please try again later.');
+    }
+}
 
 function openModal() {
-  document.getElementById("quoteModal").style.display = "block"; // Show modal
+    const isMobile = window.innerWidth <= 768; // Check if the screen width is less than or equal to 768px
+    if (isMobile) {
+        document.getElementById("finalsModal").style.display = "block"; // Show mobile modal
+    } else {
+        document.getElementById("quoteModal").style.display = "block"; // Show desktop modal
+    }
 }
 
-// Function to close the modal
 function closeModal() {
-  document.getElementById("quoteModal").style.display = "none"; // Hide modal
+    document.getElementById("quoteModal").style.display = "none"; // Close desktop modal
+    document.getElementById("finalsModal").style.display = "none"; // Close mobile modal
 }
-      // Close the modal when clicking outside of the modal content
-      window.onclick = function(event) {
-  const modal = document.getElementById("quoteModal");
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+
+// Close the modal when clicking outside of the modal content
+window.onclick = function(event) {
+    const modal = document.getElementById("quoteModal");
+    const mobileModal = document.getElementById("finalsModal");
+    if (event.target == modal || event.target == mobileModal) {
+        closeModal();
+    }
 }
+
 
 
       let menuList = document.getElementById("menuList")
@@ -448,7 +584,6 @@ function closeModal() {
       }
 
     </script>
-
 
 
 <section class="Bric_PROs">
@@ -494,6 +629,32 @@ function closeModal() {
         </div>
       
       </section>
+      <section class="sasi-alfa-project-section">
+        <div class="sasi-project-content">
+          <div class="sasi-left-content" style="margin-top: 15px;">
+            <p class="sasi-status" style="color: white;">Completed</p>
+            <h1 class="sasi-project-title" style="color: #CC7970;">Brickverse</h1>
+            <p class="sasi-handover-info" style="color: white;">
+              <i class="fa-regular fa-file-lines" style="margin-top: 2px;color: white;"></i> Year: June 2022
+            </p>
+          </div>
+      
+          <div class="sasi-right-content" style="margin-top: 15px;">
+            <div class="sasi-project-actions-box">
+              <div class="sasi-download">
+                <i class="fa-solid fa-file-arrow-down" style="color: #E9C9A0;"></i>
+                <span style="color: #E9C9A0;">Download Brochure</span>
+              </div>
+              <hr class="sasi-divider" />
+              <div class="sasi-location">
+                <i class="fa-solid fa-location-dot" style="color: #E9C9A0;"></i>
+                <span style="color: #E9C9A0;">Luxury Apartment at Selaiyur</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <div class="alfa-project-image" style="padding-bottom: 80px;">
         <img src="/brick12.png" alt="The ARC" style="margin-right: 30px;"/>
         <img src="/brick13.png" alt="The ARC" style="margin-right: 30px;"/>
@@ -573,6 +734,34 @@ function closeModal() {
   </div>
 </div>
 
+<div class="sas11-amenities-section">
+  <p style="padding-top: 0px;margin-bottom: 13px;display: flex; align-items: center; margin-left: 85px;margin-top: 12px;">
+    <img src="/contact-1-ic.svg" style="margin-right: 10px;" />
+    <span style="color:#C46D00;">AMENITIES</span>
+  </p>
+  <h1 class="sas11-main-heading">Enhanced living experience</h1>
+
+  <div class="sas11-amenities-content">
+    <!-- Left side amenities list -->
+    <div class="sas11-left-amenities">
+      <ul>
+        <li><img src="/arrow-right-circle.svg" class="sas11-list-icon" /> Natural lighting and ventilation</li>
+        <li><img src="/arrow-right-circle.svg" class="sas11-list-icon" /> Spacious living spaces</li>
+        <li><img src="/arrow-right-circle.svg" class="sas11-list-icon" /> 24/7 power backup</li>
+        <li><img src="/arrow-right-circle.svg" class="sas11-list-icon" /> High-tech security system</li>
+        <li><img src="/arrow-right-circle.svg" class="sas11-list-icon" /> CCTV surveillance</li>
+        <li><img src="/arrow-right-circle.svg" class="sas11-list-icon" /> Landscaped terrace</li>
+      </ul>
+    </div>
+
+    <!-- Right side images -->
+    <div class="sas11-right-images">
+      <img src="/brick20.png" alt="Image 1" class="sas11-amenity-img1" />
+      <img src="/brick21.png" alt="Image 2" class="sas11-amenity-img" />
+    </div>
+  </div>
+</div>
+
    
   
   <br/><br/><br/>
@@ -583,6 +772,19 @@ function closeModal() {
     <div class="contactsss-btn">
       <a href="/contact.html" class="contactsss-btn-nav">Contact Our Team ⟶</a>
     </div>
+  </div>
+
+  <div class="mobile-contact-section">
+    <div style="background-color: #816d58;padding: 20px;">
+      <div class="mobile-contact-text">
+        <p style="color: white;" >Contact us to learn more about our projects and find your dream property.</p>
+      </div>
+      <div class="mobile-contact-btn">
+        <a href="/contact.html" >Contact Our Team ⟶</a>
+      </div>
+      <br/><br/>
+    </div>
+   
   </div>
   
   

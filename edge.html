@@ -26,7 +26,9 @@
       margin: 0;
       padding: 0;
     }
-
+    .finals-modal {
+    display: none;
+  }
     header {
       background-color: #c09a6b;
       /* Background color */
@@ -207,6 +209,94 @@
         display: none;
         /* Hide desktop navbar */
       }
+      .modal {
+    display: none; /* Hide desktop modal on mobile */
+  }
+
+  .finals-modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.finals-modal-content {
+  background-color: white;
+  /* margin: 5% auto; */
+  width: 80%; /* Adjust width for mobile view */
+  max-width: 900px; /* Ensure it is not larger than desktop modal */
+  border-radius: 8px;
+  font-family: 'Manrope', sans-serif;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Matching shadow */
+  text-align: left; /* Align text similarly */
+}
+
+.finals-modal-content input,
+.finals-modal-content textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.finals-close {
+  position: absolute;
+  /* top: 10px; */
+  right: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+
+  .finals-close:hover,
+  .finals-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .finals-modal-title {
+    font-size: 1.5rem;
+    color: black;
+    margin-bottom: 15px;
+  }
+
+  #finals-contact-form input,
+  #finals-contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  #finals-contact-form textarea {
+    height: 100px;
+  }
+  .modal {
+    display: none;
+  }
+
+  .finals-btn-hero-main {
+    background-color: #BFA17C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .finals-btn-hero-main:hover {
+    background-color: #a58464;
+  }
 
       .only-mobile {
         display: flex;
@@ -349,7 +439,31 @@
         </form>
       </div>
     </div>
+   <!-- Mobile Modal Structure -->
+<div id="finalsModal" class="finals-modal">
+  <div class="finals-modal-content">
+    <span class="finals-close" onclick="closeModal()">&times;</span>
+    <p class="finals-modal-title">Our Team will Reach You</p>
+    <br />
+    <form id="mobile-contact-form">
+      <label for="finals-name" style="color: #BFA17C;">Your Name</label>
+      <input type="text" id="mobile-name" name="name" placeholder="Ex: John Dee" required>
 
+      <label for="finals-email" style="color: #BFA17C;">Your Email</label>
+      <input type="email" id="mobile-email" name="email" placeholder="Ex: johndee@gmail.com" required>
+
+      <label for="finals-phone" style="color: #BFA17C;">Phone</label>
+      <input type="tel" id="mobile-phone" name="phone" placeholder="Ex: +91" required>
+
+      <label for="message" style="color: #BFA17C;">Message</label>
+      <textarea id="mobile-message" name="message" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit" style="background-color: #BFA17C;color: white;padding: 12px;">Contact Us <span class="arrow">⟶</span></button>
+    </form>
+  </div>
+</div>
+
+    
     <!-- Include EmailJS library -->
 
     <!-- Initialize EmailJS -->
@@ -359,62 +473,84 @@
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
-      window.addEventListener('load', function () {
-        console.log('Attempting to load EmailJS...');
+window.addEventListener('load', function () {
+    console.log('Attempting to load EmailJS...');
 
-        if (typeof emailjs !== 'undefined') {
-          emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
-          console.log("EmailJS initialized successfully.");
-        } else {
-          console.error('EmailJS failed to load.');
-          alert('EmailJS failed to load. Please try again later.');
-        }
-      });
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
+        console.log("EmailJS initialized successfully.");
+    } else {
+        console.error('EmailJS failed to load.');
+        alert('EmailJS failed to load. Please try again later.');
+    }
 
-      // Handle form submission
-      document.getElementById('contact-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const message = document.getElementById('message').value;
+    // Attach form submission handlers for both desktop and mobile forms
+    attachFormHandlers();
+});
 
+function attachFormHandlers() {
+    // Desktop form submission handler
+    const desktopForm = document.getElementById('contact-form');
+    if (desktopForm) {
+        desktopForm.addEventListener('submit', handleSubmit);
+    }
 
-        console.log(this, "thisssssssssssssssss")
-        if (typeof emailjs !== 'undefined') {
-          emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', this)
+    // Mobile form submission handler
+    const mobileForm = document.getElementById('mobile-contact-form');
+    if (mobileForm) {
+        mobileForm.addEventListener('submit', handleSubmit);
+    }
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = this; // Reference the form that triggered the submission
+    const name = form.querySelector('input[name="name"]').value;
+    const email = form.querySelector('input[name="email"]').value;
+    const phone = form.querySelector('input[name="phone"]').value;
+    const message = form.querySelector('textarea[name="message"]').value;
+
+    if (typeof emailjs !== 'undefined') {
+        emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', form)
             .then(function (response) {
-              console.log('Message sent successfully!', response.status, response.text);
-              alert('Message sent successfully!');
-              document.getElementById('contact-form').reset();
-              document.getElementById("quoteModal").style.display = "none"; // Hide modal
+                console.log('Message sent successfully!', response.status, response.text);
+                alert('Message sent successfully!');
+                form.reset();
+                closeModal(); // Close the modal after submission
             }, function (error) {
-              console.error('Failed to send message:', error);
-              alert('Failed to send message. Please try again later.');
+                console.error('Failed to send message:', error);
+                alert('Failed to send message. Please try again later.');
             });
-        } else {
-          console.error('EmailJS is not loaded.');
-          alert('EmailJS failed to load. Please try again later.');
-        }
-      });
-    </script>
-    <script>
+    } else {
+        console.error('EmailJS is not loaded.');
+        alert('EmailJS failed to load. Please try again later.');
+    }
+}
 
 function openModal() {
-  document.getElementById("quoteModal").style.display = "block"; // Show modal
+    const isMobile = window.innerWidth <= 768; // Check if the screen width is less than or equal to 768px
+    if (isMobile) {
+        document.getElementById("finalsModal").style.display = "block"; // Show mobile modal
+    } else {
+        document.getElementById("quoteModal").style.display = "block"; // Show desktop modal
+    }
 }
 
-// Function to close the modal
 function closeModal() {
-  document.getElementById("quoteModal").style.display = "none"; // Hide modal
+    document.getElementById("quoteModal").style.display = "none"; // Close desktop modal
+    document.getElementById("finalsModal").style.display = "none"; // Close mobile modal
 }
-      // Close the modal when clicking outside of the modal content
-      window.onclick = function(event) {
-  const modal = document.getElementById("quoteModal");
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+
+// Close the modal when clicking outside of the modal content
+window.onclick = function(event) {
+    const modal = document.getElementById("quoteModal");
+    const mobileModal = document.getElementById("finalsModal");
+    if (event.target == modal || event.target == mobileModal) {
+        closeModal();
+    }
 }
+
 
 
       let menuList = document.getElementById("menuList")
@@ -492,6 +628,34 @@ function closeModal() {
         </div>
       
       </section>
+      <section class="start143-edge-project-section">
+        <div class="start143-project-content">
+          <div class="start143-left-content">
+            <p class="start143-status" style="margin-top: 12px;color: white;">COMPLETED</p>
+            <p class="start143-project-title" style="color: white;">Edge</p>
+            <p class="start143-handover-info" style="color: white;"><i class="fa-regular fa-file-lines"></i> 2023</p>
+          </div>
+      
+          <div class="start143-right-content">
+            <div class="start143-project-actions-box">
+              <div>
+                <img src="/edge_main_icon.png" alt="Edge Project Logo" />
+              </div>
+              <hr class="start143-divider" />
+              <div class="start143-download">
+                <i class="fa-solid fa-file-arrow-down" style="color: #E9C9A0;"></i>
+                <span style="color: #E9C9A0;">Download Brochure</span>
+              </div>
+              <hr class="start143-divider" />
+              <div class="start143-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Location: Guindy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <div class="edge-project-image">
         <img src="/edge_box.png" alt="The ARC" />
       </div>
@@ -527,7 +691,31 @@ function closeModal() {
     </div>
   </section>
   
-
+  <section class="stat-no-project-overview-section">
+    <div class="stat-no-overview-content" style="padding: 22px;">
+      <h3>The Edge Project Overview</h3>
+      <p style="margin-top: 8px;">
+        Discover a life that promises more than the usual with a home conceived for your limitless aspirations and needs. Here, spaces are designed to allow you to grow and rejuvenate, enabling you to conquer the world, time and again. All that you seek—safety, privacy, luxury, tranquility, and convenience—serves as the inspiration for what is unfolding in the well-connected neighborhood of Guindy. This is the beginning of a new chapter for you and your loved ones, with ample space for priceless memories yet to be created. It is a community of like-minded individuals who choose to stand out with their dreams rather than blend into a normal crowd.
+      </p>
+    </div>
+  
+    <div class="stat-no-overview-images">
+      <div class="stat-no-image-left">
+        <img src="/edge_img1.png" alt="The Edge Project Outdoor" />
+      </div>
+      <div class="stat-no-image-right">
+        <img src="/edge_img2.png" alt="The Edge Project Indoor" />
+      </div>
+    </div>
+  
+    <div class="stat-no-overview-content">
+      <h3>Guindy's gateway to connectivity and convenience</h3>
+      <p style="margin-top: 8px;">
+        EDGE is located in Guindy, one of the most prestigious and prominent neighborhoods in Chennai, often referred to as the Gateway to Chennai. Guindy is home to several residential projects and commercial properties, as well as many of the city's famous landmarks, including the Guindy National Park. The area boasts excellent infrastructure, with hospitals, retail outlets, SEZs and tech parks, and schools all within close proximity. Additionally, Guindy is well-connected to major roads such as Anna Salai Road, Sardar Patel Road, and Alandur Road. For transportation, Guindy Railway Station, Chennai International Airport, Guindy Metro Station, and Little Mount Metro Station are just minutes away from the locality.
+      </p>
+    </div>
+  </section>
+  
 
 
   <!-- last sec -->
@@ -578,33 +766,28 @@ function closeModal() {
     <!-- Text content on the right -->
    
   </div>
-  <div style="margin-left: 163px;margin-bottom: 130px;">
-    <h1>Discover your sanctuary at EDGE</h1><br/>
-    <p style="padding: 0px 190px 0px 5px;">Located in Chennai's highly desirable residential neighborhood, the project spans across a land parcel of 4,315 sq ft and seamlessly blends private and social spaces. The central area of the facade and a series of social pockets are designed to foster community interaction, while each individual home is equipped with luxury, comfort, and unmatched privacy.</p>
+
   
+    
+    
+  <div class="new-mobile-mobile">
+    <div style="padding: 23px;">
+      <h1>Tailored spaces: from cozy to luxurious</h1><br/>
+      <p>The project features 19 units, offering a variety of configurations to suit different needs, including 2 BHK, 2.5 BHK, 3 BHK, and 4 BHK options. Covering a total area of 10,569 sq.ft, each unit is designed to maximize space and comfort. Whether you need a cozy home or a larger, more luxurious space, this project provides a range of choices to fit your lifestyle.</p>
+    </div>
   </div>
-  <div class="contactsss-section">
-    <div class="contactsss-text">
-      <p>Contact us to learn more about <br/>our projects and find your dream property.</p>
+
+
+  <div class="mobile-contact-section">
+    <div style="background-color: #816d58;padding: 20px;">
+      <div class="mobile-contact-text">
+        <p style="color: white;" >Contact us to learn more about our projects and find your dream property.</p>
+      </div>
+      <div class="mobile-contact-btn">
+        <a href="/contact.html" >Contact Our Team ⟶</a>
+      </div>
+      <br/><br/>
     </div>
-    <div class="contactsss-btn">
-      <a href="/contact.html" class="contactsss-btn-nav">Contact Our Team ⟶</a>
-    </div>
-  </div>  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <footer>
     <div class="footer-content">

@@ -26,7 +26,9 @@
       margin: 0;
       padding: 0;
     }
-
+    .finals-modal {
+    display: none;
+  }
     header {
       background-color: #c09a6b;
       /* Background color */
@@ -207,6 +209,94 @@
         display: none;
         /* Hide desktop navbar */
       }
+      .modal {
+    display: none; /* Hide desktop modal on mobile */
+  }
+
+  .finals-modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.finals-modal-content {
+  background-color: white;
+  /* margin: 5% auto; */
+  width: 80%; /* Adjust width for mobile view */
+  max-width: 900px; /* Ensure it is not larger than desktop modal */
+  border-radius: 8px;
+  font-family: 'Manrope', sans-serif;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Matching shadow */
+  text-align: left; /* Align text similarly */
+}
+
+.finals-modal-content input,
+.finals-modal-content textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.finals-close {
+  position: absolute;
+  /* top: 10px; */
+  right: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+
+  .finals-close:hover,
+  .finals-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .finals-modal-title {
+    font-size: 1.5rem;
+    color: black;
+    margin-bottom: 15px;
+  }
+
+  #finals-contact-form input,
+  #finals-contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  #finals-contact-form textarea {
+    height: 100px;
+  }
+  .modal {
+    display: none;
+  }
+
+  .finals-btn-hero-main {
+    background-color: #BFA17C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .finals-btn-hero-main:hover {
+    background-color: #a58464;
+  }
 
       .only-mobile {
         display: flex;
@@ -349,7 +439,31 @@
         </form>
       </div>
     </div>
+   <!-- Mobile Modal Structure -->
+<div id="finalsModal" class="finals-modal">
+  <div class="finals-modal-content">
+    <span class="finals-close" onclick="closeModal()">&times;</span>
+    <p class="finals-modal-title">Our Team will Reach You</p>
+    <br />
+    <form id="mobile-contact-form">
+      <label for="finals-name" style="color: #BFA17C;">Your Name</label>
+      <input type="text" id="mobile-name" name="name" placeholder="Ex: John Dee" required>
 
+      <label for="finals-email" style="color: #BFA17C;">Your Email</label>
+      <input type="email" id="mobile-email" name="email" placeholder="Ex: johndee@gmail.com" required>
+
+      <label for="finals-phone" style="color: #BFA17C;">Phone</label>
+      <input type="tel" id="mobile-phone" name="phone" placeholder="Ex: +91" required>
+
+      <label for="message" style="color: #BFA17C;">Message</label>
+      <textarea id="mobile-message" name="message" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit" style="background-color: #BFA17C;color: white;padding: 12px;">Contact Us <span class="arrow">⟶</span></button>
+    </form>
+  </div>
+</div>
+
+    
     <!-- Include EmailJS library -->
 
     <!-- Initialize EmailJS -->
@@ -359,62 +473,84 @@
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
-      window.addEventListener('load', function () {
-        console.log('Attempting to load EmailJS...');
+window.addEventListener('load', function () {
+    console.log('Attempting to load EmailJS...');
 
-        if (typeof emailjs !== 'undefined') {
-          emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
-          console.log("EmailJS initialized successfully.");
-        } else {
-          console.error('EmailJS failed to load.');
-          alert('EmailJS failed to load. Please try again later.');
-        }
-      });
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
+        console.log("EmailJS initialized successfully.");
+    } else {
+        console.error('EmailJS failed to load.');
+        alert('EmailJS failed to load. Please try again later.');
+    }
 
-      // Handle form submission
-      document.getElementById('contact-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const message = document.getElementById('message').value;
+    // Attach form submission handlers for both desktop and mobile forms
+    attachFormHandlers();
+});
 
+function attachFormHandlers() {
+    // Desktop form submission handler
+    const desktopForm = document.getElementById('contact-form');
+    if (desktopForm) {
+        desktopForm.addEventListener('submit', handleSubmit);
+    }
 
-        console.log(this, "thisssssssssssssssss")
-        if (typeof emailjs !== 'undefined') {
-          emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', this)
+    // Mobile form submission handler
+    const mobileForm = document.getElementById('mobile-contact-form');
+    if (mobileForm) {
+        mobileForm.addEventListener('submit', handleSubmit);
+    }
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = this; // Reference the form that triggered the submission
+    const name = form.querySelector('input[name="name"]').value;
+    const email = form.querySelector('input[name="email"]').value;
+    const phone = form.querySelector('input[name="phone"]').value;
+    const message = form.querySelector('textarea[name="message"]').value;
+
+    if (typeof emailjs !== 'undefined') {
+        emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', form)
             .then(function (response) {
-              console.log('Message sent successfully!', response.status, response.text);
-              alert('Message sent successfully!');
-              document.getElementById('contact-form').reset();
-              document.getElementById("quoteModal").style.display = "none"; // Hide modal
+                console.log('Message sent successfully!', response.status, response.text);
+                alert('Message sent successfully!');
+                form.reset();
+                closeModal(); // Close the modal after submission
             }, function (error) {
-              console.error('Failed to send message:', error);
-              alert('Failed to send message. Please try again later.');
+                console.error('Failed to send message:', error);
+                alert('Failed to send message. Please try again later.');
             });
-        } else {
-          console.error('EmailJS is not loaded.');
-          alert('EmailJS failed to load. Please try again later.');
-        }
-      });
-    </script>
-    <script>
+    } else {
+        console.error('EmailJS is not loaded.');
+        alert('EmailJS failed to load. Please try again later.');
+    }
+}
 
 function openModal() {
-  document.getElementById("quoteModal").style.display = "block"; // Show modal
+    const isMobile = window.innerWidth <= 768; // Check if the screen width is less than or equal to 768px
+    if (isMobile) {
+        document.getElementById("finalsModal").style.display = "block"; // Show mobile modal
+    } else {
+        document.getElementById("quoteModal").style.display = "block"; // Show desktop modal
+    }
 }
 
-// Function to close the modal
 function closeModal() {
-  document.getElementById("quoteModal").style.display = "none"; // Hide modal
+    document.getElementById("quoteModal").style.display = "none"; // Close desktop modal
+    document.getElementById("finalsModal").style.display = "none"; // Close mobile modal
 }
-      // Close the modal when clicking outside of the modal content
-      window.onclick = function(event) {
-  const modal = document.getElementById("quoteModal");
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+
+// Close the modal when clicking outside of the modal content
+window.onclick = function(event) {
+    const modal = document.getElementById("quoteModal");
+    const mobileModal = document.getElementById("finalsModal");
+    if (event.target == modal || event.target == mobileModal) {
+        closeModal();
+    }
 }
+
 
 
       let menuList = document.getElementById("menuList")
@@ -447,6 +583,7 @@ function closeModal() {
 
     </script>
 
+
   <!-- Contact Form Section -->
   <section class="contact">
     <div class="overlay-contact">
@@ -457,10 +594,11 @@ function closeModal() {
     </div>
   </section>
   <br/><br/>
-  <p style="padding-top: 13px;margin-left: 180px;display: flex; align-items: center;">
-    <img src="/contact-1-ic.svg"  style="margin-right: 10px;"/> <span style="color: #925407">CONTACT US</span> 
-  </p>
+  
   <section class="new-contact-section">
+    <p style="padding-top: 13px;margin-left: 180px;display: flex; align-items: center;">
+      <img src="/contact-1-ic.svg"  style="margin-right: 10px;"/> <span style="color: #925407">CONTACT US</span> 
+    </p>
     <div class="new-contact-container">
       <!-- Left Section with Contact Info -->
        
@@ -503,7 +641,7 @@ function closeModal() {
         </div>
   
         <div class="new-contact-map">
-          <img src="/map.png" alt="Map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15547.729440710851!2d80.2365946!3d13.0399774!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267bb32dc7725%3A0x2ff0966daa81aba5!2sEK%20Infra!5e0!3m2!1sen!2sin!4v1727753581189!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
   
@@ -526,14 +664,78 @@ function closeModal() {
             <label for="message" style="color:#BFA17C;">Message</label>
             <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn-hero-main" style="height: 53px;border-radius:0px;">Send Message <span class="arrow">⟶</span></button>
+          <a href="/alpha_signature.html" class="mobile-btn-hero-main" style="margin-left: 23px;margin-top: 112px;" >Send Message <span class="arrow">⟶</span></a><br/><br/>
         </form>
       </div>
     </div>
   </section>
   
   
+  <section class="mobile-contact-section">
+    <p style="padding-top: 13px;margin-left: 100px;display: flex; align-items: center;">
+      <img src="/contact-1-ic.svg"  style="margin-right: 10px;"/> <span style="color: #925407">CONTACT US</span> 
+    </p>
+    <div class="mobile-contact-container">
+      <!-- Left Section with Contact Info -->
+      <div class="mobile-contact-left">
+        <p style="font-size: 2.5rem;color: black;">Get In Touch</p><br/>
+        <p style="color: black;font-size: 1rem;">Contact us to learn more about our projects and find your dream property.</p><br/>
+        <div class="mobile-contact-info">
+          <div class="mobile-contact-info-item">
+            <img src="/mail.svg"/>
+            <div>
+              <p style="margin-left: 10px;color: black;"><span style="font-size: 1rem;">sales@ekhomes.in</span></p>
+            </div>
+          </div>
+          <div class="mobile-contact-info-item">
+            <img src="/contact-2-ic.svg"/>
+            <div style="margin-left: 10px">
+              <strong>Registered Address:</strong>
+              <p>First Floor, Flat No M3 F2, RS Elegance Phase 2, JK Avenue Road, Ravi 1st Street, Medavakkam, Chennai, Chengalpattu, Tamil Nadu - 600 100</p>
+            </div>
+          </div>
+          <div class="mobile-contact-info-item">
+            <img src="/contact-2-ic.svg"/>
+            <div style="margin-left: 10px">
+              <strong>Office Address:</strong>
+              <p>21, Raja Badar St, Pondy Bazaar, T. Nagar, Chennai, Tamil Nadu 600017</p>
+            </div>
+          </div>
+          <div class="mobile-contact-info-item">
+            <img src="/contact_3_ic.svg"/>
+            <div style="margin-left: 10px">
+              <strong>Phone:</strong>
+              <p>+91 9360 006 000</p>
+            </div>
+          </div>
+        </div>
+      </div>
   
+      <!-- Right Section with Form -->
+      <div class="mobile-contact-right">
+        <form id="mobile-contact-form">
+          <div class="form-group">
+            <label for="name" style="color:#BFA17C;">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Ex: John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="email" style="color:#BFA17C;">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Ex: johndoe@gmail.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone" style="color:#BFA17C;">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Ex: +91" required>
+          </div>
+          <div class="form-group">
+            <label for="message" style="color:#BFA17C;">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
+          </div>
+          <br/>
+          <a href="/alpha_signature.html" class="mobile-btn-hero-main" style="margin-left: 23px;margin-top: 112px;" >Send Message <span class="arrow">⟶</span></a><br/><br/>
+        </form>
+      </div>
+    </div>
+  </section>
 
   <!-- Include jsPDF library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

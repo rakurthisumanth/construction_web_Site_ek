@@ -26,7 +26,9 @@
       margin: 0;
       padding: 0;
     }
-
+    .finals-modal {
+    display: none;
+  }
     header {
       background-color: #c09a6b;
       /* Background color */
@@ -207,6 +209,94 @@
         display: none;
         /* Hide desktop navbar */
       }
+      .modal {
+    display: none; /* Hide desktop modal on mobile */
+  }
+
+  .finals-modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.finals-modal-content {
+  background-color: white;
+  /* margin: 5% auto; */
+  width: 80%; /* Adjust width for mobile view */
+  max-width: 900px; /* Ensure it is not larger than desktop modal */
+  border-radius: 8px;
+  font-family: 'Manrope', sans-serif;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Matching shadow */
+  text-align: left; /* Align text similarly */
+}
+
+.finals-modal-content input,
+.finals-modal-content textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.finals-close {
+  position: absolute;
+  /* top: 10px; */
+  right: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+
+  .finals-close:hover,
+  .finals-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .finals-modal-title {
+    font-size: 1.5rem;
+    color: black;
+    margin-bottom: 15px;
+  }
+
+  #finals-contact-form input,
+  #finals-contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  #finals-contact-form textarea {
+    height: 100px;
+  }
+  .modal {
+    display: none;
+  }
+
+  .finals-btn-hero-main {
+    background-color: #BFA17C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .finals-btn-hero-main:hover {
+    background-color: #a58464;
+  }
 
       .only-mobile {
         display: flex;
@@ -345,11 +435,35 @@
           <label for="message" style="color: #BFA17C;">Message</label>
           <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
     
-          <button type="submit" class="btn-hero-main" style="background-color: #BFA17C;color: white;">Download Brochure <span class="arrow">⟶</span></button>
+          <button type="submit" class="btn-hero-main" style="background-color: #BFA17C;color: white;">Contact Us <span class="arrow">⟶</span></button>
         </form>
       </div>
     </div>
+   <!-- Mobile Modal Structure -->
+<div id="finalsModal" class="finals-modal">
+  <div class="finals-modal-content">
+    <span class="finals-close" onclick="closeModal()">&times;</span>
+    <p class="finals-modal-title">Our Team will Reach You</p>
+    <br />
+    <form id="mobile-contact-form">
+      <label for="finals-name" style="color: #BFA17C;">Your Name</label>
+      <input type="text" id="mobile-name" name="name" placeholder="Ex: John Dee" required>
 
+      <label for="finals-email" style="color: #BFA17C;">Your Email</label>
+      <input type="email" id="mobile-email" name="email" placeholder="Ex: johndee@gmail.com" required>
+
+      <label for="finals-phone" style="color: #BFA17C;">Phone</label>
+      <input type="tel" id="mobile-phone" name="phone" placeholder="Ex: +91" required>
+
+      <label for="message" style="color: #BFA17C;">Message</label>
+      <textarea id="mobile-message" name="message" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit" style="background-color: #BFA17C;color: white;padding: 12px;">Contact Us <span class="arrow">⟶</span></button>
+    </form>
+  </div>
+</div>
+
+    
     <!-- Include EmailJS library -->
 
     <!-- Initialize EmailJS -->
@@ -359,65 +473,84 @@
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
-      window.addEventListener('load', function () {
-        console.log('Attempting to load EmailJS...');
+window.addEventListener('load', function () {
+    console.log('Attempting to load EmailJS...');
 
-        if (typeof emailjs !== 'undefined') {
-          emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
-          console.log("EmailJS initialized successfully.");
-        } else {
-          console.error('EmailJS failed to load.');
-          alert('EmailJS failed to load. Please try again later.');
-        }
-      });
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
+        console.log("EmailJS initialized successfully.");
+    } else {
+        console.error('EmailJS failed to load.');
+        alert('EmailJS failed to load. Please try again later.');
+    }
 
-      // Handle form submission
-      document.getElementById('contact-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const message = document.getElementById('message').value;
+    // Attach form submission handlers for both desktop and mobile forms
+    attachFormHandlers();
+});
 
+function attachFormHandlers() {
+    // Desktop form submission handler
+    const desktopForm = document.getElementById('contact-form');
+    if (desktopForm) {
+        desktopForm.addEventListener('submit', handleSubmit);
+    }
 
-        if (typeof emailjs !== 'undefined') {
-          emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', this)
+    // Mobile form submission handler
+    const mobileForm = document.getElementById('mobile-contact-form');
+    if (mobileForm) {
+        mobileForm.addEventListener('submit', handleSubmit);
+    }
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = this; // Reference the form that triggered the submission
+    const name = form.querySelector('input[name="name"]').value;
+    const email = form.querySelector('input[name="email"]').value;
+    const phone = form.querySelector('input[name="phone"]').value;
+    const message = form.querySelector('textarea[name="message"]').value;
+
+    if (typeof emailjs !== 'undefined') {
+        emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', form)
             .then(function (response) {
-              console.log('Message sent successfully!', response.status, response.text);
-              const link = document.createElement('a');
-            link.href = '/arc.pdf'; // Path to the brochure PDF
-            link.download = 'arc.pdf';
-            link.click();
-              alert('Message sent successfully!');
-              document.getElementById('contact-form').reset();
-              document.getElementById("quoteModal").style.display = "none"; // Hide modal
+                console.log('Message sent successfully!', response.status, response.text);
+                alert('Message sent successfully!');
+                form.reset();
+                closeModal(); // Close the modal after submission
             }, function (error) {
-              console.error('Failed to send message:', error);
-              alert('Failed to send message. Please try again later.');
+                console.error('Failed to send message:', error);
+                alert('Failed to send message. Please try again later.');
             });
-        } else {
-          console.error('EmailJS is not loaded.');
-          alert('EmailJS failed to load. Please try again later.');
-        }
-      });
-    </script>
-    <script>
+    } else {
+        console.error('EmailJS is not loaded.');
+        alert('EmailJS failed to load. Please try again later.');
+    }
+}
 
 function openModal() {
-  document.getElementById("quoteModal").style.display = "block"; // Show modal
+    const isMobile = window.innerWidth <= 768; // Check if the screen width is less than or equal to 768px
+    if (isMobile) {
+        document.getElementById("finalsModal").style.display = "block"; // Show mobile modal
+    } else {
+        document.getElementById("quoteModal").style.display = "block"; // Show desktop modal
+    }
 }
 
-// Function to close the modal
 function closeModal() {
-  document.getElementById("quoteModal").style.display = "none"; // Hide modal
+    document.getElementById("quoteModal").style.display = "none"; // Close desktop modal
+    document.getElementById("finalsModal").style.display = "none"; // Close mobile modal
 }
-      // Close the modal when clicking outside of the modal content
-      window.onclick = function(event) {
-  const modal = document.getElementById("quoteModal");
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+
+// Close the modal when clicking outside of the modal content
+window.onclick = function(event) {
+    const modal = document.getElementById("quoteModal");
+    const mobileModal = document.getElementById("finalsModal");
+    if (event.target == modal || event.target == mobileModal) {
+        closeModal();
+    }
 }
+
 
 
       let menuList = document.getElementById("menuList")
@@ -452,7 +585,6 @@ function closeModal() {
 
 
 
-
 <section class="ARC_PRO">
     <div class="overlay">
       <div class="ARC_PRO-content">
@@ -463,6 +595,8 @@ function closeModal() {
     </div>
   </section>
 
+
+  
 <!-- add code -->
  <div>
     <section class="project-section">
@@ -496,6 +630,37 @@ function closeModal() {
         </div>
       
       </section>
+      <section class="last1-project-section-mobile">
+        <div class="last1-project-content-mobile">
+          <div class="last1-left-content-mobile">
+            <p class="last1-status-mobile"> ONGOING</p>
+            <h1 class="last1-project-title-mobile">The ARC</h1>
+            <p class="last1-handover-info-mobile"><i class="fa-regular fa-file-lines"></i> 2025 handover</p>
+          </div>
+      
+          <div class="last1-right-content-mobile">
+            <div class="last1-project-actions-box-mobile">
+              <div>
+                <img src="/thearc.svg" alt="The ARC Logo" /> <!-- Assuming you have a logo here -->
+              </div>
+              <hr class="last1-divider-mobile" />
+              <div class="last1-download-mobile">
+                <a href="#" class="no-style-link" onclick="openModal()">
+                  <i class="fa-solid fa-file-arrow-down" style="color: #E9C9A0;"></i>
+                  <span style="color: #E9C9A0;">Download Brochure</span>
+                </a>
+              </div>
+              <hr class="last1-divider-mobile" />
+              <div class="last1-location-mobile">
+                <i class="fa-solid fa-location-dot" style="color: #E9C9A0;"></i>
+                <span style="color: #E9C9A0;">Location: Anna Nagar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+      
       <div class="project-image">
         <img src="/arc_vedio_img.png" alt="The ARC" />
       </div>
@@ -532,7 +697,31 @@ function closeModal() {
   </section>
   
 
-
+  <section class="last2-project-overview-section">
+    <div class="last2-overview-content">
+      <h3 style="margin-bottom: 12px;">The Arc Project Overview</h3>
+      <p>
+        Driven by core values of innovative thinking, providing top-notch quality services, and making a difference, EK has continually evolved as a brand. EK Infrastructure aims to contribute to building a better society through the creation of positive infrastructure and relationships. Built upon a legacy of success, EK introduces its first luxury venture, The ARC, where lush scenery and luxury blend harmoniously to give our clients an exemplary experience. Arc isn't just another upscale apartment, it's a testament to your journey, where local roots meet global grandeur.
+      </p>
+    </div>
+  
+    <div class="last2-overview-images">
+      <div class="last2-image-left">
+        <img src="/arc_sec_im1.png" alt="The ARC Project Outdoor" />
+      </div>
+      <div class="last2-image-right">
+        <img src="/arc_sec_im2.png" alt="The ARC Project Indoor" />
+      </div>
+    </div>
+  
+    <div class="last2-overview-content">
+      <h3 style="margin-bottom: 12px;"><strong>Heart of Chennai, soul of luxury; Redefining premium living in Anna Nagar</strong></h3>
+      <p>
+        Located in the heart of Chennai, The ARC brings an iconic charm and a vibrant pulsating experience, redefining the landscape of luxury living in Anna Nagar. Paying homage to the famed arch, The ARC presents an enticing blend of local history and cosmopolitan elegance. The property stands as a unique gem with easy access to multiple shopping centres and entertainment hubs, making it family-friendly and safe.
+      </p>
+    </div>
+  </section>
+  
 
   <!-- last sec -->
   
@@ -589,13 +778,75 @@ function closeModal() {
     <!-- Text content on the right -->
    
   </div>
+
+  <div class="last3-edge-about-section">
+
+    <div class="last3-arc-inv-content-sec-column">
+      <p style="padding-top: 0px;margin-bottom: 13px;display: flex; align-items: center;"></p>
+        <img src="/contact-1-ic.svg" style="margin-right: 10px;" /><span style="color:#C46D00;">AMENITIES</span> 
+      </p>
+      <br />
+      <p style="font-size: 2rem;margin-bottom: 15px;">Where every detail elevates your living experience.</p>
+  
+      <div class="last3-new-change-about-gap">
+        <button class="last3-edge-new-change-about-btn last3-new-change-active">
+            <i class="fa fa-check"></i> Reticulated Gas Pipeline
+        </button>
+        <button class="last3-edge-new-change-about-btn">
+            <i class="fa fa-check"></i> World-Class Gymnasium
+        </button>
+        <button class="last3-edge-new-change-about-btn">
+            <i class="fa fa-check"></i> Full Home Automation System
+        </button>
+        <button class="last3-edge-new-change-about-btn">
+            <i class="fa fa-check"></i> Yoga Centre
+        </button>
+        <button class="last3-edge-new-change-about-btn">
+            <i class="fa fa-check"></i> Proper Ventilation
+        </button>
+        <button class="last3-edge-new-change-about-btn">
+            <i class="fa fa-check"></i> EV Parking
+        </button>
+        <button class="last3-edge-new-change-about-btn">
+          <i class="fa fa-check"></i> Indoor Games
+        </button>
+        <button class="last3-edge-new-change-about-btn">
+          <i class="fa fa-check"></i> Terrace Garden
+        </button>
+        <button class="last3-edge-new-change-about-btn">
+          <i class="fa fa-check"></i> Party Hall
+        </button>
+        <button class="last3-edge-new-change-about-btn">
+          <i class="fa fa-check"></i> Elevator Service
+        </button>
+      </div>
+    </div>
+  
+    <!-- Image Column for mobile -->
+    <div class="last3-image-column">
+      <img src="/arc-home_final.png" alt="Construction Site" class="last3-arc-inv-sec-top-image">
+    </div>
+  
+  </div>
+  
+
+
+<div class="new-desk">
   <div style="padding-left: 157px;padding-right: 187px;">
     <h1>The ARC's luxurious 3 and 4 BHK apartments</h1><br/>
     <p>Delve into our luxurious 11-unit residence where sophistication and eco-consciousness seamlessly blends to make a unique living experience for you.<br/>Our 3 and 4 BHK apartments are meticulously crafted for you to design it the way you envision your home to be.</p>
   <br/><br/>
   </div>
+</div>
   
   
+<div class="new-mobile-mobile">
+  <div style="padding: 12px;">
+    <h1>The ARC's luxurious 3 and 4 BHK apartments</h1><br/>
+    <p>Delve into our luxurious 11-unit residence where sophistication and eco-consciousness seamlessly blends to make a unique living experience for you.<br/>Our 3 and 4 BHK apartments are meticulously crafted for you to design it the way you envision your home to be.</p>
+  <br/><br/>
+  </div>
+</div>
 
 
 
@@ -613,7 +864,18 @@ function closeModal() {
 
 
 
-
+  <div class="mobile-contact-section">
+    <div style="background-color: #816d58;padding: 20px;">
+      <div class="mobile-contact-text">
+        <p style="color: white;" >Contact us to learn more about our projects and find your dream property.</p>
+      </div>
+      <div class="mobile-contact-btn">
+        <a href="/contact.html" >Contact Our Team ⟶</a>
+      </div>
+      <br/><br/>
+    </div>
+   
+  </div>
 
 
 

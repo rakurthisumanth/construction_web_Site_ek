@@ -441,6 +441,12 @@ header {
   transition: background-color 0.3s, transform 0.3s;
   color: black;
 }
+.mobile-btn-hero-main{
+  background-color: #c09a6b;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
 .arrow {
   margin-left: 10px; /* Adjust the space as needed */
 }
@@ -896,6 +902,10 @@ header {
   gap: 50px;
 }
 
+.projects-mobile-completed{
+display: none;
+}
+
 .contact-left, .contact-right {
   width: 50%;
 }
@@ -1062,7 +1072,7 @@ footer {
   height: 0.11px; /* Line height */
   background-color: rgb(77, 74, 74); /* Color of the line */
   margin-top: 20px; /* Adjust spacing as needed */
-  margin-bottom: 100px; /* Space below the line */
+  margin-bottom: 50px; /* Space below the line */
 }
 
 
@@ -1163,7 +1173,6 @@ footer {
   width: 100%;
   height: auto;
   margin-top: 20px;
-  border-radius: 8px;
 }
 
 /* Right Section Styles (Form) */
@@ -1184,7 +1193,9 @@ footer {
   display: flex;
   flex-direction: column;
 }
-
+.start13-amenities-section{
+  display: none;
+}
 .form-group-drop label{
   font-size: 1rem;
   margin-bottom: 8px;
@@ -1232,6 +1243,11 @@ footer {
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+}
+
+
+.mobile-projects{
+  display: none;
 }
 
 .new-contact-right button:hover {
@@ -1291,10 +1307,21 @@ footer {
 .hidden {
   display: none;
 }
-
+.start143-edge-project-section{
+  display: none;
+}
+.mobile-why-choose-us{
+  display: none;
+}
+.uui-avenu-sig-project-section{
+  display: none;
+}
 
 #contact-form button:hover {
   background-color: #1b4e99;
+}
+.last1-project-section-mobile{
+  display: none;
 }
 
 /* arc project individually */
@@ -1356,7 +1383,12 @@ footer {
   max-width: 1440px;
   margin-left: 150px;
 }
-
+.last11-project-overview-section{
+  display: none;
+}
+.last12-aster-alfa-project-section{
+  display: none;
+}
 .pro-sig-project-content {
   display: flex;
   align-items: flex-start;
@@ -1404,6 +1436,13 @@ footer {
   background-color: #a0452e; /* Background color of the section */
 
 }
+.stat-no-project-overview-section{
+  display: none;
+}
+
+.mobile-about-section{
+  display: none;
+}
 .alfa-project-image{
   justify-content: center;
   background-color: #1D3051; /* Background color of the section */
@@ -1424,6 +1463,9 @@ gap: 52;
   margin-left: 32px;
 }
 
+.sasi-alfa-project-section{
+  display: none;
+}
 .alfa-sig-project-image{
   justify-content: center;
   background-color:#929056; /* Background color of the section */
@@ -1444,7 +1486,13 @@ text-align: center;
   margin-left: 32px;
 
 }
+.su-project-overview-section{
+  display: none;
+}
 
+.last24-project-overview-section{
+  display: none;
+}
 .alfa-sig-project-image img{
   margin-left: 32px;
 }
@@ -1452,6 +1500,9 @@ text-align: center;
   justify-content: center;
   background-color: #A6524F; /* Background color of the section */
 
+}
+.contact-mobile-final{
+  display:none ;
 }
 
 .project-image img {
@@ -1468,12 +1519,22 @@ padding-bottom: 90px;
   height: auto;
 padding-bottom: 90px;
 }
+.new-mobile-mobile{
+  display: none;
+}
+.last6-alfa-project-section{
+  display: none;
+}
 .right-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 20px;
   padding: 47px; /* Spacing from the left section */
+}
+
+.last7-amenities-section{
+  display: none;
 }
 .sig-pro-right-content{
   display: flex;
@@ -1583,6 +1644,9 @@ padding-bottom: 90px;
   max-width: 80%; /* Ensure the logo is centered and responsive */
 
 }
+.last3-edge-about-section{
+  display: none;
+}
 
 .arc-logo img {
   max-width: 80%; /* Ensure the logo is centered and responsive */
@@ -1616,7 +1680,9 @@ padding-bottom: 90px;
   color: #2e3b59;
   margin-top: 40px;
 }
-
+.new-desk{
+  display: contents;
+}
 .overview-images {
   display: flex;
   justify-content: space-between;
@@ -1633,7 +1699,9 @@ padding-bottom: 90px;
   height: auto;
 }
 
-
+.mobile-contact-section{
+  display: none;
+}
 
 /* alphs page  */
 
@@ -1649,6 +1717,9 @@ padding-bottom: 90px;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 10px;
+}
+.finals-modal{
+  display: none;
 }
 
 .main-heading {
@@ -1672,12 +1743,20 @@ padding-bottom: 90px;
   padding: 0;
 }
 
+.sas11-amenities-section{
+  display: none;
+}
+
 .left-amenities li {
   font-size: 18px;
   color: #333;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+}
+
+.last10-alfa-sig-project-section{
+  display: none;
 }
 .Real-home{
   color: white; display: flex; align-items: center;margin-right: 123px;
@@ -1733,6 +1812,10 @@ padding-bottom: 90px;
   display: none;
 }
 
+.finals-modal{
+  display: none;
+}
+
 .contactsss-section {
   display: flex;
   justify-content: space-between; /* Space between text and button */
@@ -1776,7 +1859,9 @@ padding-bottom: 90px;
 .mobile-hero{
   display: none;
 }
-
+.start12-project-overview-section{
+  display: none;
+}
 .hero-both{
   display: flex;
 }
@@ -1799,6 +1884,9 @@ padding: 89px 152px 89px 150px;
 gap: 0px;
 opacity: 0px;
 
+}
+.projects-mobile{
+  display: none;
 }
 .contactsss-text h2{
   font-size: 24px;
@@ -1838,6 +1926,14 @@ opacity: 0px;
   display: block;
 }
 
+.mobile-contact-section{
+  display: none;
+}
+
+.last2-project-overview-section{
+  display: none;
+  padding: 53px;
+}
 .new-change-end-black-overlay {
   position: absolute;
   top: 0;
@@ -1905,6 +2001,15 @@ html, body {
   .overlay-mobile{
     display: contents;
   }
+
+
+
+  /* .main-about-section {
+    margin: auto;
+    padding: 0px;
+    display: block;
+    
+  } */
   .Real_img_home{
   }
   .contactsss-section {
@@ -1914,6 +2019,9 @@ html, body {
     height: auto;
   }
 
+  .mobile-about-section{
+    display: contents;
+  }
   .contactsss-text h2 {
     font-size: 18px;
     margin-bottom: 40px;
@@ -1939,6 +2047,902 @@ html, body {
   }
   .all-projects-desk{
   }
+  .mobile-why-choose-us{
+    display: contents;
+    padding: 0px;
+  }
+  .projects{
+    display: none;
+  }
+
+  .mobile-projects{
+    display: contents;
+    
+  }
+  
+.mobile-new-change-about-btn.mobile-new-change-active{
+  background-color: #3a53b1;
+ 
+ }
+ .mobile-contact-section{
+  display: contents;
+ }
+ .mobile-contact-section {
+  display: none;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+.contact-mobile-final{
+  display: contents;
+}
+
+.mobile-contact-container {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+}
+
+.mobile-contact-left {
+  margin-bottom: 20px;
+}
+
+.mobile-contact-info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.edge-about-section{
+  display: none;
+}
+
+
+.last3-edge-about-section {
+  display: block;
+  padding: 20px;
+}
+
+.last3-arc-inv-content-sec-column {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.last3-arc-inv-content-sec-column p {
+  font-size: 14px;
+  color: #666;
+}
+.new-desk{
+  display: none;
+}
+.last3-new-change-about-gap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding: 22px;
+}
+
+.last3-edge-new-change-about-btn {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  background-color: #494035;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.last3-new-change-active {
+  background-color: #7A6A56;
+}
+
+.last3-edge-new-change-about-btn i {
+  margin-right: 10px;
+}
+.last6-alfa-project-section{
+  display: block;
+}
+.alfa-project-section{
+  display: none;
+}
+
+.last6-alfa-project-section {
+  display: block;
+}
+
+.last6-project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #1D3051;
+}
+
+.last6-left-content {
+  margin-bottom: 15px;
+}
+
+.last6-status {
+  font-size: 14px;
+  font-weight: bold;
+}
+.edge-project-section{
+  display: none;
+}
+
+
+.start143-project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #A6524F;
+}
+
+.start143-left-content {
+  margin-bottom: 15px;
+}
+
+.start143-status {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333; /* Use the same color as in desktop version */
+}
+
+.start143-project-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #333; /* Use the same font color */
+}
+
+.start143-handover-info {
+  font-size: 14px;
+  color: #666; /* Keep the same font color */
+}
+.stat-no-project-overview-section{
+  display: contents;
+}
+.start143-right-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding: 22px;
+  margin-bottom: 23px;
+  background-color: black;
+}
+
+.start143-project-actions-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.start143-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.start143-download {
+  font-size: 14px;
+  color: #007bff;
+  display: flex;
+  align-items: center;
+}
+
+.start143-download i {
+  margin-right: 8px;
+}
+.modal{
+  display: none;
+}
+.start143-location {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #333; /* Use the same color as desktop version */
+}
+
+.start143-location i {
+  margin-right: 8px;
+}
+.last6-project-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.last6-handover-info {
+  font-size: 12px;
+  color: #DEC261;
+}
+.last7-amenities-section{
+  display: contents;
+}
+.last6-right-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  background-color: black;
+  padding: 12px;
+  margin-bottom: 32px;
+}
+.aster-alfa-project-section{
+  display: none;
+}
+.last12-aster-alfa-project-section {
+  display: block;
+  padding: 20px;
+}
+
+.last12-project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #085394;
+}
+
+.last12-left-content {
+  margin-bottom: 15px;
+}
+.last24-project-overview-section {
+  display: contents;
+}
+
+.last24-overview-content {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.last24-overview-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.last24-overview-content p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.last24-overview-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.last24-image-left,
+.last24-image-right {
+  margin-bottom: 15px;
+}
+
+.last24-image-left img,
+.last24-image-right img {
+  width: 100%;
+  height: auto;
+}
+
+.last24-overview-content h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.project-overview-section{
+  display: none;
+}
+.last12-status {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.last12-project-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.last12-handover-info {
+  font-size: 12px;
+  color: #666;
+}
+
+.last24-project-overview-section{
+  display: contents;
+}
+
+.last12-right-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  background-color: black;
+  padding: 12px;
+  margin-bottom: 22px;
+}
+
+.last12-project-actions-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.last12-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.stat-no-overview-content {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 23px;
+}
+
+.stat-no-overview-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.stat-no-overview-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.stat-no-overview-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 23px;
+}
+
+.stat-no-image-left,
+.stat-no-image-right {
+  margin-bottom: 15px;
+}
+
+.stat-no-image-left img,
+.stat-no-image-right img {
+  width: 100%;
+  height: auto;
+}
+.finals-modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.finals-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.finals-close:hover,
+.finals-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.finals-modal-title {
+  font-size: 1.5rem;
+  color: black;
+  margin-bottom: 15px;
+}
+
+#finals-contact-form input,
+#finals-contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#finals-contact-form textarea {
+  height: 100px;
+}
+.finals-modal{
+  display: contents;
+}
+
+.finals-btn-hero-main {
+  background-color: #BFA17C;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.finals-btn-hero-main:hover {
+  background-color: #a58464;
+}
+.stat-no-overview-content h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.modal{
+  display: none;
+}
+
+.uui-avenu-sig-project-section{
+  display: contents;
+}
+.last12-download a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #007bff;
+  display: flex;
+  align-items: center;
+}
+
+.last12-download i {
+  margin-right: 8px;
+}
+
+.last12-location {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.last12-location i {
+  margin-right: 8px;
+}
+.last12-aster-alfa-project-section{
+  display: contents;
+}
+.last6-project-actions-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+.project-overview-section{
+  display: none;
+}
+
+.last6-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.last6-download {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.last6-download i {
+  margin-right: 10px;
+}
+
+.last6-location {
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.last6-location i {
+  margin-right: 8px;
+}
+
+.last6-location span {
+  font-size: 14px;
+}
+
+
+.last3-image-column {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.new-mobile-mobile{
+  display: contents;
+}
+
+.last3-arc-inv-sec-top-image {
+  width: 100%;
+  height: auto;
+  padding: 12px;
+}
+.mobile-contact-info-item img {
+  width: 20px;
+  height: 20px;
+}
+
+.mobile-contact-right {
+  margin-bottom: 20px;
+}
+
+.amenities-section{
+  display: none;
+}
+.mobile-contact-right .form-group {
+  margin-bottom: 15px;
+}
+
+.su-overview-content {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 23px;
+}
+
+.su-overview-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.su-overview-content p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.su-overview-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 23px;
+}
+
+.su-image-left,
+.su-image-right {
+  margin-bottom: 15px;
+}
+
+.sasi-project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #20334F;
+}
+
+.sasi-left-content {
+  margin-bottom: 15px;
+}
+
+.sasi-status {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.sasi-project-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #CC7970;
+}
+
+.sasi-handover-info {
+  font-size: 14px;
+}
+.sas11-amenities-section{
+  display: contents;
+}
+
+.sasi-right-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  padding: 12px;
+  margin-bottom: 23px;
+}
+
+.sasi-project-actions-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.sasi-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.sasi-download {
+  font-size: 14px;
+  color: #007bff;
+  display: flex;
+  align-items: center;
+}
+
+.sasi-download i {
+  margin-right: 8px;
+}
+
+.sasi-location {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.sasi-location i {
+  margin-right: 8px;
+}
+.alfa-project-section{
+  display: none;
+}
+
+.su-image-left img,
+.su-image-right img {
+  width: 100%;
+  height: auto;
+}
+
+.su-additional-info {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.su-additional-info p {
+  font-size: 14px;
+  padding: 23px;
+}
+.sasi-alfa-project-section{
+  display: contents;
+}
+
+.su-additional-info p:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.su-additional-info img {
+  margin-right: 10px;
+}
+
+.su-additional-info h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.start13-main-heading {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.start13-amenities-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start13-left-amenities ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.start13-left-amenities ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.start13-list-icon {
+  margin-right: 10px;
+}
+
+.start13-right-images {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.start143-edge-project-section{
+  display: contents;
+}
+.start13-amenity-img1,
+.start13-amenity-img {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+.new-contact-section{
+  display: none;
+}
+.contact{
+  display: none;
+}
+
+.projects-mobile-completed{
+  display: contents;
+}
+.last11-project-overview-section {
+  display: block;
+  padding: 20px;
+}
+
+.last11-overview-content {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.last11-overview-content h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.amenities-section{
+  display: none;
+}
+
+
+.sas11-main-heading {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sas11-amenities-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sas11-left-amenities ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.sas11-left-amenities ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.sas11-list-icon {
+  margin-right: 10px;
+}
+
+.finals-modal{
+  display: contents;
+}
+
+.sas11-right-images {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sas11-amenity-img1,
+.sas11-amenity-img {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+.last11-overview-content p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.last11-overview-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.last11-image-left,
+.last11-image-right {
+  margin-bottom: 15px;
+}
+
+.last11-image-left img,
+.last11-image-right img {
+  width: 100%;
+  height: auto;
+}
+
+.last11-overview-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+.mobile-contact-right button {
+  width: 100%;
+  height: 45px;
+  background-color: #2A67B9;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.amenities-section{
+  display: none;
+}
+.mobile-contact-right button:hover {
+  background-color: #1d4b91;
+}
+.last7-amenities-section {
+  display: block;
+  padding: 20px;
+}
+
+.last7-main-heading {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.last7-amenities-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.last7-left-amenities ul {
+  list-style: none;
+  padding: 0;
+}
+
+.last7-left-amenities ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.last7-list-icon {
+  margin-right: 10px;
+}
+
+.last7-right-images {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.last7-amenity-img1,
+.last7-amenity-img {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.alfa-sig-project-section{
+  display: none;
+}
+
   nav ul {
     top: 70px;
     left: 0;
@@ -1958,6 +2962,303 @@ html, body {
     max-height: 500px; /* or whatever maximum height you need */
   }
 
+  .project-section {
+    display: none; /* Hide desktop section on mobile */
+  }
+
+  .last1-project-section-mobile {
+    display: block;
+    padding: 20px;
+  }
+
+  .uui-project-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #2B443E;
+  }
+
+  .uui-left-content {
+    margin-bottom: 15px;
+  }
+
+  .uui-status {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .uui-project-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px 0;
+  }
+
+  .uui-handover-info {
+    font-size: 14px;
+  }
+  .su-project-overview-section{
+    display: contents;
+   
+  }
+
+  .uui-right-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    background-color: black;
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+
+  .uui-project-actions-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .uui-divider {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+  }
+.avenu-sig-project-section{
+  display: none;
+}
+  .uui-download {
+    font-size: 14px;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+  }
+
+  .uui-download i {
+    margin-right: 8px;
+  }
+
+  .uui-location {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+
+  .uui-location i {
+    margin-right: 8px;
+  }
+
+  .last1-project-content-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #A94D38;
+  }
+  .last10-alfa-sig-project-section {
+    display: block;
+    padding: 20px;
+  }
+  .start12-project-overview-section{
+    display: contents;
+  }
+  .start12-overview-content {
+    padding: 23px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .start13-amenities-section{
+    display: contents;
+  }
+
+  .start12-overview-content h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .start12-overview-content p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .start12-overview-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .start12-image-left,
+  .start12-image-right {
+    margin-bottom: 15px;
+  }
+
+  .start12-image-left img,
+  .start12-image-right img {
+    width: 100%;
+    height: auto;
+  }
+
+  .start12-overview-content h3 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .last10-pro-sig-project-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #929056;
+  }
+
+  .last10-left-content {
+    margin-bottom: 15px;
+  }
+
+  .last10-status {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    padding: 12px;
+    margin-top: 32px;
+  }
+
+  .last10-project-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 10px 0;
+    color: white;
+  }
+
+  .last10-handover-info {
+    font-size: 12px;
+    color: white
+  }
+.last11-project-overview-section{
+  display: contents;
+}
+  .last10-right-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: black;
+    padding: 23px;
+    margin-bottom: 33px;
+  }
+
+  .last10-project-actions-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .last10-divider {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+  }
+
+  .last10-download a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+  }
+
+  .last10-download i {
+    margin-right: 8px;
+  }
+  .last10-alfa-sig-project-section{
+    display: contents;
+  }
+
+  .last10-location {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+
+  .last10-location i {
+    margin-right: 8px;
+  }
+  .last1-left-content-mobile {
+    margin-bottom: 15px;
+  }
+
+  .last1-status-mobile {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 22px;
+    color: white;
+  }
+
+  .last2-project-overview-section{
+    display: contents;
+  }
+  .last1-project-title-mobile {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 10px 0;
+    color: white;
+  }
+
+  .last1-handover-info-mobile {
+    font-size: 12px;
+    color: white
+  }
+
+  .last1-right-content-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+    background-color: black;
+    padding: 12px;
+    margin-bottom: 42px;
+  }
+
+  .last1-project-actions-box-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .last1-divider-mobile {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+  }
+
+  .last1-download-mobile a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+  }
+
+  .last1-download-mobile i {
+    margin-right: 8px;
+  }
+
+  .last1-location-mobile {
+    font-size: 14px;
+    color: #333;
+  }
+
+  .last1-location-mobile i {
+    margin-right: 5px;
+  }
+
 .branding-container-nodesk{
   display: contents;
 }
@@ -1969,7 +3270,170 @@ html, body {
     width: 100%; /* Full width for mobile */
     margin-bottom: 20px; /* Add spacing */
   }
+.contactsss-section{
+  display: none;
+}
 
+
+  .mobile-projects {
+    display: none;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .mobile-projects h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .mobile-projects p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+.last1-project-section-mobile{
+  display: contents;
+}
+  .projects-mobile-completed {
+    display: block; /* Show mobile section */
+  }
+
+  /* Mobile version specific styles */
+  .arc-project-mobile, .alpha-project-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .contact{
+    display: none;
+  }
+  .aster-text-mobile, .alpha-text-mobile {
+    margin-left: 0;
+    padding: 1px;
+  }
+
+  .arc-description-mobile, .alpha-description-mobile {
+    padding: 10px;
+  }
+
+  .arc-building-image-mobile, .alpha-building-image-mobile {
+    width: 100%;
+    height: auto;
+  }
+
+  .btn-hero-main-mobile {
+    font-size: 14px;
+    padding: 8px 12px;
+    margin: 10px;
+  }
+
+  .arc-logo-ASER-mobile, .arc-logo-EDGE-mobile, .arc-logo-AVENUES-mobile, .arc-logo-BRIK-mobile {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .projects-mobile {
+    display: block; /* Show mobile section */
+  }
+  /* Add styles for mobile specific section */
+  .arc-project-mobile, .alpha-project-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+  }
+  .arc-text-mobile, .alpha-text-mobile {
+    margin-left: 0;
+  }
+  .arc-description-mobile, .alpha-description-mobile {
+    padding: 10px;
+  }
+  .arc-building-image-mobile, .alpha-building-image-mobile {
+    width: 100%;
+    height: auto;
+  }
+  .btn-hero-main-mobile, .ar-arc-btn-mobile {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  .arc-project-mobile, .alpha-project-mobile, .aster-project-mobile {
+    margin-bottom: 40px;
+  }
+
+  .last2-project-overview-section {
+    display: block;
+    padding: 20px;
+  }
+
+  .last2-overview-content {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .last2-overview-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .last2-overview-content p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .last2-overview-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .last2-image-left, .last2-image-right {
+    margin-bottom: 15px;
+  }
+  .last3-edge-about-section{
+    display: contents;
+  }
+
+  .last2-image-left img, .last2-image-right img {
+    width: 100%;
+    height: auto;
+  }
+
+  .last2-overview-content h3 strong {
+    font-size: 16px;
+  }
+  .project-overview-section{
+    display: none;
+  }
+  
+  .arc-building-image-mobile, .alpha-building-image-mobile, .aster-building-image-mobile {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+  }
+  
+  .btn-hero-main-mobile {
+    display: inline-block;
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #2A67B9;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .mobile-projects{
+    display: contents;
+  }
+  .mobile-projects h2 {
+    margin-top: 10px;
+    font-size: 1.3rem;
+  }
 nav ul li{
   padding: 20px;
   padding-top: 0;
@@ -1988,7 +3452,12 @@ nav ul li{
   transition: background-color 0.3s, transform 0.3s;
   margin-right: 0px;
 }
-  
+.mobile-content-column{
+  padding:15px;
+}
+.mobile-image-column{
+  padding: 15px;
+}
 header {
   background-color: #c09a6b; /* Background color matching the second image */
   padding: 0;
@@ -2000,6 +3469,106 @@ header {
   width: 100px; /* Adjust the logo size for mobile view */
 }
 
+.mobile-about-section {
+  display: none;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.mobile-content-sec-column {
+  text-align: left;
+  padding: 23px;
+}
+
+.mobile-new-change-about-gap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mobile-new-change-about-btn {
+  padding: 10px 15px;
+  background-color: #2e3b59;
+  border: 1px solid #ddd;
+  font-size: 1.2rem; /* Increased font size for mobile */
+  cursor: pointer;
+  width: 250px; /* Set fixed width for mobile buttons */
+  height: 60px; /* Set fixed height for mobile buttons */
+  display: flex;
+  justify-content: flex-start; /* Align text and icon to the left */
+  align-items: center; /* Center the content vertically */
+  text-align: left;
+}
+
+.mobile-new-change-about-btn i {
+  margin-right: 15px; /* Spacing between the icon and text */
+  font-size: 1.5rem; /* Adjust icon size */
+}
+
+.mobile-new-change-end-image-column {
+  margin-top: 20px;
+  padding: 12px;
+}
+
+.mobile-new-change-end-about-sec-top-image {
+  width: 100%;
+  height: auto;
+}
+
+.mobile-new-change-end-black-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-new-change-end-overlay-content {
+  position: absolute;
+   top:2615px;
+  left: 40px;
+  color: black;
+}
+.mobile-contact-section {
+  display: none; /* Hidden by default */
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.mobile-contact-text p {
+  font-size: 1.2rem; /* Smaller font size for mobile */
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.mobile-contact-btn a {
+  display: block;
+  background-color: #d9b999;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  width: 50%;
+  margin-left: 72px;
+  padding: 3px;
+}
+
+.projects-mobile{
+  display: contents;
+}
+.mobile-contact-btn a:hover {
+  background-color: #1d4b91;
+}
+
+.mobile-contact-section{
+  display: contents;
+}
+
+.mobile-about-section {
+  display: block;
+}
+.about-section{
+  display: none;
+}
 .aster-text{
   margin-left: 0px;
   margin-bottom: 23px;
@@ -2029,6 +3598,7 @@ header {
   .mobile_disk{
     width: 150px;
   }
+ 
   /* Show the mobile menu toggle (hamburger icon) */
   .menu-toggle {
     display: block;
@@ -2079,7 +3649,7 @@ header {
   }
 
   .hero {
-    padding-left: 10px; /* Reduce padding for mobile */
+    padding-left: 30px; /* Reduce padding for mobile */
     padding-right: 10px;
   }
 
@@ -2122,12 +3692,7 @@ header {
     flex-direction: column;
   }
   .overlay {
-    padding-top: 20px;
-  }
-  .image-column {
-    order: 2; /* Move images below the text */
-    margin-top: 20px; /* Add spacing */
-    width: 100%; /* Full width for mobile */
+    padding-top: 10px;
   }
 
   .content-column {
@@ -2137,7 +3702,6 @@ display: contents;
     display: contents;
   }
   .content-column h1 {
-    font-size: 1rem; /* Decreased font size for "Step into EK Homes' World of Construction Excellence" */
     margin-bottom: 0px;
     line-height: 0;
     font-family: Manrope;
@@ -2163,12 +3727,20 @@ display: contents;
   }
 
   .why-choose-us {
-    margin: 0px;
-    text-align: center;
+    display: none;
+  }
+  .why-choose-us p{
+    padding-left: 20px;
+    margin-top: 0px;
+    
   }
   .why-choose-last{
     display: block;
     margin-bottom: 23px;
+  
+  }
+  .why-choose-last h3{
+    font-size: 0.4rem;
   }
   .why-choose-us h3 {
     font-size: 2.5rem;
@@ -2217,6 +3789,9 @@ display: contents;
   }
 .about-sec-top-image{
   height: 50vh;
+}
+.top-image{
+  margin-top: 2px;
 }
   .arc-description, .alpha-description {
     position: relative;
@@ -2320,4 +3895,72 @@ display: contents;
   footer .footer-column {
     margin-bottom: 20px;
   }
+
+/* Make the text content appear first and images appear last */
+ /* Make the text content appear first and images appear last */
+ .main-about-section {
+  display: none; /* Switch to block layout for mobile */
+  
+}
+
+/* Ensure text content comes first and images are placed last */
+.content-column {
+  order: 1; /* Text content comes first */
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+/* Make the images appear last after the "Our Mission" section */
+.image-column {
+  order: 3; /* Display images after all text content */
+  width: 100%; /* Ensure images take full width */
+}
+
+.image-column img {
+  width: 100%; /* Ensure images are responsive */
+  height: auto;
+}
+
+/* Adjust text sizes and spacing for mobile */
+.content-column h1 {
+  font-size: 2rem; /* Adjust font size */
+  margin-bottom: 10px;
+}
+
+.content-column p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.content-column h2 {
+  font-size: 1.5rem; /* Adjust subheading size */
+  margin-bottom: 10px;
+}
+
+/* Overlay content adjustments for mobile */
+.overlay-content {
+  left: 0; /* Remove left alignment for mobile */
+  width: 100%; /* Take full width */
+  padding: 0px 0px 0px 22px; /* Add padding to overlay */
+  top: 20%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust vertical alignment */
+}
+
+/* Ensure overlay images are responsive */
+.bottom-image {
+  width: 100%;
+  height: auto;
+}
+
+/* Ensure the "Ratings" overlay adjusts well on mobile */
+.overlay-content h3 {
+  font-size: 1.5rem; /* Adjust for mobile */
+}
+
+.overlay-content p {
+  font-size: 1rem; /* Adjust for mobile */
+}
+
 }
