@@ -436,14 +436,14 @@ header {
 }
 .btn-hero-main{
   background-color: #c09a6b;
-  padding: 15px  42px 15px    42px;
+  padding: 15px  42px 15px    30px;
   text-decoration: none;
   transition: background-color 0.3s, transform 0.3s;
   color: black;
 }
 .mobile-btn-hero-main{
   background-color: #c09a6b;
-  padding: 10px;
+  padding: 15px  22px 15px    22px;
   text-decoration: none;
   color: black;
 }
@@ -555,6 +555,7 @@ header {
   display: flex;
   gap: 40px; /* Space between columns */
   margin-top: 63px;
+  background-color: #ffffff;
   
 }
 .edge-about-section {
@@ -713,7 +714,7 @@ header {
 
 /* Why Choose Us Section */
 .why-choose-us {
-  background-color: #fff;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   margin-left: 170px;
@@ -744,7 +745,7 @@ header {
 
 /* Projects Section */
 .projects {
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   text-align: center;
   padding-top: 80px;
   margin-top: 23px;
@@ -781,6 +782,7 @@ header {
   display: flex;
   /* position: relative; */
   margin-top: 90px;
+  background-color: #ffffff;
 }
 
 .aster-arc-project{
@@ -822,7 +824,7 @@ header {
   position: absolute;
   bottom: 0px;
   left: -280px;
-  background-color: white;
+  background-color: #ffffff;
   padding: 40px;
   width: 100%;
 }
@@ -1257,6 +1259,7 @@ footer {
 
 .mobile-projects{
   display: none;
+
 }
 
 .new-contact-right button:hover {
@@ -1664,7 +1667,7 @@ padding-bottom: 90px;
 
 
 .project-overview-section {
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   color: #333;
   padding:10px 173px 0px 173px;
 }
@@ -3287,7 +3290,7 @@ html, body {
   .mobile-projects {
     display: none;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
   }
   
   .mobile-projects h3 {
