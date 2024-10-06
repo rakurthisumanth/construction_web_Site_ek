@@ -1005,6 +1005,8 @@ footer {
 .footer-column {
   flex: 1;
   margin: 0 20px;
+  color: #A6AFB5;
+  text-decoration: none;
 }
 
 .logo-column {
@@ -2074,6 +2076,7 @@ html, body {
   
 .mobile-new-change-about-btn.mobile-new-change-active{
   background-color: #3a53b1;
+  color: #ffffff;
  
  }
  .mobile-contact-section{
@@ -2140,6 +2143,8 @@ html, body {
   font-size: 14px;
   margin-bottom: 10px;
   background-color: #494035;
+  color: white;
+
   text-align: left;
   display: flex;
   align-items: center;
@@ -3383,7 +3388,6 @@ html, body {
   }
 
   .last2-overview-content {
-    text-align: center;
     margin-bottom: 20px;
   }
 
@@ -3502,6 +3506,7 @@ header {
   padding: 10px 15px;
   background-color: #2e3b59;
   border: 1px solid #ddd;
+  color: #ffffff;
   font-size: 1.2rem; /* Increased font size for mobile */
   cursor: pointer;
   width: 250px; /* Set fixed width for mobile buttons */
@@ -3535,7 +3540,7 @@ header {
 
 .mobile-new-change-end-overlay-content {
   position: absolute;
-   top:2615px;
+   top:2589px;
   left: 40px;
   color: black;
 }
