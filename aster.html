@@ -142,15 +142,32 @@
   }
 
   .modal-content {
-  position: relative;
-  margin: 5% auto;
-  padding: 40px 50px; /* Padding for top-bottom and left-right */
-  background-color: white;
-  width: 40%; /* Width as per your preference */
-  max-width: 600px; /* Max width to ensure responsiveness */
-  border-radius: 8px;
-  font-family: 'Manrope', sans-serif;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Shadow for better visual impact */
+    position: relative;
+      margin: 5% auto;
+      padding: 40px 50px;
+      /* Padding for top-bottom and left-right */
+      background-color: white;
+      width: 40%;
+      /* Width as per your preference */
+      max-width: 600px;
+      /* Max width to ensure responsiveness */
+      border-radius: 8px;
+      font-family: 'Manrope', sans-serif;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+      /* Shadow for better visual impact */
+}
+#inviteModal .modal-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 40px 50px;
+    background-color: white;
+    width: 40%;
+    max-width: 600px;
+    max-height: 80vh; /* Set a maximum height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border-radius: 8px;
+    font-family: 'Manrope', sans-serif;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .modal-content h2 {
@@ -158,6 +175,11 @@
   margin-bottom: 20px;
   text-align: center; /* Center the heading */
 }
+.modal-content h5 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-align: center;
+  }
 
 .modal-content label {
   display: block;
@@ -179,6 +201,13 @@
 .modal-content textarea {
   height: 100px;
 }
+
+
+.modal-content h5 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-align: center;
+  }
 
 .download-btn {
   background-color: #c09a6b;
@@ -204,9 +233,75 @@
   cursor: pointer;
   color: #333;
 }
+.row {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .row .input-group {
+      width: 48%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+  }
+.btn-group label {
+            display: block;
+            padding: 10px;
+            border: 2px solid #d3a261;
+            border-radius: 10px;
+            cursor: pointer;
+            flex: 1;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .btn-group input[type="radio"] {
+            display: none;
+        }
+
+        .btn-group input[type="radio"]:checked + label {
+            background-color: #d3a261;
+            color: white;
+        }
+
+        .submit-btn {
+      background-color: #c09a6b;
+      color: white;
+      padding: 12px;
+      border: none;
+      /* border-radius: 5px; */
+      cursor: pointer;
+      width: 25%;
+      text-align: center;
+  }
+
+  .submit-btn:hover {
+      background-color: #b0895a;
+  }
 
     /* Mobile Styles */
     @media (max-width: 768px) {
+      .modal-content {
+          width: 90%;
+          margin: 5% auto;
+          padding: 20px;
+      }
+
+      .row {
+          flex-direction: column;
+      }
+
+      .row .input-group {
+          width: 100%;
+      }
+
+      .btn-group label {
+          font-size: 14px;
+      }
+
+      .submit-btn {
+          padding: 10px;
+          font-size: 14px;
+      }
       .navbar {
         display: none;
         /* Hide desktop navbar */
@@ -390,7 +485,7 @@
               </div>
             </li>
             <li><a href="/contact.html">Contact Us</a></li>
-            <li><a href="#">Invite Land Owners</a></li>
+            <li><a href="#" onclick="invitModal()">Invite Land Owners</a></li>
           </ul>
         </div>
         <a href="#" class="btn-hero-main-quote"  onclick="openModal()">Get Quote <span class="arrow">⟶</span></a>
@@ -413,7 +508,7 @@
               </div>
             </li>
             <li><a href="/contact.html">Contact Us</a></li>
-            <li><a href="#">Invite Land Owners</a></li>
+            <li><a href="#" onclick="invitModal()">Invite Land Owners</a></li>
             <a href="#" class="get-quote-btn-mobile" onclick="openModal()">Get Quote ⟶</a>
           </ul>
         </div>
@@ -470,6 +565,83 @@
 </div>
 
     
+<div id="inviteModal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="invitcloseModal()">&times;</span>
+      <h4 style="text-align: left;">Inviting Land Owners</h4>
+      <form id="invite-form">
+          <div class="btn-group" style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 10px;">
+              <input type="radio" id="ownerRadio" name="role" value="owner" onclick="toggleInput('owner')" checked>
+              <label for="ownerRadio">Owner</label>&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="radio" id="agentRadio" name="role" value="agent" onclick="toggleInput('agent')">
+              <label for="agentRadio">Agent</label>
+          </div>
+
+          <!-- Owner Inputs -->
+          <div id="ownerInputs">
+              <div class="input-group">
+                  <label for="ownerName">Full Name</label>
+                  <input type="text" id="ownerName" name="ownerName" placeholder="Ex: John Dee">
+              </div>
+              <div class="input-group">
+                  <label for="ownerPhone">Phone</label>
+                  <input type="text" id="ownerPhone" name="ownerPhone" placeholder="Ex: +91">
+              </div>
+              <div class="input-group">
+                  <label for="ownerAltPhone">Alternate Phone</label>
+                  <input type="text" id="ownerAltPhone" name="ownerAltPhone" placeholder="Ex: +91">
+              </div>
+              <div class="input-group">
+                  <label for="ownerAddress">Address</label>
+                  <input type="text" id="ownerAddress" name="ownerAddress" placeholder="Type your address here">
+              </div>
+          </div>
+
+          <!-- Agent Inputs -->
+          <div id="agentInputs" style="display:none;">
+              <div class="input-group">
+                  <label for="agentCompanyName">Company/Agent Name</label>
+                  <input type="text" id="agentCompanyName" name="agentCompanyName" placeholder="Ex: John Dee">
+              </div>
+              <div class="row">
+                  <div class="input-group">
+                      <label for="agentPhone">Phone</label>
+                      <input type="text" id="agentPhone" name="agentPhone" placeholder="Ex: +91">
+                  </div>
+                  <div class="input-group">
+                      <label for="agentAltPhone">Alternate Phone</label>
+                      <input type="text" id="agentAltPhone" name="agentAltPhone" placeholder="Ex: +91">
+                  </div>
+              </div>
+              <div class="input-group">
+                  <label for="agentAddress">Address</label>
+                  <input type="text" id="agentAddress" name="agentAddress" placeholder="Type your address here">
+              </div>
+              <div class="row">
+                  <div class="input-group">
+                      <label for="propertyLocation">Property Location</label>
+                      <input type="text" id="propertyLocation" name="propertyLocation" placeholder="Type address here">
+                  </div>
+                  <div class="input-group">
+                      <label for="landExtent">Total Land Extent</label>
+                      <input type="text" id="landExtent" name="landExtent" placeholder="Type here">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="input-group">
+                      <label for="expectingPrice">Expecting Price</label>
+                      <input type="text" id="expectingPrice" name="expectingPrice" placeholder="Type here">
+                  </div>
+                  <div class="input-group">
+                      <label for="propertyBelongsTo">Property Belongs to</label>
+                      <input type="text" id="propertyBelongsTo" name="propertyBelongsTo" placeholder="Type here">
+                  </div>
+              </div>
+          </div>
+          <button type="submit" class="submit-btn">Submit <span class="arrow">⟶</span></button>
+      </form>
+  </div>
+</div>
     <!-- Include EmailJS library -->
 
     <!-- Initialize EmailJS -->
@@ -533,6 +705,27 @@ function handleSubmit(event) {
         alert('EmailJS failed to load. Please try again later.');
     }
 }
+document.getElementById('invite-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const form = this;
+    if (typeof emailjs !== 'undefined') {
+        emailjs.sendForm('service_6ze6ysr', 'template_nshdd6i', form)
+            .then(function(response) {
+                console.log('Form submitted successfully!', response.status, response.text);
+                alert('Form submitted successfully!');
+                form.reset();
+                invitcloseModal(); // Close modal after submission
+            }, function(error) {
+                console.error('Failed to submit the form:', error);
+                alert('Failed to submit the form. Please try again later.');
+            });
+    } else {
+        console.error('EmailJS failed to load.');
+        alert('EmailJS failed to load. Please try again later.');
+    }
+});
+
 
 function openModal() {
     const isMobile = window.innerWidth <= 768; // Check if the screen width is less than or equal to 768px
@@ -586,6 +779,24 @@ window.onclick = function(event) {
           }
         }
       }
+
+      function invitModal() {
+      document.getElementById('inviteModal').style.display = 'block';
+  }
+
+  function invitcloseModal() {
+      document.getElementById('inviteModal').style.display = 'none';
+  }
+
+  function toggleInput(role) {
+      if (role === 'owner') {
+          document.getElementById('ownerInputs').style.display = 'block';
+          document.getElementById('agentInputs').style.display = 'none';
+      } else {
+          document.getElementById('ownerInputs').style.display = 'none';
+          document.getElementById('agentInputs').style.display = 'block';
+      }
+    }
 
     </script>
 
