@@ -444,28 +444,28 @@
       </div>
     </div>
    <!-- Mobile Modal Structure -->
-<div id="finalsModal" class="finals-modal">
-  <div class="finals-modal-content">
-    <span class="finals-close" onclick="closeModal()">&times;</span>
-    <p class="finals-modal-title">Our Team will Reach You</p>
-    <br />
-    <form id="mobile-contact-form">
-      <label for="finals-name" style="color: #BFA17C;">Your Name</label>
-      <input type="text" id="mobile-name" name="name" placeholder="Ex: John Dee" required>
+    <div id="finalsModal" class="finals-modal">
+      <div class="finals-modal-content">
+        <span class="finals-close" onclick="closeModal()">&times;</span>
+        <p class="finals-modal-title">Our Team will Reach You</p>
+        <br />
+        <form id="mobile-contact-form">
+          <label for="finals-name" style="color: #BFA17C;">Your Name</label>
+          <input type="text" id="mobile-name" name="name" placeholder="Ex: John Dee" required>
 
-      <label for="finals-email" style="color: #BFA17C;">Your Email</label>
-      <input type="email" id="mobile-email" name="email" placeholder="Ex: johndee@gmail.com" required>
+          <label for="finals-email" style="color: #BFA17C;">Your Email</label>
+          <input type="email" id="mobile-email" name="email" placeholder="Ex: johndee@gmail.com" required>
 
-      <label for="finals-phone" style="color: #BFA17C;">Phone</label>
-      <input type="tel" id="mobile-phone" name="phone" placeholder="Ex: +91" required>
+          <label for="finals-phone" style="color: #BFA17C;">Phone</label>
+          <input type="tel" id="mobile-phone" name="phone" placeholder="Ex: +91" required>
 
-      <label for="message" style="color: #BFA17C;">Message</label>
-      <textarea id="mobile-message" name="message" placeholder="Write your message here..." required></textarea>
+          <label for="message" style="color: #BFA17C;">Message</label>
+          <textarea id="mobile-message" name="message" placeholder="Write your message here..." required></textarea>
 
-      <button type="submit" style="background-color: #BFA17C;color: white;padding: 12px;">Contact Us <span class="arrow">⟶</span></button>
-    </form>
-  </div>
-</div>
+          <button type="submit" style="background-color: #BFA17C;color: white;padding: 12px;">Contact Us <span class="arrow">⟶</span></button>
+        </form>
+      </div>
+    </div>
 
     
     <!-- Include EmailJS library -->
@@ -481,7 +481,7 @@ window.addEventListener('load', function () {
     console.log('Attempting to load EmailJS...');
 
     if (typeof emailjs !== 'undefined') {
-        emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
+        emailjs.init("jU6lc07dLOu7o2glU");  // Your Public Key
         console.log("EmailJS initialized successfully.");
     } else {
         console.error('EmailJS failed to load.');
@@ -516,7 +516,7 @@ function handleSubmit(event) {
     const message = form.querySelector('textarea[name="message"]').value;
 
     if (typeof emailjs !== 'undefined') {
-        emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', form)
+        emailjs.sendForm('service_m0aom7o', 'template_9z3c9xd', form)
             .then(function (response) {
                 console.log('Message sent successfully!', response.status, response.text);
                 alert('Message sent successfully!');
@@ -546,16 +546,14 @@ function closeModal() {
     document.getElementById("finalsModal").style.display = "none"; // Close mobile modal
 }
 
-// Close the modal when clicking outside of the modal content
-window.onclick = function(event) {
-    const modal = document.getElementById("quoteModal");
-    const mobileModal = document.getElementById("finalsModal");
-    if (event.target == modal || event.target == mobileModal) {
-        closeModal();
-    }
-}
-
-
+      // Close the modal when clicking outside of the modal content
+      window.onclick = function(event) {
+          const modal = document.getElementById("quoteModal");
+          const mobileModal = document.getElementById("finalsModal");
+          if (event.target == modal || event.target == mobileModal) {
+              closeModal();
+          }
+      }
 
       let menuList = document.getElementById("menuList")
       menuList.style.maxHeight = "0px";

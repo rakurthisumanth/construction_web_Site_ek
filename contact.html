@@ -26,9 +26,7 @@
       margin: 0;
       padding: 0;
     }
-    .finals-modal {
-    display: none;
-  }
+
     header {
       background-color: #c09a6b;
       /* Background color */
@@ -84,7 +82,7 @@
       /* Button color */
       color: white;
       padding: 10px 25px;
-      border-radius: 5px;
+      /* border-radius: 5px; */
       text-decoration: none;
       font-weight: 500;
       display: inline-block;
@@ -110,7 +108,7 @@
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
       z-index: 1;
       padding: 10px;
-      border-radius: 5px;
+      /* border-radius: 5px; */
     }
 
     .dropdown:hover .dropdown-content,
@@ -128,257 +126,13 @@
     .dropdown-content a:hover {
       background-color: #f1f1f1;
     }
-    .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  .modal-content {
-    position: relative;
-      margin: 5% auto;
-      padding: 40px 50px;
-      /* Padding for top-bottom and left-right */
-      background-color: white;
-      width: 40%;
-      /* Width as per your preference */
-      max-width: 600px;
-      /* Max width to ensure responsiveness */
-      border-radius: 8px;
-      font-family: 'Manrope', sans-serif;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-      /* Shadow for better visual impact */
-}
-
-.modal-content h2 {
-  font-size: 1.6rem;
-  margin-bottom: 20px;
-  text-align: center; /* Center the heading */
-}
-.modal-content h5 {
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      text-align: center;
-  }
-
-.modal-content label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 1rem;
-  color: #333;
-}
-
-.modal-content input,
-.modal-content textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.modal-content textarea {
-  height: 100px;
-}
-
-
-.modal-content h5 {
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      text-align: center;
-  }
-
-.download-btn {
-  background-color: #c09a6b;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
-}
-
-.download-btn:hover {
-  background-color: #b0895a;
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #333;
-}
-.row {
-      display: flex;
-      justify-content: space-between;
-  }
-
-  .row .input-group {
-      width: 48%;
-      margin-top: 10px;
-      margin-bottom: 10px;
-  }
-.btn-group label {
-            display: block;
-            padding: 10px;
-            border: 2px solid #d3a261;
-            border-radius: 10px;
-            cursor: pointer;
-            flex: 1;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .btn-group input[type="radio"] {
-            display: none;
-        }
-
-        .btn-group input[type="radio"]:checked + label {
-            background-color: #d3a261;
-            color: white;
-        }
-
-        .submit-btn {
-      background-color: #c09a6b;
-      color: white;
-      padding: 12px;
-      border: none;
-      /* border-radius: 5px; */
-      cursor: pointer;
-      width: 25%;
-      text-align: center;
-  }
-
-  .submit-btn:hover {
-      background-color: #b0895a;
-  }
 
     /* Mobile Styles */
     @media (max-width: 768px) {
-      .modal-content {
-          width: 90%;
-          margin: 5% auto;
-          padding: 20px;
-      }
-
-      .row {
-          flex-direction: column;
-      }
-
-      .row .input-group {
-          width: 100%;
-      }
-
-      .btn-group label {
-          font-size: 14px;
-      }
-
-      .submit-btn {
-          padding: 10px;
-          font-size: 14px;
-      }
       .navbar {
         display: none;
         /* Hide desktop navbar */
       }
-      .modal {
-    display: none; /* Hide desktop modal on mobile */
-  }
-
-  .finals-modal {
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.finals-modal-content {
-  background-color: white;
-  /* margin: 5% auto; */
-  width: 80%; /* Adjust width for mobile view */
-  max-width: 900px; /* Ensure it is not larger than desktop modal */
-  border-radius: 8px;
-  font-family: 'Manrope', sans-serif;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Matching shadow */
-  text-align: left; /* Align text similarly */
-}
-
-.finals-modal-content input,
-.finals-modal-content textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.finals-close {
-  position: absolute;
-  /* top: 10px; */
-  right: 50px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #333;
-}
-
-
-  .finals-close:hover,
-  .finals-close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .finals-modal-title {
-    font-size: 1.5rem;
-    color: black;
-    margin-bottom: 15px;
-  }
-
-  #finals-contact-form input,
-  #finals-contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-
-  #finals-contact-form textarea {
-    height: 100px;
-  }
-  .modal {
-    display: none;
-  }
-
-  .finals-btn-hero-main {
-    background-color: #BFA17C;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .finals-btn-hero-main:hover {
-    background-color: #a58464;
-  }
 
       .only-mobile {
         display: flex;
@@ -443,9 +197,7 @@
     <header>
       <div class="only-mobile">
         <div class="mobile_lo_not">
-          <a href="/index.html">
-            <img src="/logo.png" alt="Logo" />
-          </a>
+          <img src="/logo.png" />
         </div>
         <div style="margin-top: 7px;">
           <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
@@ -454,9 +206,7 @@
 
       <nav class="navbar">
         <div class="logo">
-          <a href="/index.html">
-            <img src="/main_home_logo.svg" alt="EK Homes" class="logo-img">
-          </a>
+          <img src="/logo.png" alt="EK Homes" class="logo-img">
         </div>
         <div>
           <ul class="nav-links mobile-nav-links">
@@ -470,16 +220,15 @@
               </div>
             </li>
             <li><a href="/contact.html">Contact Us</a></li>
-            <li><a href="#"  onclick="invitModal()">Invite Land Owners</a></li>
+            <li><a href="#">Invite Land Owners</a></li>
           </ul>
         </div>
-        <a href="#" class="btn-hero-main-quote"  onclick="openModal()">Get Quote <span class="arrow">⟶</span></a>
+        <a href="#" class="get-quote-btn" onclick="openModal()">Get Quote ⟶</a>
       </nav>
-
 
       <nav class="mobile">
         <div>
-          <img src="/main_home_logo.svg" alt="EK Homes" class="logo-img">
+          <img src="/logo.png" alt="EK Homes" class="logo-img">
         </div>
         <div>
           <ul id="menuList">
@@ -493,205 +242,82 @@
               </div>
             </li>
             <li><a href="/contact.html">Contact Us</a></li>
-            <li><a href="#"  onclick="invitModal()">Invite Land Owners</a></li>
+            <li><a href="#">Invite Land Owners</a></li>
             <a href="#" class="get-quote-btn-mobile" onclick="openModal()">Get Quote ⟶</a>
           </ul>
         </div>
       </nav>
     </header>
+    
 
-
-
-    <!-- Modal Structure -->
-    <div id="quoteModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <p style="margin-right: 200px;font-size: 1.5rem;">Our Team will Reach you</p>
-        <br/>
-        <form id="contact-form">
-          <label for="name" style="color: #BFA17C;">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Ex: John Dee" required>
-    
-          <label for="email" style="color: #BFA17C;">Your Email</label>
-          <input type="email" id="email" name="email" placeholder="Ex: johndee@gmail.com" required>
-    
-          <label for="phone" style="color: #BFA17C;">Phone</label>
-          <input type="tel" id="phone" name="phone" placeholder="Ex: +91" required>
-    
-          <label for="message" style="color: #BFA17C;">Message</label>
-          <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
-    
-          <button type="submit" class="btn-hero-main" style="background-color: #BFA17C;color: white;">Contact Us <span class="arrow">⟶</span></button>
-        </form>
+    <!-- Contact Form Section -->
+    <section class="contact">
+      <div class="overlay">
+        <div class="contact-content">
+          <h1>Contact Us</h1>
+          <p>Today! Your dream home is just one call away.</p>
+        </div>
       </div>
-    </div>
-   <!-- Mobile Modal Structure -->
-<div id="finalsModal" class="finals-modal">
-  <div class="finals-modal-content">
-    <span class="finals-close" onclick="closeModal()">&times;</span>
-    <p class="finals-modal-title">Our Team will Reach You</p>
-    <br />
-    <form id="mobile-contact-form">
-      <label for="finals-name" style="color: #BFA17C;">Your Name</label>
-      <input type="text" id="mobile-name" name="name" placeholder="Ex: John Dee" required>
+    </section>
+    <br /><br />
 
-      <label for="finals-email" style="color: #BFA17C;">Your Email</label>
-      <input type="email" id="mobile-email" name="email" placeholder="Ex: johndee@gmail.com" required>
+    <section class="contact-us">
+      <div class="container">
+        <div class="contact-left">
+          <h3>Get In Touch</h3>
+          <p>Contact us to learn more about our projects and find your dream property.</p>
+          <div class="contact-info">
+            <p><i class="fas fa-home"></i> <strong>Registered Address:</strong></p>
+            <p>First Floor, Flat No M3 F2, RS Elegance Phase 2, JK Avenue Road, Ravi 1st Street, Medavakkam, Chennai,
+              Chengalpattu, Tamil Nadu - 600 100</p>
 
-      <label for="finals-phone" style="color: #BFA17C;">Phone</label>
-      <input type="tel" id="mobile-phone" name="phone" placeholder="Ex: +91" required>
+            <p><i class="fas fa-map-marker-alt"></i> <strong>Office Address:</strong></p>
+            <p>21, Raja Badar St, Pondy Bazaar, T. Nagar, Chennai, Tamil Nadu 600017</p>
 
-      <label for="message" style="color: #BFA17C;">Message</label>
-      <textarea id="mobile-message" name="message" placeholder="Write your message here..." required></textarea>
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong></p>
+            <p>sales@ekhomes.in</p>
 
-      <button type="submit" style="background-color: #BFA17C;color: white;padding: 12px;">Contact Us <span class="arrow">⟶</span></button>
-    </form>
-  </div>
-</div>
+            <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong></p>
+            <p>+91 9360 006 000</p>
+          </div>
 
-<div id="inviteModal" class="modal">
-  <div class="modal-content">
-      <span class="close" onclick="invitcloseModal()">&times;</span>
-      <h4 style="text-align: left;">Inviting Land Owners</h4>
-      <div class="btn-group" style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 10px;">
-          <input type="radio" id="ownerRadio" name="role" value="owner" onclick="toggleInput('owner')" checked>
-          <label for="ownerRadio">Owner</label>&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="radio" id="agentRadio" name="role" value="agent" onclick="toggleInput('agent')">
-          <label for="agentRadio">Agent</label>
+          <div class="map">
+            <img src="/map.png" alt="Map">
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" style="background-color: #c09a6b;color: white;">Send Message ⟶</button>
+          </form>
+
+        </div>
       </div>
+    </section>
 
-      <!-- Owner Inputs -->
-      <div id="ownerInputs">
-          <div class="input-group">
-              <label for="ownerName">Full Name</label>
-              <input type="text" id="ownerName" placeholder="Ex: John Dee">
-          </div>
-          <div class="input-group">
-              <label for="ownerPhone">Phone</label>
-              <input type="text" id="ownerPhone" placeholder="Ex: +91">
-          </div>
-          <div class="input-group">
-              <label for="ownerAltPhone">Alternate Phone</label>
-              <input type="text" id="ownerAltPhone" placeholder="Ex: +91">
-          </div>
-          <div class="input-group">
-              <label for="ownerAddress">Address</label>
-              <input type="text" id="ownerAddress" placeholder="Type your address here">
-          </div>
-      </div>
-
-      <!-- Agent Inputs -->
-      <div id="agentInputs" style="display:none;">
-          <div class="input-group">
-              <label for="agentCompanyName">Company/Agent Name</label>
-              <input type="text" id="agentCompanyName" placeholder="Ex: John Dee">
-          </div>
-          <div class="row">
-              <div class="input-group">
-                  <label for="agentPhone">Phone</label>
-                  <input type="text" id="agentPhone" placeholder="Ex: +91">
-              </div>
-              <div class="input-group">
-                  <label for="agentAltPhone">Alternate Phone</label>
-                  <input type="text" id="agentAltPhone" placeholder="Ex: +91">
-              </div>
-          </div>
-          <div class="input-group">
-              <label for="agentAddress">Address</label>
-              <input type="text" id="agentAddress" placeholder="Type your address here">
-          </div>
-          <div class="row">
-              <div class="input-group">
-                  <label for="propertyLocation">Property Location</label>
-                  <input type="text" id="propertyLocation" placeholder="Type address here">
-              </div>
-              <div class="input-group">
-                  <label for="landExtent">Total Land Extent</label>
-                  <input type="text" id="landExtent" placeholder="Type here">
-              </div>
-          </div>
-          <div class="row">
-              <div class="input-group">
-                  <label for="expectingPrice">Expecting Price</label>
-                  <input type="text" id="expectingPrice" placeholder="Type here">
-              </div>
-              <div class="input-group">
-                  <label for="propertyBelongsTo">Property Belongs to</label>
-                  <input type="text" id="propertyBelongsTo" placeholder="Type here">
-              </div>
-          </div>
-      </div>
-      <button type="submit" class="submit-btn">Submit <span
-        class="arrow">⟶</span></button>
-  </div>
-    </div>
-
-    
-    <!-- Include EmailJS library -->
-
-    <!-- Initialize EmailJS -->
     <!-- Include jsPDF library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <!-- Include EmailJS library -->
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
-window.addEventListener('load', function () {
-    console.log('Attempting to load EmailJS...');
+      window.addEventListener('load', function () {
+        console.log('Attempting to load EmailJS...');
 
-    if (typeof emailjs !== 'undefined') {
-        emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
-        console.log("EmailJS initialized successfully.");
-    } else {
-        console.error('EmailJS failed to load.');
-        alert('EmailJS failed to load. Please try again later.');
-    }
+        if (typeof emailjs !== 'undefined') {
+          emailjs.init("jU6lc07dLOu7o2glU");  // Your Public Key
+          console.log("EmailJS initialized successfully.");
+        } else {
+          console.error('EmailJS failed to load.');
+          alert('EmailJS failed to load. Please try again later.');
+        }
+      });
 
-    // Attach form submission handlers for both desktop and mobile forms
-    attachFormHandlers();
-});
-
-function attachFormHandlers() {
-    // Desktop form submission handler
-    const desktopForm = document.getElementById('contact-form');
-    if (desktopForm) {
-        desktopForm.addEventListener('submit', handleSubmit);
-    }
-
-    // Mobile form submission handler
-    const mobileForm = document.getElementById('mobile-contact-form');
-    if (mobileForm) {
-        mobileForm.addEventListener('submit', handleSubmit);
-    }
-}
-
-function handleSubmit(event) {
-    event.preventDefault();
-
-    const form = this; // Reference the form that triggered the submission
-    const name = form.querySelector('input[name="name"]').value;
-    const email = form.querySelector('input[name="email"]').value;
-    const phone = form.querySelector('input[name="phone"]').value;
-    const message = form.querySelector('textarea[name="message"]').value;
-
-    if (typeof emailjs !== 'undefined') {
-        emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', form)
-            .then(function (response) {
-                console.log('Message sent successfully!', response.status, response.text);
-                alert('Message sent successfully!');
-                form.reset();
-                closeModal(); // Close the modal after submission
-            }, function (error) {
-                console.error('Failed to send message:', error);
-                alert('Failed to send message. Please try again later.');
-            });
-    } else {
-        console.error('EmailJS is not loaded.');
-        alert('EmailJS failed to load. Please try again later.');
-    }
-}
-
-function openModal() {
+      function openModal() {
     const isMobile = window.innerWidth <= 768; // Check if the screen width is less than or equal to 768px
     if (isMobile) {
         document.getElementById("finalsModal").style.display = "block"; // Show mobile modal
@@ -713,246 +339,23 @@ window.onclick = function(event) {
         closeModal();
     }
 }
-
-
-
-      let menuList = document.getElementById("menuList")
-      menuList.style.maxHeight = "0px";
-
-      function toggleMenu() {
-        if (menuList.style.maxHeight == "0px") {
-          menuList.style.maxHeight = "300px";
-        }
-        else {
-          menuList.style.maxHeight = "0px";
-        }
-      }
-
-      function toggleDropdown(event) {
-        event.preventDefault(); // Prevent default anchor behavior
-        const dropdown = event.currentTarget.parentNode; // Get the dropdown parent
-        dropdown.classList.toggle("active"); // Toggle active class
-      }
-
-      // Close dropdown if clicked outside
-      window.onclick = function (event) {
-        if (!event.target.matches('.dropdown a')) {
-          const dropdowns = document.getElementsByClassName("dropdown");
-          for (let i = 0; i < dropdowns.length; i++) {
-            dropdowns[i].classList.remove("active");
-          }
-        }
-      }
-
-      function invitModal() {
-      document.getElementById('inviteModal').style.display = 'block';
-  }
-
-  function invitcloseModal() {
-      document.getElementById('inviteModal').style.display = 'none';
-  }
-
-  function toggleInput(role) {
-      if (role === 'owner') {
-          document.getElementById('ownerInputs').style.display = 'block';
-          document.getElementById('agentInputs').style.display = 'none';
-      } else {
-          document.getElementById('ownerInputs').style.display = 'none';
-          document.getElementById('agentInputs').style.display = 'block';
-      }
-    }
-
-    </script>
-
-
-  <!-- Contact Form Section -->
-  <section class="contact">
-    <div class="overlay-contact">
-      <div class="contact-content">
-        <p style="font-size: 4rem;">Contact Us</p>
-        <p>Today! Your dream home is just one call away.</p>
-      </div>
-    </div>
-  </section>
-  <br/><br/>
-  
-  <section class="new-contact-section">
-    <p style="padding-top: 13px;margin-left: 180px;display: flex; align-items: center;">
-      <img src="/contact-1-ic.svg"  style="margin-right: 10px;"/> <span style="color: #925407">CONTACT US</span> 
-    </p>
-    <div class="new-contact-container">
-      <!-- Left Section with Contact Info -->
-       
-      <div class="new-contact-left">
-        <p style="font-size: 4rem;color: black;">Get In Touch</p>
-        <p style="color: black;font-size: large;">Contact us to learn more about our projects and find your dream property.</p>
-        <div class="new-contact-info">
-          <div class="contact-info-item">
-           <img src="/mail.svg"/>
-            <div>
-              
-              <p style="margin-left: 15px;color: black;"><span style="font-size: large;">sales@ekhomes.in</span></p>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <img src="/contact-2-ic.svg"/>
-            <div style="margin-left: 15px">
-              
-              <strong>Registered Address:</strong> <p>First Floor, Flat No M3 F2, RS Elegance Phase 2, JK Avenue Road, Ravi 1st Street, Medavakkam, Chennai, Chengalpattu, Tamil Nadu - 600 100</p>
-            </div>
-          </div>
-          
-          <div class="contact-info-item">
-            <img src="/contact-2-ic.svg"/>
-            <div style="margin-left: 15px">
-              <strong>Office Address:</strong>
-              <p>21, Raja Badar St, Pondy Bazaar, T. Nagar, Chennai, Tamil Nadu 600017</p>
-            </div>
-          </div>
-          
-         
-  
-          <div class="contact-info-item">
-            <img src="/contact_3_ic.svg"/>
-            <div style="margin-left: 15px">
-              <strong>Phone:</strong>
-              <p>+91 9360 006 000</p>
-            </div>
-          </div>
-        </div>
-  
-        <div class="new-contact-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15547.729440710851!2d80.2365946!3d13.0399774!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267bb32dc7725%3A0x2ff0966daa81aba5!2sEK%20Infra!5e0!3m2!1sen!2sin!4v1727753581189!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-  
-      <!-- Right Section with Form -->
-      <div class="new-contact-right">
-        <form id="new-contact-form">
-          <div class="form-group">
-            <label for="name" style="color:#BFA17C;">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Ex: John Doe" required style="border-top: none; border-bottom: none;height: 60px;">
-          </div>
-          <div class="form-group">
-            <label for="email" style="color:#BFA17C;">Your Email</label>
-            <input type="email" id="email" name="email" placeholder="Ex: johndoe@gmail.com" required style="border-top: none; border-bottom: none;height: 60px;">
-          </div>
-          <div class="form-group">
-            <label for="phone" style="color:#BFA17C;">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="Ex: +91" required style="border-top: none; border-bottom: none;height: 60px;">
-          </div>
-          <div class="form-group">
-            <label for="message" style="color:#BFA17C;">Message</label>
-            <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required style="border-top: none; border-bottom: none;height: 200px;"></textarea>
-          </div>
-          <a href="/alpha_signature.html" class="mobile-btn-hero-main" style="margin-left: 3px;margin-top: 112px;" >Send Messages <span class="arrow">⟶</span></a><br/><br/>
-        </form>
-      </div>
-    </div>
-  </section>
-  
-  
-  <section class="mobile-contact-section">
-    <p style="padding-top: 13px;margin-left: 100px;display: flex; align-items: center;">
-      <img src="/contact-1-ic.svg"  style="margin-right: 10px;"/> <span style="color: #925407">CONTACT US</span> 
-    </p>
-    <div class="mobile-contact-container">
-      <!-- Left Section with Contact Info -->
-      <div class="mobile-contact-left">
-        <p style="font-size: 2.5rem;color: black;">Get In Touch</p><br/>
-        <p style="color: black;font-size: 1rem;">Contact us to learn more about our projects and find your dream property.</p><br/>
-        <div class="mobile-contact-info">
-          <div class="mobile-contact-info-item">
-            <img src="/mail.svg"/>
-            <div>
-              <p style="margin-left: 10px;color: black;"><span style="font-size: 1rem;">sales@ekhomes.in</span></p>
-            </div>
-          </div>
-          <div class="mobile-contact-info-item">
-            <img src="/contact-2-ic.svg"/>
-            <div style="margin-left: 10px">
-              <strong>Registered Address:</strong>
-              <p>First Floor, Flat No M3 F2, RS Elegance Phase 2, JK Avenue Road, Ravi 1st Street, Medavakkam, Chennai, Chengalpattu, Tamil Nadu - 600 100</p>
-            </div>
-          </div>
-          <div class="mobile-contact-info-item">
-            <img src="/contact-2-ic.svg"/>
-            <div style="margin-left: 10px">
-              <strong>Office Address:</strong>
-              <p>21, Raja Badar St, Pondy Bazaar, T. Nagar, Chennai, Tamil Nadu 600017</p>
-            </div>
-          </div>
-          <div class="mobile-contact-info-item">
-            <img src="/contact_3_ic.svg"/>
-            <div style="margin-left: 10px">
-              <strong>Phone:</strong>
-              <p style="text-decoration: none;color: black;">+91 9360 006 000</p>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Right Section with Form -->
-      <div class="mobile-contact-right">
-        <form id="mobile-contact-form">
-          <div class="form-group">
-            <label for="name" style="color:#BFA17C;">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Ex: John Doe" required>
-          </div>
-          <div class="form-group">
-            <label for="email" style="color:#BFA17C;">Your Email</label>
-            <input type="email" id="email" name="email" placeholder="Ex: johndoe@gmail.com" required>
-          </div>
-          <div class="form-group">
-            <label for="phone" style="color:#BFA17C;">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="Ex: +91" required>
-          </div>
-          <div class="form-group">
-            <label for="message" style="color:#BFA17C;">Message</label>
-            <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
-          </div>
-          <br/>
-          <a href="/alpha_signature.html" class="mobile-btn-hero-main" style="margin-left: 23px;margin-top: 112px;" >Send Messagess <span class="arrow">⟶</span></a><br/><br/>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Include jsPDF library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <!-- Include EmailJS library -->
-
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script type="text/javascript">
-      window.addEventListener('load', function() {
-        console.log('Attempting to load EmailJS...');
-
-        if (typeof emailjs !== 'undefined') {
-          emailjs.init("nmurxeDm_wPJp7QHM");  // Your Public Key
-          console.log("EmailJS initialized successfully.");
-        } else {
-          console.error('EmailJS failed to load.');
-          alert('EmailJS failed to load. Please try again later.');
-        }
-      });
-
       // Handle form submission
-      document.getElementById('contact-form').addEventListener('submit', function(event) {
+      document.getElementById('contact-form').addEventListener('submit', function (event) {
         event.preventDefault();
         const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
 
-        
-          console.log(this,"thisssssssssssssssss")
+
+        console.log(this, "thisssssssssssssssss")
         if (typeof emailjs !== 'undefined') {
-          emailjs.sendForm('service_6ze6ysr', 'template_tzx0lhe', this)
-            .then(function(response) {
+          emailjs.sendForm('service_m0aom7o', 'template_9z3c9xd', this)
+            .then(function (response) {
               console.log('Message sent successfully!', response.status, response.text);
               alert('Message sent successfully!');
               document.getElementById('contact-form').reset();
-            }, function(error) {
+            }, function (error) {
               console.error('Failed to send message:', error);
               alert('Failed to send message. Please try again later.');
             });
@@ -962,39 +365,42 @@ window.onclick = function(event) {
         }
       });
     </script>
- <footer>
-  <div class="footer-content">
-    <div class="footer-column logo-column">
-      <img src="logo.png" alt="EK Homes Logo" class="footer-logo">
-      <p>Transforming Spaces - Elevating Lives.</p>
-    </div>
-    <div class="footer-column">
-      <h4 style="color: white;">Projects</h4>
-      <ul>
-        <li><a href="/ARC.html" >The Arc</a></li>
-        <li><a href="/alpha.html">Alpha</a></li>
-        <li><a href="/aster.html">Aster</a></li>
-        <li><a href="/project.html">All Projects</a></li>
-      </ul>
-    </div>
-    <div class="footer-column">
-      <h4>Contact Info</h4>
-      <p>Office Address: 21 Raja Badar St, Pondy Bazaar, T. Nagar, Chennai, Tamil Nadu 600017</p>
-      <p style="text-decoration: none;color: #A6AFB5;">Phone: +91 9360006000</p>
-      <p>Email: sales@ekhomes.in</p>
-    </div>
-    <div class="footer-column">
-      <h4>Social Media</h4>
-      <ul>
-        <li><a href="https://www.facebook.com/profile.php?id=100092478317865&mibextid=LQQJ4d">Facebook</a></li>
-        <li><a href="https://www.instagram.com/homesbyek?igsh=YW41aGp0MGp6bWNj">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@homesbyek">YouTube</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>Copyright © 2024 The EK Homes</p>
-  </div>
-</footer>
-</body>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-column logo-column">
+          <img src="logo.png" alt="EK Homes Logo" class="footer-logo">
+          <p>Transforming Spaces - Elevating Lives.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Projects</h4>
+          <ul>
+            <li><a href="/project.html">The Arc</a></li>
+            <li><a href="/project.html">Alpha</a></li>
+            <li><a href="/project.html">Aster</a></li>
+            <li><a href="/project.html">All Projects</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact Info</h4>
+          <p>Office Address: 21 Raja Badar St, Pondy Bazaar, T. Nagar, Chennai, Tamil Nadu 600017</p>
+          <p>Phone: +91 9360006000</p>
+          <p>Email: sales@ekhomes.in</p>
+        </div>
+        <div class="footer-column">
+          <h4>Social Media</h4>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright © 2024 The EK Homes</p>
+      </div>
+    </footer>
+  </body>
+
 </html>
